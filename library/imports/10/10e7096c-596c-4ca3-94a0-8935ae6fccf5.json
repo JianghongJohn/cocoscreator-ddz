@@ -1,0 +1,170 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "poker.plist",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_spriteFrames": {
+    "dawang_0": {
+      "__uuid__": "4c2ba245-22fe-416f-ae7b-2b473ad29b06"
+    },
+    "fangzhuan_1": {
+      "__uuid__": "f43aed99-bf34-4433-9d9a-971a8a923cf0"
+    },
+    "fangzhuan_10": {
+      "__uuid__": "b16c7cf4-d914-4700-a47f-4b17a45f0650"
+    },
+    "fangzhuan_11": {
+      "__uuid__": "2a769df9-0927-42d2-8ef3-bfcc12cf08a4"
+    },
+    "fangzhuan_12": {
+      "__uuid__": "624a1927-d4b5-4737-a7cc-a323fd228a08"
+    },
+    "fangzhuan_13": {
+      "__uuid__": "251ffe2c-a78b-4384-be07-4b88402ba172"
+    },
+    "fangzhuan_2": {
+      "__uuid__": "7db23bdd-8caa-49ea-900c-b8f846f6235b"
+    },
+    "fangzhuan_3": {
+      "__uuid__": "5d38e605-ad23-4561-a4b2-775ebd8e6cc1"
+    },
+    "fangzhuan_4": {
+      "__uuid__": "8c49ee7f-d81d-4d85-8d61-17bbbe38c1d9"
+    },
+    "fangzhuan_5": {
+      "__uuid__": "07a6c1c2-19f4-4364-a00c-7c9b60cf1c9c"
+    },
+    "fangzhuan_6": {
+      "__uuid__": "3ade4685-aa77-4d7a-afd0-4075e84154c9"
+    },
+    "fangzhuan_7": {
+      "__uuid__": "9c3fee92-eb63-4993-a077-988e40d26b3d"
+    },
+    "fangzhuan_8": {
+      "__uuid__": "0ab53d13-3612-4105-8e57-07c7c9cc44a2"
+    },
+    "fangzhuan_9": {
+      "__uuid__": "be8edbaa-a191-44d7-a122-eb5c825e4061"
+    },
+    "heitao_1": {
+      "__uuid__": "a3636dcf-56eb-4517-827f-ece4b85a8646"
+    },
+    "heitao_10": {
+      "__uuid__": "07fb2c53-c5c4-4f1f-879f-dffab506d13c"
+    },
+    "heitao_11": {
+      "__uuid__": "052c2efc-4cee-4420-bf34-506e206a4a48"
+    },
+    "heitao_12": {
+      "__uuid__": "310ec03f-ecfc-40a2-989f-45d9d63464d6"
+    },
+    "heitao_13": {
+      "__uuid__": "1d23e5ca-433f-49f2-afa7-c86224c570e9"
+    },
+    "heitao_2": {
+      "__uuid__": "bc4ea1a4-a45b-441a-b49f-6b63ff502f24"
+    },
+    "heitao_3": {
+      "__uuid__": "bdb094a8-7279-49c6-ac34-aa96503c442e"
+    },
+    "heitao_4": {
+      "__uuid__": "021486b3-9043-4b04-8908-c39ae413dbc4"
+    },
+    "heitao_5": {
+      "__uuid__": "4a4c3706-8b0f-4359-8943-90b0110a35b9"
+    },
+    "heitao_6": {
+      "__uuid__": "cde56675-4330-43c4-8d21-f405b4f9e742"
+    },
+    "heitao_7": {
+      "__uuid__": "73b71c28-2d78-4e9f-95f6-46c838030dc1"
+    },
+    "heitao_8": {
+      "__uuid__": "890f2c7b-0e1f-4a56-9639-e63e5498f09f"
+    },
+    "heitao_9": {
+      "__uuid__": "357723af-9514-4d7b-b908-6b7294eadd2d"
+    },
+    "hongxin_1": {
+      "__uuid__": "76cc10fa-4b24-424f-9c0d-c04eaf9af224"
+    },
+    "hongxin_10": {
+      "__uuid__": "8e1e6660-242f-44ff-96f0-f36977ec52c1"
+    },
+    "hongxin_11": {
+      "__uuid__": "67722746-06a7-46bd-befc-e27765a8e073"
+    },
+    "hongxin_12": {
+      "__uuid__": "b1e1d0af-a0e3-4f80-a161-f05030d114a4"
+    },
+    "hongxin_13": {
+      "__uuid__": "bab45125-626c-4341-924d-847f885c37e2"
+    },
+    "hongxin_2": {
+      "__uuid__": "069b6972-6a99-4303-82cc-8dc4c59e1682"
+    },
+    "hongxin_3": {
+      "__uuid__": "00ec7100-7005-49c2-8b98-2e68347be598"
+    },
+    "hongxin_4": {
+      "__uuid__": "a37055b8-597f-4a37-a191-7943222886bf"
+    },
+    "hongxin_5": {
+      "__uuid__": "c5561bb0-4761-4503-9ddb-c5e8a953cdd3"
+    },
+    "hongxin_6": {
+      "__uuid__": "65e0f998-df1d-4260-b676-8a890c53787e"
+    },
+    "hongxin_7": {
+      "__uuid__": "610d5901-6729-4482-9ee7-1afcc21b9f61"
+    },
+    "hongxin_8": {
+      "__uuid__": "670711ea-48fd-4b9d-8616-2f23dfcdf207"
+    },
+    "hongxin_9": {
+      "__uuid__": "3431f14e-3cda-4972-8f07-a7bec4b0a869"
+    },
+    "meihua_1": {
+      "__uuid__": "fd8dba7c-f99f-426f-8b8f-a38a0475f4ad"
+    },
+    "meihua_10": {
+      "__uuid__": "9079851c-5e75-4616-b94c-2e832882c4d3"
+    },
+    "meihua_11": {
+      "__uuid__": "6793bc5f-d18e-467e-8902-84586362f9f3"
+    },
+    "meihua_12": {
+      "__uuid__": "b67bce17-bee0-46da-9466-8fb68f0cae0f"
+    },
+    "meihua_13": {
+      "__uuid__": "5bc42beb-c54c-4626-8b5c-648f3d157174"
+    },
+    "meihua_2": {
+      "__uuid__": "b90e4a72-08bd-49f6-b89a-a44eb2144b04"
+    },
+    "meihua_3": {
+      "__uuid__": "d1e2c3cf-aded-4377-9897-544e32b32950"
+    },
+    "meihua_4": {
+      "__uuid__": "091aab03-cecf-455d-b522-5b88dfdd8261"
+    },
+    "meihua_5": {
+      "__uuid__": "379d37d4-a312-4b39-a783-f056040d2ee6"
+    },
+    "meihua_6": {
+      "__uuid__": "a5d5726d-c4d9-4023-9643-7b050643063a"
+    },
+    "meihua_7": {
+      "__uuid__": "b2f72023-e71a-4d39-88d2-fddb2ae58ed0"
+    },
+    "meihua_8": {
+      "__uuid__": "13006af2-8194-4e0b-9907-2913394e0d08"
+    },
+    "meihua_9": {
+      "__uuid__": "1e860567-319b-4998-a79f-11abdac6faae"
+    },
+    "xiaowang_0": {
+      "__uuid__": "b4ecf444-47ff-4e7b-930e-fb575361f8d1"
+    }
+  }
+}

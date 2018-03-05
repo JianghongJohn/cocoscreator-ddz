@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fangzhuan_4",
+    "texture": "c73f6913-7faa-4b89-babb-68563f61524f",
+    "atlas": "10e7096c-596c-4ca3-94a0-8935ae6fccf5",
+    "rect": [
+      305,
+      215,
+      105,
+      150
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      105,
+      150
+    ],
+    "rotated": 1
+  }
+}

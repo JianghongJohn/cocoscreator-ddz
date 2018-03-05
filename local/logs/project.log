@@ -1,0 +1,57 @@
+2018-03-05T04:01:39.988Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-05T04:01:39.993Z - normal: checking language setting...
+2018-03-05T04:01:39.993Z - normal: Language: zh
+2018-03-05T04:01:40.866Z - success: protocol editor-framework registered
+2018-03-05T04:01:40.866Z - success: protocol app registered
+2018-03-05T04:01:40.866Z - success: protocol theme registered
+2018-03-05T04:01:40.866Z - success: protocol packages registered
+2018-03-05T04:01:40.866Z - success: protocol unpack registerred
+2018-03-05T04:01:40.866Z - success: protocol disable-commonjs registerred
+2018-03-05T04:01:41.069Z - normal: connected!
+2018-03-05T04:01:41.071Z - normal: Check project /Users/hyjt/Desktop/source/cocos/JHDDZ/ddz
+2018-03-05T04:01:41.072Z - normal: Initializing Cocos2d
+2018-03-05T04:01:41.315Z - normal: Initializing Asset Database
+2018-03-05T04:01:41.351Z - success: protocol uuid registerred
+2018-03-05T04:01:41.351Z - success: protocol db registerred
+2018-03-05T04:01:41.351Z - success: protocol thumbnail registerred
+2018-03-05T04:01:41.352Z - normal: Loading editor/builtin packages
+2018-03-05T04:01:41.376Z - success: anysdk loaded
+2018-03-05T04:01:41.505Z - success: assets loaded
+2018-03-05T04:01:41.509Z - success: builder loaded
+2018-03-05T04:01:41.511Z - success: cocos-analytics loaded
+2018-03-05T04:01:41.517Z - success: console loaded
+2018-03-05T04:01:41.523Z - success: hierarchy loaded
+2018-03-05T04:01:41.529Z - success: inspector loaded
+2018-03-05T04:01:41.531Z - success: keystore loaded
+2018-03-05T04:01:41.536Z - success: node-library loaded
+2018-03-05T04:01:41.538Z - success: package-asset loaded
+2018-03-05T04:01:41.541Z - success: preferences loaded
+2018-03-05T04:01:41.544Z - success: project-exporter loaded
+2018-03-05T04:01:41.563Z - success: project-importer loaded
+2018-03-05T04:01:41.567Z - success: project-settings loaded
+2018-03-05T04:01:41.571Z - success: ui-kit loaded
+2018-03-05T04:01:41.576Z - success: ui-grid loaded
+2018-03-05T04:01:41.581Z - success: scene loaded
+2018-03-05T04:01:41.583Z - success: sprite-editor loaded
+2018-03-05T04:01:41.588Z - success: store loaded
+2018-03-05T04:01:41.595Z - success: timeline loaded
+2018-03-05T04:01:41.595Z - normal: Loading builtin packages
+2018-03-05T04:01:41.600Z - success: asset-db-debugger loaded
+2018-03-05T04:01:41.601Z - success: color-picker loaded
+2018-03-05T04:01:41.606Z - success: package-manager loaded
+2018-03-05T04:01:41.619Z - success: sdkbox loaded
+2018-03-05T04:01:41.624Z - success: tester loaded
+2018-03-05T04:01:41.634Z - success: ui-kit-preview-extra loaded
+2018-03-05T04:01:41.638Z - success: ui-kit-preview loaded
+2018-03-05T04:01:41.641Z - success: ui-tree loaded
+2018-03-05T04:01:42.746Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/JHDDZ/ddz
+2018-03-05T04:01:42.749Z - normal: Loading packages
+2018-03-05T04:01:42.765Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-05T04:01:42.768Z - normal: [LuaCPP Support] version 0.3
+2018-03-05T04:01:42.769Z - success: creator-luacpp-support loaded
+2018-03-05T04:01:42.769Z - normal: Watching packages
+2018-03-05T04:01:42.833Z - normal: Run Application
+2018-03-05T04:01:43.385Z - success: preview server running at http://localhost:7456
+2018-03-05T04:01:48.820Z - normal: 1.8.1
+2018-03-05T07:40:03.194Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:83007
+2018-03-05T08:33:09.296Z - info: shutdown preview server
