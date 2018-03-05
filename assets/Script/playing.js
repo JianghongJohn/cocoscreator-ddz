@@ -44,25 +44,40 @@ cc.Class({
         
         
     },
+    //测试获取Poker
     startPoker(){
-        let startx = 54 / 2;//开始x坐标
-        for (let i = 0; i < 54; i++) {
+        // let startx = 54 / 2;//开始x坐标
+        // for (let i = 0; i < 54; i++) {
 
-            let pokerSprite = cc.instantiate(this.poker);
-            var Poker = pokerSprite.getComponent('Poker');
-            var pokerName =  Poker.creatCard(i+1)._imageName;
-            console.log("名称"+pokerName);
-            pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
+        //     let pokerSprite = cc.instantiate(this.poker);
+        //     var Poker = pokerSprite.getComponent('Poker');
+        //     var pokerName =  Poker.creatCard(i+1)._imageName;
+        //     console.log("名称"+pokerName);
+        //     pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
 
-            let gap = 15;//牌间隙
-            pokerSprite.scale = 0.7;
+        //     let gap = 15;//牌间隙
+        //     pokerSprite.scale = 0.7;
 
-            this.node.addChild(pokerSprite);
-            let x = (-startx) * gap + i * gap;
-            // console.log(x);
-            pokerSprite.setPosition(x, 0);
-        }
+        //     this.node.addChild(pokerSprite);
+        //     let x = (-startx) * gap + i * gap;
+        //     // console.log(x);
+        //     pokerSprite.setPosition(x, 0);
+        // }
     },
+    //生成上家
+    startUp(){
+
+    },
+    //生成上家
+    startDown(){
+
+    },
+    //生成当前玩家
+    startPlayer(){
+
+    },
+
+
     start () {
 
     },
