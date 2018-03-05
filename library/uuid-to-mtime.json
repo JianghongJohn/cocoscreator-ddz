@@ -50,7 +50,7 @@
     "relativePath": "Script"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1519980935758,
+    "asset": 1520234752707,
     "meta": 1519962818608,
     "relativePath": "resources"
   },
@@ -80,14 +80,9 @@
     "relativePath": "resources/poker.png"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1520238788733,
-    "meta": 1520238788760,
+    "asset": 1520239431908,
+    "meta": 1520239431921,
     "relativePath": "Scene/game.fire"
-  },
-  "9292357e-692e-4bbe-aeb3-cde053fa31f6": {
-    "asset": 1519980253927,
-    "meta": 1519980935763,
-    "relativePath": "resources/pokerPre.prefab"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
     "asset": 1520235605769,
@@ -279,14 +274,14 @@
     "meta": 1520234809734,
     "relativePath": "prefab/webview.prefab"
   },
-  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1520236974400,
-    "meta": 1520236979233,
-    "relativePath": "Script/playing.js"
-  },
   "74e2f267-8637-493b-8bc1-1a285159ebb5": {
     "asset": 1520236977471,
     "meta": 1520236979234,
     "relativePath": "Script/Poker.js"
+  },
+  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
+    "asset": 1520239544006,
+    "meta": 1520239546207,
+    "relativePath": "Script/playing.js"
   }
 }

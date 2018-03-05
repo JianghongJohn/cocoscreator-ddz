@@ -354,14 +354,14 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "button",
+    "_N$string": "开始",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -468,7 +468,7 @@
     },
     "component": "playing",
     "handler": "startPoker",
-    "customEventData": ""
+    "customEventData": "54"
   },
   {
     "__type__": "cc.Canvas",

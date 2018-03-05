@@ -35,22 +35,7 @@ cc.Class({
 
     //加载卡片资源
     loadRes: function loadRes() {
-        // 使用给定的模板在场景中生成一个新节点
-        // var newPoker = cc.instantiate(this.poker);
-        // // 将新增的节点添加到 Canvas 节点下面
-        // this.node.addChild(newPoker);
-        // // 为星星设置一个随机位置
-        // newPoker.setPosition(cc.p(0, 0));
-        // var Poker = newPoker.getComponent('Poker');
-        // var card =  Poker.creatCard(15);
-        // console.log("名称"+card._imageName);
-        // let self = this;
-        // cc.loader.loadRes("poker", cc.SpriteAtlas, function (err, atlas) {
 
-        //     var frame = atlas.getSpriteFrame(card._imageName);
-        //     console.log(frame);
-        //     self.poker.spriteFrame = frame;
-        // });
         var self = this;
         cc.loader.loadRes('poker', cc.SpriteAtlas, function (err, assets) {
             console.log('====' + assets);
@@ -60,7 +45,7 @@ cc.Class({
                 var sf = sflist[i];
                 self.pokerSpriteFrameMap[sf._name] = sf;
             }
-            console.log("获取完");
+            console.log("获取完全部Poker");
         });
     },
     startPoker: function startPoker() {
@@ -73,8 +58,8 @@ cc.Class({
             console.log("名称" + pokerName);
             pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
 
-            var gap = 10; //牌间隙
-            pokerSprite.scale = 0.4;
+            var gap = 15; //牌间隙
+            pokerSprite.scale = 0.7;
 
             this.node.addChild(pokerSprite);
             var x = -startx * gap + i * gap;
