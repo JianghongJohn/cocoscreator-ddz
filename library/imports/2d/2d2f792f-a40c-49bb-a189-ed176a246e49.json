@@ -91,8 +91,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 750
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -100,8 +100,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 480,
-      "y": 320
+      "x": 667,
+      "y": 375
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -149,8 +149,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 750
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -232,11 +232,14 @@
     "pokerSpriteFrameMap": {
       "_iN$t": null
     },
-    "allPokers": []
+    "allPokers": [],
+    "leftPokers": [],
+    "RightPokers": [],
+    "playerPokers": []
   },
   {
     "__type__": "cc.Node",
-    "_name": "button",
+    "_name": "btnStart",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -283,8 +286,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -1,
-      "y": -257
+      "x": 0,
+      "y": -260
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -468,7 +471,7 @@
     },
     "component": "playing",
     "handler": "startPoker",
-    "customEventData": "54"
+    "customEventData": ""
   },
   {
     "__type__": "cc.Canvas",
@@ -480,8 +483,8 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 750
     },
     "_fitWidth": false,
     "_fitHeight": true
@@ -498,6 +501,9 @@
       "__uuid__": "67c948b6-f997-426d-ad1b-b0d73faad3bf"
     },
     "pokerSpriteFrameMap": {},
-    "allPokers": []
+    "allPokers": [],
+    "leftPokers": [],
+    "RightPokers": [],
+    "playerPokers": []
   }
 ]
