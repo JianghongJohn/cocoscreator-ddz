@@ -284,3 +284,8 @@ cc.Class({
 
     // update (dt) {},
 });
+
+module.exports = {
+    CardBigType: CardBigType,
+    CardSmallType: CardSmallType,
+};

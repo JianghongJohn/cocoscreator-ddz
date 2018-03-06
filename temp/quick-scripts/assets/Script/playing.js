@@ -17,12 +17,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // Learn life-cycle callbacks:
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
+var PokerObj = require("Poker");
 
+var PlayerType = cc.Enum({
+    left: 0,
+    right: -1,
+    player: -1
+});
 cc.Class({
     extends: cc.Component,
 
     properties: (_properties = {
         poker: cc.Prefab, //扑克
+        startBtn: cc.Button, //开始按钮
         pokerSpriteFrameMap: {
             default: {},
             visible: false
@@ -57,6 +64,7 @@ cc.Class({
 
     //测试获取Poker
     startPoker: function startPoker() {
+        this.startBtn.node.active = false;
         this.loadAllPoker();
     },
 
@@ -81,21 +89,12 @@ cc.Class({
 
     //生成当前玩家
     startPlayer: function startPlayer() {
-        var startx = 16 / 2; //开始x坐标
         for (var i = 0; i < 16; i++) {
-
             var pokerSprite = this.allPokers[i];
-            var Poker = pokerSprite.getComponent('Poker');
-            console.log("名称" + Poker.pokerName);
-
-            var gap = 20; //牌间隙
-            pokerSprite.scale = 1;
-
-            this.node.addChild(pokerSprite);
-            var x = -startx * gap + i * gap;
-            // console.log(x);
-            pokerSprite.setPosition(x, 0);
+            this.playerPokers[i] = pokerSprite;
         }
+        this.bubbleSortCards(this.playerPokers);
+        this.showPokers(this.playerPokers, PlayerType.player);
     },
     loadAllPoker: function loadAllPoker() {
         for (var i = 0; i < 54; i++) {
@@ -108,10 +107,85 @@ cc.Class({
 
             this.allPokers[i] = pokerSprite;
         }
-        //排序
+        //洗牌
         this.allPokers = this.shuffleArray(this.allPokers);
 
         this.startPlayer();
+    },
+
+    /** 
+     * 对牌进行排序，从小到大，使用冒泡排序，此种方法不是很好 
+     * 
+     * @param cards 
+     *            牌 
+     */
+    bubbleSortCards: function bubbleSortCards(cards) {
+        if (cards == null) {
+            return cards;
+        }
+        var size = cards.length;
+        // 冒泡排序,从左到右，从小到大  
+        for (var i = 0; i < size; i++) {
+            for (var j = 0; j < size - 1 - i; j++) {
+                var pokerSpriteOne = cards[j];
+                var PokerOne = pokerSpriteOne.getComponent('Poker');
+                var pokerSpriteTwo = cards[j + 1];
+                var PokerTwo = pokerSpriteTwo.getComponent('Poker');
+
+                var gradeOne = PokerOne._grade;
+                var gradeTwo = PokerTwo._grade;
+
+                var isExchange = false;
+                if (gradeOne < gradeTwo) {
+                    isExchange = true;
+                } else if (gradeOne == gradeTwo) {
+                    // 2张牌的grade相同  
+                    var type1 = PokerOne._bigType;
+                    var type2 = PokerTwo._bigType;
+
+                    // 从左到右，方块、梅花、红桃、黑桃  
+                    if (type1 == PokerObj.CardBigType.HEI_TAO) {
+                        isExchange = true;
+                    } else if (type1 == PokerObj.CardBigType.HONG_TAO) {
+                        if (type2 == PokerObj.CardBigType.MEI_HUA || type2 == PokerObj.CardBigType.FANG_KUAI) {
+                            isExchange = true;
+                        }
+                    } else if (type1 == PokerObj.CardBigType.MEI_HUA) {
+                        if (type2 == PokerObj.CardBigType.FANG_KUAI) {
+                            isExchange = true;
+                        }
+                    }
+                }
+                if (isExchange) {
+                    cards[j + 1] = pokerSpriteOne;
+                    cards[j] = pokerSpriteTwo;
+                }
+            }
+        }
+        // console.log("我的牌"+ cards);
+        return cards;
+    },
+
+
+    //展示Poker
+    showPokers: function showPokers(cards, type) {
+        if (type == PlayerType.left) {} else if (type == PlayerType.right) {} else {
+            var startx = cards.length / 2; //开始x坐标
+            for (var i = 0; i < cards.length; i++) {
+
+                var pokerSprite = cards[i];
+                var Poker = pokerSprite.getComponent('Poker');
+                // console.log("名称" + Poker._imageName);
+
+                var gap = 25; //牌间隙
+                pokerSprite.scale = 1;
+
+                this.node.addChild(pokerSprite);
+                var x = -startx * gap + i * gap;
+                // console.log(x);
+                pokerSprite.setPosition(x, -220);
+            }
+        }
     },
     start: function start() {}
 }

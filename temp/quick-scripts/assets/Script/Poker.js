@@ -291,6 +291,11 @@ cc.Class({
 // update (dt) {},
 );
 
+module.exports = {
+    CardBigType: CardBigType,
+    CardSmallType: CardSmallType
+};
+
 cc._RF.pop();
         }
         if (CC_EDITOR) {

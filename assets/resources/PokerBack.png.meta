@@ -5,7 +5,7 @@
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "subMetas": {
-    "back": {
+    "PokerBack": {
       "ver": "1.0.3",
       "uuid": "d78e5a1e-dc4f-471c-ad6e-5ebf4756cb26",
       "rawTextureUuid": "f277a60a-6873-41b7-bca3-55f90bf19c99",
