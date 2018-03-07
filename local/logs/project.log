@@ -1,90 +1,55 @@
-2018-03-06T05:35:02.445Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-06T05:35:02.450Z - normal: checking language setting...
-2018-03-06T05:35:02.450Z - normal: Language: zh
-2018-03-06T05:35:03.316Z - success: protocol editor-framework registered
-2018-03-06T05:35:03.316Z - success: protocol app registered
-2018-03-06T05:35:03.316Z - success: protocol theme registered
-2018-03-06T05:35:03.316Z - success: protocol packages registered
-2018-03-06T05:35:03.316Z - success: protocol unpack registerred
-2018-03-06T05:35:03.316Z - success: protocol disable-commonjs registerred
-2018-03-06T05:35:03.533Z - normal: connected!
-2018-03-06T05:35:03.539Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-06T05:35:03.540Z - normal: Initializing Cocos2d
-2018-03-06T05:35:03.792Z - normal: Initializing Asset Database
-2018-03-06T05:35:03.829Z - success: protocol uuid registerred
-2018-03-06T05:35:03.829Z - success: protocol db registerred
-2018-03-06T05:35:03.829Z - success: protocol thumbnail registerred
-2018-03-06T05:35:03.829Z - normal: Loading editor/builtin packages
-2018-03-06T05:35:03.850Z - success: anysdk loaded
-2018-03-06T05:35:03.975Z - success: assets loaded
-2018-03-06T05:35:03.980Z - success: builder loaded
-2018-03-06T05:35:03.983Z - success: cocos-analytics loaded
-2018-03-06T05:35:03.988Z - success: console loaded
-2018-03-06T05:35:03.993Z - success: hierarchy loaded
-2018-03-06T05:35:03.997Z - success: inspector loaded
-2018-03-06T05:35:03.999Z - success: keystore loaded
-2018-03-06T05:35:04.004Z - success: node-library loaded
-2018-03-06T05:35:04.006Z - success: package-asset loaded
-2018-03-06T05:35:04.008Z - success: preferences loaded
-2018-03-06T05:35:04.012Z - success: project-exporter loaded
-2018-03-06T05:35:04.029Z - success: project-importer loaded
-2018-03-06T05:35:04.033Z - success: project-settings loaded
-2018-03-06T05:35:04.037Z - success: ui-kit loaded
-2018-03-06T05:35:04.041Z - success: ui-grid loaded
-2018-03-06T05:35:04.053Z - success: scene loaded
-2018-03-06T05:35:04.055Z - success: sprite-editor loaded
-2018-03-06T05:35:04.059Z - success: store loaded
-2018-03-06T05:35:04.065Z - success: timeline loaded
-2018-03-06T05:35:04.066Z - normal: Loading builtin packages
-2018-03-06T05:35:04.069Z - success: asset-db-debugger loaded
-2018-03-06T05:35:04.071Z - success: color-picker loaded
-2018-03-06T05:35:04.075Z - success: package-manager loaded
-2018-03-06T05:35:04.080Z - success: sdkbox loaded
-2018-03-06T05:35:04.084Z - success: tester loaded
-2018-03-06T05:35:04.093Z - success: ui-kit-preview-extra loaded
-2018-03-06T05:35:04.096Z - success: ui-kit-preview loaded
-2018-03-06T05:35:04.100Z - success: ui-tree loaded
-2018-03-06T05:35:05.082Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-06T05:35:05.084Z - normal: Loading packages
-2018-03-06T05:35:05.099Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-06T05:35:05.101Z - normal: [LuaCPP Support] version 0.3
-2018-03-06T05:35:05.101Z - success: creator-luacpp-support loaded
-2018-03-06T05:35:05.102Z - normal: Watching packages
-2018-03-06T05:35:05.160Z - normal: Run Application
-2018-03-06T05:35:05.687Z - success: preview server running at http://localhost:7456
-2018-03-06T05:35:11.621Z - normal: 1.8.1
-2018-03-06T08:42:41.045Z - warn: 当前元素已经存在
-2018-03-06T09:02:05.391Z - failed: load script [CardsTypes] failed : Error: Cannot find module 'CardsTypes'
-    at Module._resolveFilename (module.js:470:15)
-    at Function.Module._resolveFilename [as _resolveFilenameVendor] (/Applications/CocosCreator.app/Contents/Resources/electron.asar/common/reset-search-paths.js:35:12)
-    at Function.Module._resolveFilename (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:1361)
-    at Function.Module._load (module.js:418:25)
-    at Module.require (module.js:498:17)
-    at require (internal/module.js:20:19)
-    at Object.cc.require (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:967)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:1:349
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:21:18)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:144:13
-2018-03-06T09:03:32.181Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/CardsType.js] failed : ReferenceError: bubbleSortCards is not defined
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/CardsType.js:226:22)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/CardsType.js:232:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/CardsType.js:239:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/CardsType.js:242:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-03-06T09:03:32.184Z - failed: load script [CardsTypes] failed : Error: Cannot find module 'CardsTypes'
-    at Module._resolveFilename (module.js:470:15)
-    at Function.Module._resolveFilename [as _resolveFilenameVendor] (/Applications/CocosCreator.app/Contents/Resources/electron.asar/common/reset-search-paths.js:35:12)
-    at Function.Module._resolveFilename (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:1361)
-    at Function.Module._load (module.js:418:25)
-    at Module.require (module.js:498:17)
-    at require (internal/module.js:20:19)
-    at Object.cc.require (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:967)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:1:349
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:21:18)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:144:13
-2018-03-06T09:32:29.771Z - info: shutdown preview server
+2018-03-07T07:15:16.946Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-07T07:15:16.955Z - normal: checking language setting...
+2018-03-07T07:15:16.959Z - normal: Language: zh
+2018-03-07T07:15:18.342Z - success: protocol editor-framework registered
+2018-03-07T07:15:18.342Z - success: protocol app registered
+2018-03-07T07:15:18.342Z - success: protocol theme registered
+2018-03-07T07:15:18.343Z - success: protocol packages registered
+2018-03-07T07:15:18.343Z - success: protocol unpack registerred
+2018-03-07T07:15:18.343Z - success: protocol disable-commonjs registerred
+2018-03-07T07:15:18.556Z - normal: connected!
+2018-03-07T07:15:18.559Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-07T07:15:18.563Z - normal: Initializing Cocos2d
+2018-03-07T07:15:18.833Z - normal: Initializing Asset Database
+2018-03-07T07:15:18.872Z - success: protocol uuid registerred
+2018-03-07T07:15:18.872Z - success: protocol db registerred
+2018-03-07T07:15:18.872Z - success: protocol thumbnail registerred
+2018-03-07T07:15:18.872Z - normal: Loading editor/builtin packages
+2018-03-07T07:15:18.895Z - success: anysdk loaded
+2018-03-07T07:15:19.025Z - success: assets loaded
+2018-03-07T07:15:19.030Z - success: builder loaded
+2018-03-07T07:15:19.032Z - success: cocos-analytics loaded
+2018-03-07T07:15:19.038Z - success: console loaded
+2018-03-07T07:15:19.043Z - success: hierarchy loaded
+2018-03-07T07:15:19.048Z - success: inspector loaded
+2018-03-07T07:15:19.050Z - success: keystore loaded
+2018-03-07T07:15:19.055Z - success: node-library loaded
+2018-03-07T07:15:19.057Z - success: package-asset loaded
+2018-03-07T07:15:19.059Z - success: preferences loaded
+2018-03-07T07:15:19.064Z - success: project-exporter loaded
+2018-03-07T07:15:19.084Z - success: project-importer loaded
+2018-03-07T07:15:19.088Z - success: project-settings loaded
+2018-03-07T07:15:19.092Z - success: ui-kit loaded
+2018-03-07T07:15:19.097Z - success: ui-grid loaded
+2018-03-07T07:15:19.103Z - success: scene loaded
+2018-03-07T07:15:19.105Z - success: sprite-editor loaded
+2018-03-07T07:15:19.113Z - success: store loaded
+2018-03-07T07:15:19.127Z - success: timeline loaded
+2018-03-07T07:15:19.127Z - normal: Loading builtin packages
+2018-03-07T07:15:19.132Z - success: asset-db-debugger loaded
+2018-03-07T07:15:19.133Z - success: color-picker loaded
+2018-03-07T07:15:19.138Z - success: package-manager loaded
+2018-03-07T07:15:19.144Z - success: sdkbox loaded
+2018-03-07T07:15:19.149Z - success: tester loaded
+2018-03-07T07:15:19.161Z - success: ui-kit-preview-extra loaded
+2018-03-07T07:15:19.170Z - success: ui-kit-preview loaded
+2018-03-07T07:15:19.175Z - success: ui-tree loaded
+2018-03-07T07:15:20.443Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-07T07:15:20.445Z - normal: Loading packages
+2018-03-07T07:15:20.460Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-07T07:15:20.462Z - normal: [LuaCPP Support] version 0.3
+2018-03-07T07:15:20.463Z - success: creator-luacpp-support loaded
+2018-03-07T07:15:20.463Z - normal: Watching packages
+2018-03-07T07:15:20.536Z - normal: Run Application
+2018-03-07T07:15:21.190Z - success: preview server running at http://localhost:7456
+2018-03-07T07:15:27.556Z - normal: 1.8.1

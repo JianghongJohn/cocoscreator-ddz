@@ -10,9 +10,10 @@
 var PokerObj = require("Poker");
 
 var PlayerType = cc.Enum({
-    left:0,
-    right:-1,
-    player:-1,
+    left: 0,
+    right: -1,
+    player: -1,
+    dipai: -1,
 })
 cc.Class({
     extends: cc.Component,
@@ -26,11 +27,12 @@ cc.Class({
         },
         allPokers: [], //所有牌
         leftPokers: [], //左边牌
-        RightPokers: [], //右边牌
+        rightPokers: [], //右边牌
         playerPokers: [], //玩家牌
-        leftPokers: [], //左边打出牌
-        RightPokers: [], //右边打出牌
-        playerPokers: [], //玩家打出牌
+        dipaiPokers: [], //底牌
+        leftPokersOut: [], //左边打出牌
+        rightPokersOut: [], //右边打出牌
+        playerPokersOut: [], //玩家打出牌
 
     },
 
@@ -76,21 +78,41 @@ cc.Class({
     },
     //生成上家
     startUp() {
-
+        for (let i = 0; i < 16; i++) {
+            let pokerSprite = this.allPokers[i + 16 + 3];
+            this.leftPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.leftPokers);
+        this.showPokers(this.leftPokers, PlayerType.left);
     },
-    //生成上家
+    //生成下家
     startDown() {
-
+        for (let i = 0; i < 16; i++) {
+            let pokerSprite = this.allPokers[i + 32 + 3];
+            this.rightPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.rightPokers);
+        this.showPokers(this.rightPokers, PlayerType.right);
     },
     //生成当前玩家
     startPlayer() {
         for (let i = 0; i < 16; i++) {
-            let pokerSprite = this.allPokers[i];
+            let pokerSprite = this.allPokers[i + 3];
             this.playerPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.playerPokers);
-        this.showPokers(this.playerPokers,PlayerType.player);
+        this.showPokers(this.playerPokers, PlayerType.player);
     },
+    //生成三张底牌
+    startDipai() {
+        for (let i = 0; i < 3; i++) {
+            let pokerSprite = this.allPokers[i];
+            this.dipaiPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.dipaiPokers);
+        this.showPokers(this.dipaiPokers, PlayerType.dipai);
+    },
+
     loadAllPoker() {
         for (let i = 0; i < 54; i++) {
 
@@ -104,8 +126,11 @@ cc.Class({
         }
         //洗牌
         this.allPokers = this.shuffleArray(this.allPokers);
-
+        //发牌
+        this.startUp();
         this.startPlayer();
+        this.startDown();
+        this.startDipai();
     },
     /** 
      * 对牌进行排序，从小到大，使用冒泡排序，此种方法不是很好 
@@ -162,29 +187,41 @@ cc.Class({
     },
 
     //展示Poker
-    showPokers(cards ,type){
-        if (type == PlayerType.left) {
-            
-        } else if (type == PlayerType.right){
-            
-        }else{
-            let startx = cards.length / 2; //开始x坐标
-            for (let i = 0; i < cards.length; i++) {
-    
-                let pokerSprite = cards[i];
-                var Poker = pokerSprite.getComponent('Poker');
-                // console.log("名称" + Poker._imageName);
-    
+    showPokers(cards, type) {
+        let startx = cards.length / 2; //开始x坐标
+        for (let i = 0; i < cards.length; i++) {
+
+            let pokerSprite = cards[i];
+            var Poker = pokerSprite.getComponent('Poker');
+            this.node.addChild(pokerSprite);
+            if (type == PlayerType.left) {
+                let gap = 12; //牌间隙
+                pokerSprite.scale = 0.6;
+                let x = (-startx) * gap + i * gap + gap/2;
+                // console.log(x);
+                pokerSprite.setPosition(-300 + x, 100);
+            } else if (type == PlayerType.right) {
+                let gap = 12; //牌间隙
+                pokerSprite.scale = 0.6;
+                let x = (-startx) * gap + i * gap + gap/2;
+                // console.log(x);
+                pokerSprite.setPosition(300 + x, 100);
+            } else if (type == PlayerType.dipai) {
+                let gap = 100; //牌间隙
+                pokerSprite.scale = 0.6;
+                let x = (-startx) * gap + gap/2 + i * gap;
+                // console.log(x);
+                pokerSprite.setPosition(x, 300);
+            } else {
                 let gap = 25; //牌间隙
                 pokerSprite.scale = 1;
-    
-                this.node.addChild(pokerSprite);
-                let x = (-startx) * gap + i * gap;
+                let x = (-startx) * gap + i * gap + gap/2;
                 // console.log(x);
                 pokerSprite.setPosition(x, -220);
             }
+
         }
-        
+
     },
     start() {
 

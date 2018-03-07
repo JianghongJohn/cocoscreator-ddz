@@ -45,12 +45,12 @@
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1519976399464,
+    "asset": 1520315296560,
     "meta": 1519962818608,
     "relativePath": "Script"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1520239402521,
+    "asset": 1520322774584,
     "meta": 1519962818608,
     "relativePath": "resources"
   },
@@ -279,14 +279,14 @@
     "meta": 1520320945024,
     "relativePath": "Script/Poker.js"
   },
-  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1520327374874,
-    "meta": 1520327376969,
-    "relativePath": "Script/playing.js"
-  },
   "d602204e-2a29-491d-8590-4c878a433185": {
     "asset": 1520328744302,
     "meta": 1520328746419,
     "relativePath": "Script/CardsType.js"
+  },
+  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
+    "asset": 1520410229945,
+    "meta": 1520410231796,
+    "relativePath": "Script/playing.js"
   }
 }

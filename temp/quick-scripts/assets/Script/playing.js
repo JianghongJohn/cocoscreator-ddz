@@ -4,10 +4,6 @@ cc._RF.push(module, '81d5fvpJ95HC5u91j0plkhh', 'playing', __filename);
 
 'use strict';
 
-var _properties;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 // Learn cc.Class:
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html
 //  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/class/index.html
@@ -22,12 +18,13 @@ var PokerObj = require("Poker");
 var PlayerType = cc.Enum({
     left: 0,
     right: -1,
-    player: -1
+    player: -1,
+    dipai: -1
 });
 cc.Class({
     extends: cc.Component,
 
-    properties: (_properties = {
+    properties: {
         poker: cc.Prefab, //扑克
         startBtn: cc.Button, //开始按钮
         pokerSpriteFrameMap: {
@@ -36,8 +33,14 @@ cc.Class({
         },
         allPokers: [], //所有牌
         leftPokers: [], //左边牌
-        RightPokers: [], //右边牌
-        playerPokers: [] }, _defineProperty(_properties, 'leftPokers', []), _defineProperty(_properties, 'RightPokers', []), _defineProperty(_properties, 'playerPokers', []), _properties),
+        rightPokers: [], //右边牌
+        playerPokers: [], //玩家牌
+        dipaiPokers: [], //底牌
+        leftPokersOut: [], //左边打出牌
+        rightPokersOut: [], //右边打出牌
+        playerPokersOut: [] //玩家打出牌
+
+    },
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -82,19 +85,43 @@ cc.Class({
     },
 
     //生成上家
-    startUp: function startUp() {},
+    startUp: function startUp() {
+        for (var i = 0; i < 16; i++) {
+            var pokerSprite = this.allPokers[i + 16 + 3];
+            this.leftPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.leftPokers);
+        this.showPokers(this.leftPokers, PlayerType.left);
+    },
 
-    //生成上家
-    startDown: function startDown() {},
+    //生成下家
+    startDown: function startDown() {
+        for (var i = 0; i < 16; i++) {
+            var pokerSprite = this.allPokers[i + 32 + 3];
+            this.rightPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.rightPokers);
+        this.showPokers(this.rightPokers, PlayerType.right);
+    },
 
     //生成当前玩家
     startPlayer: function startPlayer() {
         for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i];
+            var pokerSprite = this.allPokers[i + 3];
             this.playerPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.playerPokers);
         this.showPokers(this.playerPokers, PlayerType.player);
+    },
+
+    //生成三张底牌
+    startDipai: function startDipai() {
+        for (var i = 0; i < 3; i++) {
+            var pokerSprite = this.allPokers[i];
+            this.dipaiPokers[i] = pokerSprite;
+        }
+        this.bubbleSortCards(this.dipaiPokers);
+        this.showPokers(this.dipaiPokers, PlayerType.dipai);
     },
     loadAllPoker: function loadAllPoker() {
         for (var i = 0; i < 54; i++) {
@@ -109,8 +136,11 @@ cc.Class({
         }
         //洗牌
         this.allPokers = this.shuffleArray(this.allPokers);
-
+        //发牌
+        this.startUp();
         this.startPlayer();
+        this.startDown();
+        this.startDipai();
     },
 
     /** 
@@ -169,21 +199,36 @@ cc.Class({
 
     //展示Poker
     showPokers: function showPokers(cards, type) {
-        if (type == PlayerType.left) {} else if (type == PlayerType.right) {} else {
-            var startx = cards.length / 2; //开始x坐标
-            for (var i = 0; i < cards.length; i++) {
+        var startx = cards.length / 2; //开始x坐标
+        for (var i = 0; i < cards.length; i++) {
 
-                var pokerSprite = cards[i];
-                var Poker = pokerSprite.getComponent('Poker');
-                // console.log("名称" + Poker._imageName);
-
-                var gap = 25; //牌间隙
-                pokerSprite.scale = 1;
-
-                this.node.addChild(pokerSprite);
-                var x = -startx * gap + i * gap;
+            var pokerSprite = cards[i];
+            var Poker = pokerSprite.getComponent('Poker');
+            this.node.addChild(pokerSprite);
+            if (type == PlayerType.left) {
+                var gap = 12; //牌间隙
+                pokerSprite.scale = 0.6;
+                var x = -startx * gap + i * gap + gap / 2;
                 // console.log(x);
-                pokerSprite.setPosition(x, -220);
+                pokerSprite.setPosition(-300 + x, 100);
+            } else if (type == PlayerType.right) {
+                var _gap = 12; //牌间隙
+                pokerSprite.scale = 0.6;
+                var _x = -startx * _gap + i * _gap + _gap / 2;
+                // console.log(x);
+                pokerSprite.setPosition(300 + _x, 100);
+            } else if (type == PlayerType.dipai) {
+                var _gap2 = 100; //牌间隙
+                pokerSprite.scale = 0.6;
+                var _x2 = -startx * _gap2 + _gap2 / 2 + i * _gap2;
+                // console.log(x);
+                pokerSprite.setPosition(_x2, 300);
+            } else {
+                var _gap3 = 25; //牌间隙
+                pokerSprite.scale = 1;
+                var _x3 = -startx * _gap3 + i * _gap3 + _gap3 / 2;
+                // console.log(x);
+                pokerSprite.setPosition(_x3, -220);
             }
         }
     },
