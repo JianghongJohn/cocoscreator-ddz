@@ -351,7 +351,6 @@ isFeiJiDai( myCards) {
         }  
 
     }  
-
     return false;  
 } ,
 /** 

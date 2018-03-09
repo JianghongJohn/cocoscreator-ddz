@@ -357,7 +357,6 @@ cc.Class({
                 return isFeiJiBuDai(cards);
             }
         }
-
         return false;
     },
 

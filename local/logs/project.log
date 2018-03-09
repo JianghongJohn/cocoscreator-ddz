@@ -1,55 +1,100 @@
-2018-03-07T07:15:16.946Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-07T07:15:16.955Z - normal: checking language setting...
-2018-03-07T07:15:16.959Z - normal: Language: zh
-2018-03-07T07:15:18.342Z - success: protocol editor-framework registered
-2018-03-07T07:15:18.342Z - success: protocol app registered
-2018-03-07T07:15:18.342Z - success: protocol theme registered
-2018-03-07T07:15:18.343Z - success: protocol packages registered
-2018-03-07T07:15:18.343Z - success: protocol unpack registerred
-2018-03-07T07:15:18.343Z - success: protocol disable-commonjs registerred
-2018-03-07T07:15:18.556Z - normal: connected!
-2018-03-07T07:15:18.559Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-07T07:15:18.563Z - normal: Initializing Cocos2d
-2018-03-07T07:15:18.833Z - normal: Initializing Asset Database
-2018-03-07T07:15:18.872Z - success: protocol uuid registerred
-2018-03-07T07:15:18.872Z - success: protocol db registerred
-2018-03-07T07:15:18.872Z - success: protocol thumbnail registerred
-2018-03-07T07:15:18.872Z - normal: Loading editor/builtin packages
-2018-03-07T07:15:18.895Z - success: anysdk loaded
-2018-03-07T07:15:19.025Z - success: assets loaded
-2018-03-07T07:15:19.030Z - success: builder loaded
-2018-03-07T07:15:19.032Z - success: cocos-analytics loaded
-2018-03-07T07:15:19.038Z - success: console loaded
-2018-03-07T07:15:19.043Z - success: hierarchy loaded
-2018-03-07T07:15:19.048Z - success: inspector loaded
-2018-03-07T07:15:19.050Z - success: keystore loaded
-2018-03-07T07:15:19.055Z - success: node-library loaded
-2018-03-07T07:15:19.057Z - success: package-asset loaded
-2018-03-07T07:15:19.059Z - success: preferences loaded
-2018-03-07T07:15:19.064Z - success: project-exporter loaded
-2018-03-07T07:15:19.084Z - success: project-importer loaded
-2018-03-07T07:15:19.088Z - success: project-settings loaded
-2018-03-07T07:15:19.092Z - success: ui-kit loaded
-2018-03-07T07:15:19.097Z - success: ui-grid loaded
-2018-03-07T07:15:19.103Z - success: scene loaded
-2018-03-07T07:15:19.105Z - success: sprite-editor loaded
-2018-03-07T07:15:19.113Z - success: store loaded
-2018-03-07T07:15:19.127Z - success: timeline loaded
-2018-03-07T07:15:19.127Z - normal: Loading builtin packages
-2018-03-07T07:15:19.132Z - success: asset-db-debugger loaded
-2018-03-07T07:15:19.133Z - success: color-picker loaded
-2018-03-07T07:15:19.138Z - success: package-manager loaded
-2018-03-07T07:15:19.144Z - success: sdkbox loaded
-2018-03-07T07:15:19.149Z - success: tester loaded
-2018-03-07T07:15:19.161Z - success: ui-kit-preview-extra loaded
-2018-03-07T07:15:19.170Z - success: ui-kit-preview loaded
-2018-03-07T07:15:19.175Z - success: ui-tree loaded
-2018-03-07T07:15:20.443Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-07T07:15:20.445Z - normal: Loading packages
-2018-03-07T07:15:20.460Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-07T07:15:20.462Z - normal: [LuaCPP Support] version 0.3
-2018-03-07T07:15:20.463Z - success: creator-luacpp-support loaded
-2018-03-07T07:15:20.463Z - normal: Watching packages
-2018-03-07T07:15:20.536Z - normal: Run Application
-2018-03-07T07:15:21.190Z - success: preview server running at http://localhost:7456
-2018-03-07T07:15:27.556Z - normal: 1.8.1
+2018-03-09T01:52:32.890Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-09T01:52:32.895Z - normal: checking language setting...
+2018-03-09T01:52:32.895Z - normal: Language: zh
+2018-03-09T01:52:33.909Z - success: protocol editor-framework registered
+2018-03-09T01:52:33.909Z - success: protocol app registered
+2018-03-09T01:52:33.909Z - success: protocol theme registered
+2018-03-09T01:52:33.909Z - success: protocol packages registered
+2018-03-09T01:52:33.909Z - success: protocol unpack registerred
+2018-03-09T01:52:33.909Z - success: protocol disable-commonjs registerred
+2018-03-09T01:52:34.292Z - normal: connected!
+2018-03-09T01:52:34.293Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-09T01:52:34.295Z - normal: Initializing Cocos2d
+2018-03-09T01:52:34.561Z - normal: Initializing Asset Database
+2018-03-09T01:52:34.600Z - success: protocol uuid registerred
+2018-03-09T01:52:34.600Z - success: protocol db registerred
+2018-03-09T01:52:34.600Z - success: protocol thumbnail registerred
+2018-03-09T01:52:34.600Z - normal: Loading editor/builtin packages
+2018-03-09T01:52:34.631Z - success: anysdk loaded
+2018-03-09T01:52:34.773Z - success: assets loaded
+2018-03-09T01:52:34.777Z - success: builder loaded
+2018-03-09T01:52:34.780Z - success: cocos-analytics loaded
+2018-03-09T01:52:34.788Z - success: console loaded
+2018-03-09T01:52:34.793Z - success: hierarchy loaded
+2018-03-09T01:52:34.801Z - success: inspector loaded
+2018-03-09T01:52:34.803Z - success: keystore loaded
+2018-03-09T01:52:34.808Z - success: node-library loaded
+2018-03-09T01:52:34.810Z - success: package-asset loaded
+2018-03-09T01:52:34.813Z - success: preferences loaded
+2018-03-09T01:52:34.820Z - success: project-exporter loaded
+2018-03-09T01:52:34.842Z - success: project-importer loaded
+2018-03-09T01:52:34.846Z - success: project-settings loaded
+2018-03-09T01:52:34.850Z - success: ui-kit loaded
+2018-03-09T01:52:34.863Z - success: ui-grid loaded
+2018-03-09T01:52:34.871Z - success: scene loaded
+2018-03-09T01:52:34.873Z - success: sprite-editor loaded
+2018-03-09T01:52:34.877Z - success: store loaded
+2018-03-09T01:52:34.886Z - success: timeline loaded
+2018-03-09T01:52:34.886Z - normal: Loading builtin packages
+2018-03-09T01:52:34.891Z - success: asset-db-debugger loaded
+2018-03-09T01:52:34.892Z - success: color-picker loaded
+2018-03-09T01:52:34.898Z - success: package-manager loaded
+2018-03-09T01:52:34.908Z - success: sdkbox loaded
+2018-03-09T01:52:34.917Z - success: tester loaded
+2018-03-09T01:52:34.929Z - success: ui-kit-preview-extra loaded
+2018-03-09T01:52:34.938Z - success: ui-kit-preview loaded
+2018-03-09T01:52:34.942Z - success: ui-tree loaded
+2018-03-09T01:52:36.243Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-09T01:52:36.246Z - normal: Loading packages
+2018-03-09T01:52:36.260Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-09T01:52:36.263Z - normal: [LuaCPP Support] version 0.3
+2018-03-09T01:52:36.265Z - success: creator-luacpp-support loaded
+2018-03-09T01:52:36.265Z - normal: Watching packages
+2018-03-09T01:52:36.336Z - normal: Run Application
+2018-03-09T01:52:36.985Z - success: preview server running at http://localhost:7456
+2018-03-09T01:52:44.043Z - normal: 1.8.1
+2018-03-09T04:10:07.981Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:88:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:95:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:98:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-03-09T04:12:07.153Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-03-09T04:12:33.986Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-03-09T04:12:39.453Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-03-09T09:35:08.032Z - info: shutdown preview server
