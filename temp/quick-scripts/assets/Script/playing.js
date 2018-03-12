@@ -27,6 +27,8 @@ cc.Class({
     properties: {
         poker: cc.Prefab, //扑克
         startBtn: cc.Button, //开始按钮
+        leftCount: cc.Label, //左边数量
+        rightCount: cc.Label, //右边数量
         pokerSpriteFrameMap: {
             default: {},
             visible: false
@@ -70,9 +72,10 @@ cc.Class({
         this.startBtn.node.active = false;
         this.loadAllPoker();
 
-        var pokerSprite = cc.instantiate(this.poker);
-        var pokerTypes = pokerSprite.getComponent('pokerTypes');
-        pokerTypes.getCarAnalyseInfo(this.playerPokers);
+        // let pokerSprite = cc.instantiate(this.poker);
+        // var pokerTypes = pokerSprite.getComponent('pokerTypes');
+        // pokerTypes.getCarAnalyseInfo(this.playerPokers);
+        this.refreshCount();
     },
 
     //洗牌算法
@@ -236,10 +239,18 @@ cc.Class({
             }
         }
     },
+
+    //刷新显示数量
+    refreshCount: function refreshCount() {
+        this.leftCount.string = "" + this.leftPokers.length - 10;
+        this.rightCount.string = "" + this.rightPokers.length;
+    },
     start: function start() {}
 }
 
-// update (dt) {},
+// update (dt) {
+
+// },
 );
 
 cc._RF.pop();
