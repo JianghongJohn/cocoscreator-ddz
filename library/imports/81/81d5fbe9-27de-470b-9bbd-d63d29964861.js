@@ -69,6 +69,10 @@ cc.Class({
     startPoker: function startPoker() {
         this.startBtn.node.active = false;
         this.loadAllPoker();
+
+        var pokerSprite = cc.instantiate(this.poker);
+        var pokerTypes = pokerSprite.getComponent('pokerTypes');
+        pokerTypes.getCarAnalyseInfo(this.playerPokers);
     },
 
     //洗牌算法

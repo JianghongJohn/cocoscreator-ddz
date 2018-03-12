@@ -45,7 +45,7 @@
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1520315296560,
+    "asset": 1520567289827,
     "meta": 1519962818608,
     "relativePath": "Script"
   },
@@ -85,19 +85,14 @@
     "relativePath": "Scene/game.fire"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
-    "asset": 1520235605769,
-    "meta": 1520235605793,
+    "asset": 1520823856911,
+    "meta": 1520823856922,
     "relativePath": "resources/OnePoker.prefab"
   },
   "74e2f267-8637-493b-8bc1-1a285159ebb5": {
     "asset": 1520320943608,
     "meta": 1520320945024,
     "relativePath": "Script/Poker.js"
-  },
-  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1520410229945,
-    "meta": 1520410231796,
-    "relativePath": "Script/playing.js"
   },
   "71561142-4c83-4933-afca-cb7a17f67053": {
     "asset": 1515659211000,
@@ -289,9 +284,14 @@
     "meta": 1520588107394,
     "relativePath": "Script/CardsType.js"
   },
+  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
+    "asset": 1520826406076,
+    "meta": 1520826407740,
+    "relativePath": "Script/playing.js"
+  },
   "ca151cd9-a482-40fa-af4b-7892f0df559f": {
-    "asset": 1520588100049,
-    "meta": 1520588107395,
+    "asset": 1520826402925,
+    "meta": 1520826407741,
     "relativePath": "Script/pokerTypes.js"
   }
 }

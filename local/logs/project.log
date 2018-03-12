@@ -1,100 +1,106 @@
-2018-03-09T01:52:32.890Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-09T01:52:32.895Z - normal: checking language setting...
-2018-03-09T01:52:32.895Z - normal: Language: zh
-2018-03-09T01:52:33.909Z - success: protocol editor-framework registered
-2018-03-09T01:52:33.909Z - success: protocol app registered
-2018-03-09T01:52:33.909Z - success: protocol theme registered
-2018-03-09T01:52:33.909Z - success: protocol packages registered
-2018-03-09T01:52:33.909Z - success: protocol unpack registerred
-2018-03-09T01:52:33.909Z - success: protocol disable-commonjs registerred
-2018-03-09T01:52:34.292Z - normal: connected!
-2018-03-09T01:52:34.293Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-09T01:52:34.295Z - normal: Initializing Cocos2d
-2018-03-09T01:52:34.561Z - normal: Initializing Asset Database
-2018-03-09T01:52:34.600Z - success: protocol uuid registerred
-2018-03-09T01:52:34.600Z - success: protocol db registerred
-2018-03-09T01:52:34.600Z - success: protocol thumbnail registerred
-2018-03-09T01:52:34.600Z - normal: Loading editor/builtin packages
-2018-03-09T01:52:34.631Z - success: anysdk loaded
-2018-03-09T01:52:34.773Z - success: assets loaded
-2018-03-09T01:52:34.777Z - success: builder loaded
-2018-03-09T01:52:34.780Z - success: cocos-analytics loaded
-2018-03-09T01:52:34.788Z - success: console loaded
-2018-03-09T01:52:34.793Z - success: hierarchy loaded
-2018-03-09T01:52:34.801Z - success: inspector loaded
-2018-03-09T01:52:34.803Z - success: keystore loaded
-2018-03-09T01:52:34.808Z - success: node-library loaded
-2018-03-09T01:52:34.810Z - success: package-asset loaded
-2018-03-09T01:52:34.813Z - success: preferences loaded
-2018-03-09T01:52:34.820Z - success: project-exporter loaded
-2018-03-09T01:52:34.842Z - success: project-importer loaded
-2018-03-09T01:52:34.846Z - success: project-settings loaded
-2018-03-09T01:52:34.850Z - success: ui-kit loaded
-2018-03-09T01:52:34.863Z - success: ui-grid loaded
-2018-03-09T01:52:34.871Z - success: scene loaded
-2018-03-09T01:52:34.873Z - success: sprite-editor loaded
-2018-03-09T01:52:34.877Z - success: store loaded
-2018-03-09T01:52:34.886Z - success: timeline loaded
-2018-03-09T01:52:34.886Z - normal: Loading builtin packages
-2018-03-09T01:52:34.891Z - success: asset-db-debugger loaded
-2018-03-09T01:52:34.892Z - success: color-picker loaded
-2018-03-09T01:52:34.898Z - success: package-manager loaded
-2018-03-09T01:52:34.908Z - success: sdkbox loaded
-2018-03-09T01:52:34.917Z - success: tester loaded
-2018-03-09T01:52:34.929Z - success: ui-kit-preview-extra loaded
-2018-03-09T01:52:34.938Z - success: ui-kit-preview loaded
-2018-03-09T01:52:34.942Z - success: ui-tree loaded
-2018-03-09T01:52:36.243Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-09T01:52:36.246Z - normal: Loading packages
-2018-03-09T01:52:36.260Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-09T01:52:36.263Z - normal: [LuaCPP Support] version 0.3
-2018-03-09T01:52:36.265Z - success: creator-luacpp-support loaded
-2018-03-09T01:52:36.265Z - normal: Watching packages
-2018-03-09T01:52:36.336Z - normal: Run Application
-2018-03-09T01:52:36.985Z - success: preview server running at http://localhost:7456
-2018-03-09T01:52:44.043Z - normal: 1.8.1
-2018-03-09T04:10:07.981Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:88:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:95:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:98:3)
+2018-03-12T02:24:07.424Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-12T02:24:07.429Z - normal: checking language setting...
+2018-03-12T02:24:07.430Z - normal: Language: zh
+2018-03-12T02:24:08.324Z - success: protocol editor-framework registered
+2018-03-12T02:24:08.325Z - success: protocol app registered
+2018-03-12T02:24:08.325Z - success: protocol theme registered
+2018-03-12T02:24:08.325Z - success: protocol packages registered
+2018-03-12T02:24:08.325Z - success: protocol unpack registerred
+2018-03-12T02:24:08.325Z - success: protocol disable-commonjs registerred
+2018-03-12T02:24:08.558Z - normal: connected!
+2018-03-12T02:24:08.560Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-12T02:24:08.561Z - normal: Initializing Cocos2d
+2018-03-12T02:24:08.782Z - normal: Initializing Asset Database
+2018-03-12T02:24:08.814Z - success: protocol uuid registerred
+2018-03-12T02:24:08.814Z - success: protocol db registerred
+2018-03-12T02:24:08.814Z - success: protocol thumbnail registerred
+2018-03-12T02:24:08.815Z - normal: Loading editor/builtin packages
+2018-03-12T02:24:08.839Z - success: anysdk loaded
+2018-03-12T02:24:08.961Z - success: assets loaded
+2018-03-12T02:24:08.965Z - success: builder loaded
+2018-03-12T02:24:08.968Z - success: cocos-analytics loaded
+2018-03-12T02:24:08.973Z - success: console loaded
+2018-03-12T02:24:08.978Z - success: hierarchy loaded
+2018-03-12T02:24:08.983Z - success: inspector loaded
+2018-03-12T02:24:08.985Z - success: keystore loaded
+2018-03-12T02:24:08.990Z - success: node-library loaded
+2018-03-12T02:24:08.992Z - success: package-asset loaded
+2018-03-12T02:24:08.995Z - success: preferences loaded
+2018-03-12T02:24:08.998Z - success: project-exporter loaded
+2018-03-12T02:24:09.016Z - success: project-importer loaded
+2018-03-12T02:24:09.020Z - success: project-settings loaded
+2018-03-12T02:24:09.024Z - success: ui-kit loaded
+2018-03-12T02:24:09.028Z - success: ui-grid loaded
+2018-03-12T02:24:09.033Z - success: scene loaded
+2018-03-12T02:24:09.035Z - success: sprite-editor loaded
+2018-03-12T02:24:09.040Z - success: store loaded
+2018-03-12T02:24:09.046Z - success: timeline loaded
+2018-03-12T02:24:09.047Z - normal: Loading builtin packages
+2018-03-12T02:24:09.051Z - success: asset-db-debugger loaded
+2018-03-12T02:24:09.052Z - success: color-picker loaded
+2018-03-12T02:24:09.057Z - success: package-manager loaded
+2018-03-12T02:24:09.070Z - success: sdkbox loaded
+2018-03-12T02:24:09.074Z - success: tester loaded
+2018-03-12T02:24:09.082Z - success: ui-kit-preview-extra loaded
+2018-03-12T02:24:09.086Z - success: ui-kit-preview loaded
+2018-03-12T02:24:09.089Z - success: ui-tree loaded
+2018-03-12T02:24:10.124Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-12T02:24:10.126Z - normal: Loading packages
+2018-03-12T02:24:10.140Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-12T02:24:10.142Z - normal: [LuaCPP Support] version 0.3
+2018-03-12T02:24:10.143Z - success: creator-luacpp-support loaded
+2018-03-12T02:24:10.143Z - normal: Watching packages
+2018-03-12T02:24:10.201Z - normal: Run Application
+2018-03-12T02:24:10.728Z - success: preview server running at http://localhost:7456
+2018-03-12T02:24:15.968Z - normal: 1.8.1
+2018-03-12T02:58:04.226Z - failed: [db-task][sync-changes] Failed to import asset /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/pokerTypes.js, message: Compile error: SyntaxError: /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/pokerTypes.js: Unexpected token, expected ; (35:32)
+  33 | 
+  34 |             //第一层根据数量筛选
+> 35 |             sortByLength(cards) {
+     |                                 ^
+  36 |                 let length = cards.length;
+  37 |                 switch (length) {
+  38 |                     case 0:
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
+    at Parser.pp.semicolon (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1742:38)
+    at Parser.pp$1.parseExpressionStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2236:8)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1911:17)
+    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
+    at Parser.pp$1.parseTopLevel (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1778:8)
+    at Parser.parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1673:17)
+    at parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:7305:37)
+    at File.parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-core/lib/transformation/file/index.js:527:15)
+2018-03-12T02:58:04.644Z - failed: load script [PokerTypes.js] failed : Error: Cannot find module 'PokerTypes.js'
+    at Module._resolveFilename (module.js:470:15)
+    at Function.Module._resolveFilename [as _resolveFilenameVendor] (/Applications/CocosCreator.app/Contents/Resources/electron.asar/common/reset-search-paths.js:35:12)
+    at Function.Module._resolveFilename (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:1361)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.cc.require (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:967)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:1:349
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:17:17)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:246:13
+2018-03-12T02:59:50.206Z - failed: load script [PokerTypes.js] failed : Error: Cannot find module 'PokerTypes.js'
+    at Module._resolveFilename (module.js:470:15)
+    at Function.Module._resolveFilename [as _resolveFilenameVendor] (/Applications/CocosCreator.app/Contents/Resources/electron.asar/common/reset-search-paths.js:35:12)
+    at Function.Module._resolveFilename (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:1361)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.cc.require (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/project-scripts.js:1:967)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:1:349
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:17:17)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:246:13
+2018-03-12T02:59:50.209Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: getCount is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:319:15)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:325:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:332:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:335:3)
     at Module._compile (module.js:571:32)
     at Object.Module._extensions..js (module.js:580:10)
     at Module.load (module.js:488:32)
     at tryModuleLoad (module.js:447:12)
     at Function.Module._load (module.js:439:3)
     at Module.require (module.js:498:17)
-2018-03-09T04:12:07.153Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-03-09T04:12:33.986Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-03-09T04:12:39.453Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: c2 is not defined
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:24:9)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:89:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:96:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:99:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-03-09T09:35:08.032Z - info: shutdown preview server
