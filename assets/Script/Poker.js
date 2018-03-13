@@ -270,6 +270,16 @@ cc.Class({
         return imageName + extension;
     },
 
+    //显示图片
+    showPoke(isBack){
+        if (isBack) {
+            var backUrl = cc.url.raw('resources/PokerBack.png');
+            var texture = cc.textureCache.addImage(backUrl);
+            this.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+        } else {
+            
+        }
+    },
 
     onLoad() {
         // console.log("启动");

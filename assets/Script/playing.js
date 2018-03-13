@@ -14,19 +14,13 @@ var PlayerType = cc.Enum({
     right: -1,
     player: -1,
     dipai: -1,
+    shoupai:-1
 })
 cc.Class({
     extends: cc.Component,
 
     properties: {
         poker: cc.Prefab, //扑克
-        startBtn: cc.Button, //开始按钮
-        leftCount: cc.Label, //左边数量
-        rightCount: cc.Label, //右边数量
-        pokerSpriteFrameMap: {
-            default: {},
-            visible: false,
-        },
         allPokers: [], //所有牌
         leftPokers: [], //左边牌
         rightPokers: [], //右边牌
@@ -35,12 +29,32 @@ cc.Class({
         leftPokersOut: [], //左边打出牌
         rightPokersOut: [], //右边打出牌
         playerPokersOut: [], //玩家打出牌
+        pokerSpriteFrameMap: {
+            default: {},
+            visible: false,
+        },
 
+        //控制的东西
+        maskBackground:cc.Node,//开始前的遮罩
+        startBtn: cc.Button, //开始按钮
+        leftCount: cc.Label, //左边数量
+        leftbuchu:cc.Label,//左边不出
+        leftShowPoker:cc.Node,//左边展示Poker
+        rightCount: cc.Label, //右边数量
+        rightShowPoker:cc.Node,//右边展示Poker
+        rightbuchu:cc.Label,//右边不出
+
+        playerHandCards:cc.Node,//玩家手牌
+        playerOutCards:cc.Node,//玩家出牌
+        playerAction:cc.Node,//玩家按钮
+
+        dipaiShowPoker:cc.Node,//右边展示Poker
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+
         this.loadRes();
     },
 
@@ -62,14 +76,20 @@ cc.Class({
     },
     //测试获取Poker
     startPoker() {
-        this.startBtn.node.active = false;
+        //隐藏控件
+        this.maskBackground.active = false;
+        this.leftbuchu.enabled = false;
+        this.rightbuchu.enabled = false
+        this.playerAction.active = false;
+
         this.loadAllPoker();
 
         // let pokerSprite = cc.instantiate(this.poker);
         // var pokerTypes = pokerSprite.getComponent('pokerTypes');
         // pokerTypes.getCarAnalyseInfo(this.playerPokers);
         this.refreshCount();
-
+        this.showCards(PlayerType.player);
+        
     },
     //洗牌算法
     shuffleArray(array) {
@@ -90,7 +110,8 @@ cc.Class({
             this.leftPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.leftPokers);
-        this.showPokers(this.leftPokers, PlayerType.left);
+        // this.showPokers(this.leftPokers, PlayerType.left);
+
     },
     //生成下家
     startDown() {
@@ -99,7 +120,8 @@ cc.Class({
             this.rightPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.rightPokers);
-        this.showPokers(this.rightPokers, PlayerType.right);
+        // this.showPokers(this.rightPokers, PlayerType.right);
+
     },
     //生成当前玩家
     startPlayer() {
@@ -108,7 +130,9 @@ cc.Class({
             this.playerPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.playerPokers);
-        this.showPokers(this.playerPokers, PlayerType.player);
+        // this.showPokers(this.playerPokers, PlayerType.player);
+
+
     },
     //生成三张底牌
     startDipai() {
@@ -117,9 +141,27 @@ cc.Class({
             this.dipaiPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.dipaiPokers);
-        this.showPokers(this.dipaiPokers, PlayerType.dipai);
-    },
+        // this.showPokers(this.dipaiPokers, PlayerType.dipai);
 
+    },
+    showCards(type){
+        if (type == PlayerType.left) {
+            var showPoker = this.leftShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.leftPokers, PlayerType.left);
+        } else if (type == PlayerType.right) {
+            var showPoker = this.rightShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.rightPokers, PlayerType.right);
+        }  else if (type == PlayerType.player) {
+            var showPoker = this.playerHandCards.getComponent('ShowPoker');
+            showPoker.showPokers(this.playerPokers, PlayerType.player);
+        }  else if (type == PlayerType.shoupai) {
+            var showPoker = this.playerOutCards.getComponent('ShowPoker');
+        showPoker.showPokers(cards, PlayerType.shoupai);
+        } else{
+            var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
+        }
+    },
     loadAllPoker() {
         for (let i = 0; i < 54; i++) {
 
@@ -134,10 +176,11 @@ cc.Class({
         //洗牌
         this.allPokers = this.shuffleArray(this.allPokers);
         //发牌
+        this.startDipai();
         this.startUp();
         this.startPlayer();
         this.startDown();
-        this.startDipai();
+
     },
     /** 
      * 对牌进行排序，从小到大，使用冒泡排序，此种方法不是很好 
@@ -192,47 +235,9 @@ cc.Class({
         // console.log("我的牌"+ cards);
         return cards;
     },
-
-    //展示Poker
-    showPokers(cards, type) {
-        let startx = cards.length / 2; //开始x坐标
-        for (let i = 0; i < cards.length; i++) {
-
-            let pokerSprite = cards[i];
-            var Poker = pokerSprite.getComponent('Poker');
-            this.node.addChild(pokerSprite);
-            if (type == PlayerType.left) {
-                let gap = 12; //牌间隙
-                pokerSprite.scale = 0.6;
-                let x = (-startx) * gap + i * gap + gap/2;
-                // console.log(x);
-                pokerSprite.setPosition(-300 + x, 100);
-            } else if (type == PlayerType.right) {
-                let gap = 12; //牌间隙
-                pokerSprite.scale = 0.6;
-                let x = (-startx) * gap + i * gap + gap/2;
-                // console.log(x);
-                pokerSprite.setPosition(300 + x, 100);
-            } else if (type == PlayerType.dipai) {
-                let gap = 100; //牌间隙
-                pokerSprite.scale = 0.6;
-                let x = (-startx) * gap + gap/2 + i * gap;
-                // console.log(x);
-                pokerSprite.setPosition(x, 300);
-            } else {
-                let gap = 25; //牌间隙
-                pokerSprite.scale = 1;
-                let x = (-startx) * gap + i * gap + gap/2;
-                // console.log(x);
-                pokerSprite.setPosition(x, -220);
-            }
-
-        }
-
-    },
     //刷新显示数量
     refreshCount(){
-      this.leftCount.string = ""+ this.leftPokers.length-10;  
+      this.leftCount.string = ""+ this.leftPokers.length;  
       this.rightCount.string = ""+ this.rightPokers.length;
     },
 

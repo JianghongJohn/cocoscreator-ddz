@@ -279,6 +279,16 @@ cc.Class({
 
         return imageName + extension;
     },
+
+
+    //显示图片
+    showPoke: function showPoke(isBack) {
+        if (isBack) {
+            var backUrl = cc.url.raw('resources/PokerBack.png');
+            var texture = cc.textureCache.addImage(backUrl);
+            this.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+        } else {}
+    },
     onLoad: function onLoad() {
         // console.log("启动");
         // var card =  this.creatCard(15);
