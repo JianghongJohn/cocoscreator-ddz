@@ -162,6 +162,7 @@ cc.Class({
             showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
         }
     },
+    
     loadAllPoker() {
         for (let i = 0; i < 54; i++) {
 

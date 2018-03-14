@@ -1,90 +1,55 @@
-2018-03-13T02:17:06.590Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-13T02:17:06.594Z - normal: checking language setting...
-2018-03-13T02:17:06.594Z - normal: Language: zh
-2018-03-13T02:17:07.423Z - success: protocol editor-framework registered
-2018-03-13T02:17:07.423Z - success: protocol app registered
-2018-03-13T02:17:07.423Z - success: protocol theme registered
-2018-03-13T02:17:07.424Z - success: protocol packages registered
-2018-03-13T02:17:07.424Z - success: protocol unpack registerred
-2018-03-13T02:17:07.424Z - success: protocol disable-commonjs registerred
-2018-03-13T02:17:07.664Z - normal: connected!
-2018-03-13T02:17:07.668Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-13T02:17:07.680Z - normal: Initializing Cocos2d
-2018-03-13T02:17:07.908Z - normal: Initializing Asset Database
-2018-03-13T02:17:07.943Z - success: protocol uuid registerred
-2018-03-13T02:17:07.943Z - success: protocol db registerred
-2018-03-13T02:17:07.943Z - success: protocol thumbnail registerred
-2018-03-13T02:17:07.944Z - normal: Loading editor/builtin packages
-2018-03-13T02:17:07.971Z - success: anysdk loaded
-2018-03-13T02:17:08.098Z - success: assets loaded
-2018-03-13T02:17:08.102Z - success: builder loaded
-2018-03-13T02:17:08.104Z - success: cocos-analytics loaded
-2018-03-13T02:17:08.111Z - success: console loaded
-2018-03-13T02:17:08.116Z - success: hierarchy loaded
-2018-03-13T02:17:08.122Z - success: inspector loaded
-2018-03-13T02:17:08.124Z - success: keystore loaded
-2018-03-13T02:17:08.129Z - success: node-library loaded
-2018-03-13T02:17:08.131Z - success: package-asset loaded
-2018-03-13T02:17:08.134Z - success: preferences loaded
-2018-03-13T02:17:08.137Z - success: project-exporter loaded
-2018-03-13T02:17:08.156Z - success: project-importer loaded
-2018-03-13T02:17:08.160Z - success: project-settings loaded
-2018-03-13T02:17:08.164Z - success: ui-kit loaded
-2018-03-13T02:17:08.170Z - success: ui-grid loaded
-2018-03-13T02:17:08.181Z - success: scene loaded
-2018-03-13T02:17:08.183Z - success: sprite-editor loaded
-2018-03-13T02:17:08.188Z - success: store loaded
-2018-03-13T02:17:08.194Z - success: timeline loaded
-2018-03-13T02:17:08.195Z - normal: Loading builtin packages
-2018-03-13T02:17:08.199Z - success: asset-db-debugger loaded
-2018-03-13T02:17:08.201Z - success: color-picker loaded
-2018-03-13T02:17:08.204Z - success: package-manager loaded
-2018-03-13T02:17:08.211Z - success: sdkbox loaded
-2018-03-13T02:17:08.215Z - success: tester loaded
-2018-03-13T02:17:08.225Z - success: ui-kit-preview-extra loaded
-2018-03-13T02:17:08.229Z - success: ui-kit-preview loaded
-2018-03-13T02:17:08.233Z - success: ui-tree loaded
-2018-03-13T02:17:09.353Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-13T02:17:09.356Z - normal: Loading packages
-2018-03-13T02:17:09.369Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-13T02:17:09.370Z - normal: [LuaCPP Support] version 0.3
-2018-03-13T02:17:09.371Z - success: creator-luacpp-support loaded
-2018-03-13T02:17:09.371Z - normal: Watching packages
-2018-03-13T02:17:09.428Z - normal: Run Application
-2018-03-13T02:17:09.958Z - success: preview server running at http://localhost:7456
-2018-03-13T02:17:15.495Z - normal: 1.8.1
-2018-03-13T02:27:47.427Z - warn: The 'type' attribute of 'playing.leftShowPoker' is undefined when loading script
-2018-03-13T02:34:03.131Z - error: Property 'playing.leftbuchu' must define at least one of 'default', 'get' or 'set'.
-    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:343:18)
-    at Object.exports.preprocessAttrs (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/preprocess-class.js:232:28)
-    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:807:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:24:4)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:266:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:273:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:276:3)
-    at Module._compile (module.js:571:32)
-2018-03-13T02:34:13.615Z - error: Property 'playing.leftbuchu' must define at least one of 'default', 'get' or 'set'.
-    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:343:18)
-    at Object.exports.preprocessAttrs (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/preprocess-class.js:232:28)
-    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:807:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:24:4)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:266:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:273:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:276:3)
-    at Module._compile (module.js:571:32)
-2018-03-13T02:34:44.666Z - error: Property 'playing.leftbuchu' must define at least one of 'default', 'get' or 'set'.
-    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:343:18)
-    at Object.exports.preprocessAttrs (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/preprocess-class.js:232:28)
-    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:807:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
-    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:24:4)
-    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:266:13
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:273:11)
-    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playing.js:276:3)
-    at Module._compile (module.js:571:32)
-2018-03-13T03:45:47.372Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:104193
-2018-03-13T04:01:28.622Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:123629
-2018-03-13T06:14:57.429Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:235325
-2018-03-13T06:33:11.754Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:258930
+2018-03-14T06:14:15.485Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-14T06:14:15.491Z - normal: checking language setting...
+2018-03-14T06:14:15.491Z - normal: Language: zh
+2018-03-14T06:14:16.619Z - success: protocol editor-framework registered
+2018-03-14T06:14:16.619Z - success: protocol app registered
+2018-03-14T06:14:16.619Z - success: protocol theme registered
+2018-03-14T06:14:16.620Z - success: protocol packages registered
+2018-03-14T06:14:16.620Z - success: protocol unpack registerred
+2018-03-14T06:14:16.620Z - success: protocol disable-commonjs registerred
+2018-03-14T06:14:16.834Z - normal: connected!
+2018-03-14T06:14:16.837Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-14T06:14:16.839Z - normal: Initializing Cocos2d
+2018-03-14T06:14:17.081Z - normal: Initializing Asset Database
+2018-03-14T06:14:17.119Z - success: protocol uuid registerred
+2018-03-14T06:14:17.120Z - success: protocol db registerred
+2018-03-14T06:14:17.120Z - success: protocol thumbnail registerred
+2018-03-14T06:14:17.120Z - normal: Loading editor/builtin packages
+2018-03-14T06:14:17.140Z - success: anysdk loaded
+2018-03-14T06:14:17.264Z - success: assets loaded
+2018-03-14T06:14:17.270Z - success: builder loaded
+2018-03-14T06:14:17.272Z - success: cocos-analytics loaded
+2018-03-14T06:14:17.278Z - success: console loaded
+2018-03-14T06:14:17.283Z - success: hierarchy loaded
+2018-03-14T06:14:17.288Z - success: inspector loaded
+2018-03-14T06:14:17.290Z - success: keystore loaded
+2018-03-14T06:14:17.294Z - success: node-library loaded
+2018-03-14T06:14:17.297Z - success: package-asset loaded
+2018-03-14T06:14:17.299Z - success: preferences loaded
+2018-03-14T06:14:17.309Z - success: project-exporter loaded
+2018-03-14T06:14:17.327Z - success: project-importer loaded
+2018-03-14T06:14:17.330Z - success: project-settings loaded
+2018-03-14T06:14:17.334Z - success: ui-kit loaded
+2018-03-14T06:14:17.339Z - success: ui-grid loaded
+2018-03-14T06:14:17.343Z - success: scene loaded
+2018-03-14T06:14:17.345Z - success: sprite-editor loaded
+2018-03-14T06:14:17.350Z - success: store loaded
+2018-03-14T06:14:17.356Z - success: timeline loaded
+2018-03-14T06:14:17.356Z - normal: Loading builtin packages
+2018-03-14T06:14:17.360Z - success: asset-db-debugger loaded
+2018-03-14T06:14:17.362Z - success: color-picker loaded
+2018-03-14T06:14:17.366Z - success: package-manager loaded
+2018-03-14T06:14:17.371Z - success: sdkbox loaded
+2018-03-14T06:14:17.376Z - success: tester loaded
+2018-03-14T06:14:17.385Z - success: ui-kit-preview-extra loaded
+2018-03-14T06:14:17.389Z - success: ui-kit-preview loaded
+2018-03-14T06:14:17.392Z - success: ui-tree loaded
+2018-03-14T06:14:18.444Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-14T06:14:18.446Z - normal: Loading packages
+2018-03-14T06:14:18.458Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-14T06:14:18.460Z - normal: [LuaCPP Support] version 0.3
+2018-03-14T06:14:18.461Z - success: creator-luacpp-support loaded
+2018-03-14T06:14:18.461Z - normal: Watching packages
+2018-03-14T06:14:18.524Z - normal: Run Application
+2018-03-14T06:14:19.357Z - success: preview server running at http://localhost:7457
+2018-03-14T06:14:25.517Z - normal: 1.8.1

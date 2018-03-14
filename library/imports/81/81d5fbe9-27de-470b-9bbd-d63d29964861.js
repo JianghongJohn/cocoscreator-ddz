@@ -244,7 +244,7 @@ cc.Class({
 
     //刷新显示数量
     refreshCount: function refreshCount() {
-        this.leftCount.string = "" + this.leftPokers.length - 10;
+        this.leftCount.string = "" + this.leftPokers.length;
         this.rightCount.string = "" + this.rightPokers.length;
     },
     start: function start() {}
