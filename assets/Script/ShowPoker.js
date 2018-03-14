@@ -1,13 +1,4 @@
-// Learn cc.Class:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/class/index.html
-// Learn Attribute:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/reference/attributes/index.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
-const POSITION_UP = 1;
+
 const POSITION_DOWN = 2;
 cc.Class({
     extends: cc.Component,
@@ -22,6 +13,7 @@ cc.Class({
     // use this for initialization
     onLoad() {
         console.log('mynode on load.');
+        //只有用户手牌允许点击
         if (this.canTouch) {
             this.node.on('touchstart', this.startCallback, this);
             this.node.on('touchend', this.endCallback, this);
@@ -39,7 +31,7 @@ cc.Class({
     start() {
 
     },
-    //展示Poker
+    /* 展示poker */
     showPokers(cards, type) {
         let startx = cards.length / 2; //开始x坐标
 
@@ -88,7 +80,9 @@ cc.Class({
     },
     //点击事件
 
-    //倒牌
+    /**
+     * 收起所有牌
+     */
     pokerAllDown() {
         for (let i in this._pokerSpriteList) {
             let pokerSprite = this._pokerSpriteList[i];
@@ -154,7 +148,10 @@ cc.Class({
         }
 
     },
-
+/**
+ * 
+ * @param {点击事件} event 
+ */
     startCallback(event) {
         // console.log(touchLoc.x + "," + touchLoc.y)
         let touches = event.getTouches();
