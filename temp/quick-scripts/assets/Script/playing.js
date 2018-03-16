@@ -60,10 +60,27 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function onLoad() {
-
+        this.socketAction();
         this.loadRes();
     },
 
+    /**
+     * socket处理
+     */
+    socketAction: function socketAction() {
+        var socket = io.connect('192.168.0.56:3000');
+        this.socket = socket;
+        var self = this;
+        socket.on('hello', function (msg) {
+            console.log(msg);
+        });
+        //获取所有Poker
+        socket.on('loadCards', function (cards) {
+            self.loadAllPoker(cards);
+            self.refreshCount();
+            self.showCards(PlayerType.player);
+        });
+    },
 
     //加载卡片资源
     loadRes: function loadRes() {
@@ -88,14 +105,14 @@ cc.Class({
         this.leftbuchu.enabled = false;
         this.rightbuchu.enabled = false;
         this.playerAction.active = false;
-
-        this.loadAllPoker();
-
-        // let pokerSprite = cc.instantiate(this.poker);
-        // var pokerTypes = pokerSprite.getComponent('pokerTypes');
-        // pokerTypes.getCarAnalyseInfo(this.playerPokers);
-        this.refreshCount();
-        this.showCards(PlayerType.player);
+        //请求服务器生成Poker
+        this.socket.emit('getAllCards', "");
+        // this.loadAllPoker();
+        // // let pokerSprite = cc.instantiate(this.poker);
+        // // var pokerTypes = pokerSprite.getComponent('pokerTypes');
+        // // pokerTypes.getCarAnalyseInfo(this.playerPokers);
+        // this.refreshCount();
+        // this.showCards(PlayerType.player);
     },
 
     //洗牌算法
@@ -169,12 +186,12 @@ cc.Class({
             showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
         }
     },
-    loadAllPoker: function loadAllPoker() {
-        for (var i = 0; i < 54; i++) {
+    loadAllPoker: function loadAllPoker(originCards) {
+        for (var i = 0; i < originCards.length; i++) {
 
             var pokerSprite = cc.instantiate(this.poker);
             var Poker = pokerSprite.getComponent('Poker');
-            var pokerName = Poker.creatCard(i + 1)._imageName;
+            var pokerName = Poker.creatCard(originCards[i])._imageName;
             // console.log("名称" + pokerName);
             pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
 

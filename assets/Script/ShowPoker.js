@@ -1,4 +1,4 @@
-
+const POSITION_UP = 1;
 const POSITION_DOWN = 2;
 cc.Class({
     extends: cc.Component,

@@ -14,7 +14,7 @@ var PlayerType = cc.Enum({
     right: -1,
     player: -1,
     dipai: -1,
-    shoupai:-1
+    shoupai: -1
 })
 cc.Class({
     extends: cc.Component,
@@ -35,29 +35,46 @@ cc.Class({
         },
 
         //控制的东西
-        maskBackground:cc.Node,//开始前的遮罩
+        maskBackground: cc.Node, //开始前的遮罩
         startBtn: cc.Button, //开始按钮
         leftCount: cc.Label, //左边数量
-        leftbuchu:cc.Label,//左边不出
-        leftShowPoker:cc.Node,//左边展示Poker
+        leftbuchu: cc.Label, //左边不出
+        leftShowPoker: cc.Node, //左边展示Poker
         rightCount: cc.Label, //右边数量
-        rightShowPoker:cc.Node,//右边展示Poker
-        rightbuchu:cc.Label,//右边不出
+        rightShowPoker: cc.Node, //右边展示Poker
+        rightbuchu: cc.Label, //右边不出
 
-        playerHandCards:cc.Node,//玩家手牌
-        playerOutCards:cc.Node,//玩家出牌
-        playerAction:cc.Node,//玩家按钮
+        playerHandCards: cc.Node, //玩家手牌
+        playerOutCards: cc.Node, //玩家出牌
+        playerAction: cc.Node, //玩家按钮
 
-        dipaiShowPoker:cc.Node,//右边展示Poker
+        dipaiShowPoker: cc.Node, //右边展示Poker
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-
+        this.socketAction();
         this.loadRes();
     },
+    /**
+     * socket处理
+     */
+    socketAction() {
+        let socket = io.connect('192.168.0.56:3000');
+        this.socket = socket;
+        let self = this;
+        socket.on('hello', function (msg) {
+            console.log(msg);
+        });
+        //获取所有Poker
+        socket.on('loadCards', function (cards) {
+            self.loadAllPoker(cards);
+            self.refreshCount();
+            self.showCards(PlayerType.player);
+        });
 
+    },
     //加载卡片资源
     loadRes() {
 
@@ -81,15 +98,15 @@ cc.Class({
         this.leftbuchu.enabled = false;
         this.rightbuchu.enabled = false
         this.playerAction.active = false;
+        //请求服务器生成Poker
+        this.socket.emit('getAllCards', "");
+        // this.loadAllPoker();
+        // // let pokerSprite = cc.instantiate(this.poker);
+        // // var pokerTypes = pokerSprite.getComponent('pokerTypes');
+        // // pokerTypes.getCarAnalyseInfo(this.playerPokers);
+        // this.refreshCount();
+        // this.showCards(PlayerType.player);
 
-        this.loadAllPoker();
-
-        // let pokerSprite = cc.instantiate(this.poker);
-        // var pokerTypes = pokerSprite.getComponent('pokerTypes');
-        // pokerTypes.getCarAnalyseInfo(this.playerPokers);
-        this.refreshCount();
-        this.showCards(PlayerType.player);
-        
     },
     //洗牌算法
     shuffleArray(array) {
@@ -144,31 +161,31 @@ cc.Class({
         // this.showPokers(this.dipaiPokers, PlayerType.dipai);
 
     },
-    showCards(type){
+    showCards(type) {
         if (type == PlayerType.left) {
             var showPoker = this.leftShowPoker.getComponent('ShowPoker');
             showPoker.showPokers(this.leftPokers, PlayerType.left);
         } else if (type == PlayerType.right) {
             var showPoker = this.rightShowPoker.getComponent('ShowPoker');
             showPoker.showPokers(this.rightPokers, PlayerType.right);
-        }  else if (type == PlayerType.player) {
+        } else if (type == PlayerType.player) {
             var showPoker = this.playerHandCards.getComponent('ShowPoker');
             showPoker.showPokers(this.playerPokers, PlayerType.player);
-        }  else if (type == PlayerType.shoupai) {
+        } else if (type == PlayerType.shoupai) {
             var showPoker = this.playerOutCards.getComponent('ShowPoker');
-        showPoker.showPokers(cards, PlayerType.shoupai);
-        } else{
+            showPoker.showPokers(cards, PlayerType.shoupai);
+        } else {
             var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
             showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
         }
     },
-    
-    loadAllPoker() {
-        for (let i = 0; i < 54; i++) {
+
+    loadAllPoker(originCards) {
+        for (let i = 0; i < originCards.length; i++) {
 
             let pokerSprite = cc.instantiate(this.poker);
             var Poker = pokerSprite.getComponent('Poker');
-            var pokerName = Poker.creatCard(i + 1)._imageName;
+            var pokerName = Poker.creatCard(originCards[i])._imageName;
             // console.log("名称" + pokerName);
             pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
 
@@ -237,9 +254,9 @@ cc.Class({
         return cards;
     },
     //刷新显示数量
-    refreshCount(){
-      this.leftCount.string = ""+ this.leftPokers.length;  
-      this.rightCount.string = ""+ this.rightPokers.length;
+    refreshCount() {
+        this.leftCount.string = "" + this.leftPokers.length;
+        this.rightCount.string = "" + this.rightPokers.length;
     },
 
     start() {
