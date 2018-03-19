@@ -61,14 +61,12 @@ cc.Class({
      * socket处理
      */
     socketAction() {
-        let socket = io.connect('192.168.0.56:3000');
-        this.socket = socket;
         let self = this;
-        socket.on('hello', function (msg) {
+        Network.socket.on('hello', function (msg) {
             console.log(msg);
         });
         //获取所有Poker
-        socket.on('loadCards', function (cards) {
+        Network.socket.on('loadCards', function (cards) {
             self.loadAllPoker(cards);
             self.refreshCount();
             self.showCards(PlayerType.player);
@@ -99,7 +97,7 @@ cc.Class({
         this.rightbuchu.enabled = false
         this.playerAction.active = false;
         //请求服务器生成Poker
-        this.socket.emit('getAllCards', "");
+        Network.socket.emit('getAllCards', "");
         // this.loadAllPoker();
         // // let pokerSprite = cc.instantiate(this.poker);
         // // var pokerTypes = pokerSprite.getComponent('pokerTypes');

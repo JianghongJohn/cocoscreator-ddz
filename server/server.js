@@ -5,6 +5,10 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var allPokers = [];
 
+let roomList = [];//所有房间号
+let playerRoomMap = {};//人对应的房间
+
+
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
@@ -24,8 +28,27 @@ io.on('connection', function(socket){
         console.log("传递前"+allPokers);
         socket.emit('loadCards', allPokers)
       });
-
-
+      //创建房间号
+      socket.on('creatRoom', function(roomNumber,userName){
+        var flag = true;
+        //检查所有房间
+        for (const room of roomList) {
+            if (room == roomNumber) {
+                flag = false;
+            }
+        }
+        if (flag) {
+            roomList.push(roomNumber);
+            var players = [userName];
+            playerRoomMap.set(players,number);
+        }
+        console.log("创建房间"+ playerRoomMap);
+        socket.emit('creatRoomReturn', flag);
+      });
+      //加入房间号
+      socket.on('disconnect', function(){
+        console.log('user disconnected');
+      });
   });
   
   //加载所有卡片
