@@ -2,11 +2,11 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var allPokers = [];
+var allPokers = {};
 
 let roomList = []; //所有房间号
 let playerRoomMap = {}; //人对应的房间
-
+let playerReadyRoomMap = {}; //房间的准备状态
 
 http.listen(3000, function () {
     console.log('listening on *:3000');
@@ -20,13 +20,13 @@ io.on('connection', function (socket) {
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
-
-    socket.on('getAllCards', function () {
-        console.log('getAllCards');
-        loadAllPoker();
-        console.log("传递前" + allPokers);
-        socket.emit('loadCards', allPokers)
-    });
+    //获取牌
+    // socket.on('getAllCards', function () {
+    //     console.log('getAllCards');
+    //     loadAllPoker();
+    //     console.log("传递前" + allPokers);
+    //     socket.emit('startGame', allPokers)
+    // });
     //创建房间号
     socket.on('creatRoom', function (roomNumber, userName) {
         var flag = true;
@@ -59,15 +59,43 @@ io.on('connection', function (socket) {
             }
         }
         socket.emit('joinRoomBack', flag);
+        if (flag) {
+            socket.broadcast.emit("getRoomDataBack"+roomNumber,playerRoomMap[roomNumber]);
+        }
     });
     //获取房间信息
        
     socket.on("getRoomData",function(data){
 
-        socket.emit("getRoomDataBack",playerRoomMap[data]);
-    
+        socket.emit("getRoomDataBack"+data,playerRoomMap[data]);
+        
     })
 
+    //准备
+        socket.on('readyGame', function (roomNum,roomIndex) {
+            console.log("readyGame" + roomNum);
+
+            socket.broadcast.emit('readyGame'+roomNum,roomIndex);  
+
+            var readys =  playerReadyRoomMap[roomNum];
+            if (readys != undefined) {
+                readys[roomIndex] = 1;
+            }else{
+                readys = [0,0,0];
+                readys[roomIndex] = 1;
+            }
+            playerReadyRoomMap[roomNum] = readys;
+            console.log(readys);
+            //检查准备状态
+            if (readys[0]==1&&readys[1]==1&&readys[2]==1) {
+                //都准备好了
+            var cards =  loadAllPoker();
+            allPokers[roomNum] =  cards;
+            console.log("传递前" + allPokers[roomNum]);
+            socket.emit('startGame'+roomNum, cards)
+            socket.broadcast.emit('startGame'+roomNum, cards)
+            }
+        });
 
 
 
@@ -76,12 +104,12 @@ io.on('connection', function (socket) {
 
 //加载所有卡片
 function loadAllPoker() {
-    allPokers = [];
+    var pokers = [];
     for (let i = 0; i < 54; i++) {
-        allPokers.push(i + 1);
+        pokers.push(i + 1);
     }
-    allPokers = shuffleArray(allPokers);
-
+    pokers = shuffleArray(pokers);
+    return pokers;
 };
 //洗牌算法
 function shuffleArray(array) {

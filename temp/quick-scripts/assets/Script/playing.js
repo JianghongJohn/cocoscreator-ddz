@@ -2,7 +2,7 @@
 cc._RF.push(module, '81d5fvpJ95HC5u91j0plkhh', 'playing', __filename);
 // Script/playing.js
 
-'use strict';
+"use strict";
 
 // Learn cc.Class:
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html
@@ -39,7 +39,9 @@ cc.Class({
             default: {},
             visible: false
         },
-
+        leftReady: cc.Label, //左边准备
+        rightReady: cc.Label, //右边准备
+        playerReady: cc.Label, //玩家准备
         //控制的东西
         maskBackground: cc.Node, //开始前的遮罩
         startBtn: cc.Button, //开始按钮
@@ -53,6 +55,7 @@ cc.Class({
         playerHandCards: cc.Node, //玩家手牌
         playerOutCards: cc.Node, //玩家出牌
         playerAction: cc.Node, //玩家按钮
+        playerDizhuAction: cc.Node, //玩家按钮
 
         dipaiShowPoker: cc.Node //右边展示Poker
     },
@@ -60,8 +63,10 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function onLoad() {
+
         this.socketAction();
         this.loadRes();
+        this.setIndex();
     },
 
     /**
@@ -73,14 +78,18 @@ cc.Class({
             Network.initNetwork();
         }
         var self = this;
-        Network.socket.on('hello', function (msg) {
-            console.log(msg);
-        });
-        //获取所有Poker
-        Network.socket.on('loadCards', function (cards) {
-            self.loadAllPoker(cards);
-            self.refreshCount();
-            self.showCards(PlayerType.player);
+        // Network.socket.on('hello', function (msg) {
+        //     console.log(msg);
+        // });
+        console.log(Global.roomNum);
+        //准备开始
+
+        Network.socket.on("readyGame" + Global.roomNum, function (roomIndex) {
+            if (roomIndex == self.leftIndex) {
+                self.leftReady.string = "准备";
+            } else if (roomIndex == self.rightIndex) {
+                self.rightReady.string = "准备";
+            } else {}
         });
     },
 
@@ -102,19 +111,26 @@ cc.Class({
 
     //测试获取Poker
     startPoker: function startPoker() {
-        //隐藏控件
-        this.maskBackground.active = false;
-        this.leftbuchu.enabled = false;
-        this.rightbuchu.enabled = false;
-        this.playerAction.active = false;
-        //请求服务器生成Poker
-        Network.socket.emit('getAllCards', "");
-        // this.loadAllPoker();
-        // // let pokerSprite = cc.instantiate(this.poker);
-        // // var pokerTypes = pokerSprite.getComponent('pokerTypes');
-        // // pokerTypes.getCarAnalyseInfo(this.playerPokers);
-        // this.refreshCount();
-        // this.showCards(PlayerType.player);
+        this.playerReady.string = "已准备";
+        Network.socket.emit('readyGame', Global.roomNum, Global.roomIndex);
+        var self = this;
+        //获取所有Poker
+        Network.socket.on('startGame' + Global.roomNum, function (cards) {
+            //隐藏控件
+            self.maskBackground.active = false;
+
+            self.leftbuchu.string = "";
+
+            self.rightbuchu.string = "";
+
+            self.playerAction.active = false;
+
+            self.playerDizhuAction.active = false;
+
+            self.loadAllPoker(cards);
+            self.refreshCount();
+            self.showCards(PlayerType.player);
+        });
     },
 
     //洗牌算法
@@ -132,8 +148,9 @@ cc.Class({
 
     //生成上家
     startUp: function startUp() {
+
         for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + 16 + 3];
+            var pokerSprite = this.allPokers[i + this.leftIndex * 16];
             this.leftPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.leftPokers);
@@ -142,8 +159,9 @@ cc.Class({
 
     //生成下家
     startDown: function startDown() {
+
         for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + 32 + 3];
+            var pokerSprite = this.allPokers[i + this.rightIndex * 16 + 3];
             this.rightPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.rightPokers);
@@ -153,7 +171,7 @@ cc.Class({
     //生成当前玩家
     startPlayer: function startPlayer() {
         for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + 3];
+            var pokerSprite = this.allPokers[i + Global.roomIndex * 16 + 3];
             this.playerPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.playerPokers);
@@ -265,6 +283,20 @@ cc.Class({
     refreshCount: function refreshCount() {
         this.leftCount.string = "" + this.leftPokers.length;
         this.rightCount.string = "" + this.rightPokers.length;
+    },
+
+    //设置Index
+    setIndex: function setIndex() {
+        if (Global.roomIndex == 0) {
+            this.leftIndex = 2;
+            this.rightIndex = 1;
+        } else if (Global.roomIndex == 1) {
+            this.leftIndex = 0;
+            this.rightIndex = 2;
+        } else {
+            this.leftIndex = 1;
+            this.rightIndex = 0;
+        }
     },
     start: function start() {}
 }
