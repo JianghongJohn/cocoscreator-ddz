@@ -23,10 +23,17 @@ cc.Class({
         } else if (name == '') {
             alert('请输入昵称');
         } else {
-            Global.playerName = playerName;
-            Global.roomNum = number;
-            // 跳转房间等候场景
-            cc.director.loadScene('RoomWait');
+            Network.socket.emit('creatRoom', number, name);
+            Network.socket.on('creatRoomReturn', function (flag) {
+                if (flag) {
+                    Global.playerName = name;
+                    Global.roomNum = number;
+                    // 跳转房间等候场景
+                    cc.director.loadScene('WaitingRoom');
+                } else {
+                    alert('房间已存在您可以加入游戏');
+                }
+            });
         }
     },
 
@@ -41,10 +48,18 @@ cc.Class({
         } else if (name == '') {
             alert('请输入昵称');
         } else {
-            Global.playerName = playerName;
-            Global.roomNum = number;
-            // 跳转房间等候场景
-            cc.director.loadScene('RoomWait');
+            //加入房间号
+            Network.socket.on('joinRoomBack', function (flag) {
+                if (flag) {
+                    Global.playerName = name;
+                    Global.roomNum = number;
+                    // 跳转房间等候场景
+                    cc.director.loadScene('WaitingRoom');
+                } else {
+                    alert('房间无法加入');
+                }
+            });
+            Network.socket.emit('joinRoom', number, name);
         }
     },
     onLoad: function onLoad() {

@@ -6,10 +6,12 @@ cc._RF.push(module, 'c86c3HOM2NJ9q9FHrWeZOmk', 'NetWork', __filename);
 
 var instance = null;
 var Network = cc.Class({
-    properties: {},
+    properties: {
+        socket: null
+    },
     initNetwork: function initNetwork() {
-        var socket = io.connect('192.168.0.56:3000');
-        this.socket = socket;
+        var socketIo = io.connect('192.168.0.56:3000');
+        this.socket = socketIo;
     }
 });
 

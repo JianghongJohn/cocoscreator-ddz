@@ -68,6 +68,10 @@ cc.Class({
      * socket处理
      */
     socketAction: function socketAction() {
+        if (Network.socket == null) {
+            //启动网络
+            Network.initNetwork();
+        }
         var self = this;
         Network.socket.on('hello', function (msg) {
             console.log(msg);

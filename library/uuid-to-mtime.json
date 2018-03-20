@@ -40,12 +40,12 @@
     "relativePath": "prefab"
   },
   "29f52784-2fca-467b-92e7-8fd9ef8c57b7": {
-    "asset": 1519962887162,
+    "asset": 1521459822002,
     "meta": 1519962818608,
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1521007821966,
+    "asset": 1521460819380,
     "meta": 1519962818608,
     "relativePath": "Script"
   },
@@ -115,8 +115,8 @@
     "relativePath": "Script/ShowPoker.js"
   },
   "55965322-7a1c-44ce-a8a3-ab6a8fdf4a27": {
-    "asset": 1521457770041,
-    "meta": 1521459736301,
+    "asset": 1521518885308,
+    "meta": 1521518885321,
     "relativePath": "Scene/StartRoom.fire"
   },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
@@ -305,23 +305,28 @@
     "relativePath": "prefab/videoplayer.prefab"
   },
   "f8bbf744-8ddc-472b-9b5c-f82c1a974e92": {
-    "asset": 1521459744251,
-    "meta": 1521459762669,
+    "asset": 1521518898876,
+    "meta": 1521518898883,
     "relativePath": "Scene/WaitingRoom.fire"
   },
   "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1521461229385,
-    "meta": 1521461231908,
+    "asset": 1521513622844,
+    "meta": 1521513624081,
     "relativePath": "Script/playing.js"
   },
+  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
+    "asset": 1521513679356,
+    "meta": 1521513695369,
+    "relativePath": "Script/NetWork.js"
+  },
   "1faecdc0-371b-4655-b3c4-1529224c3649": {
-    "asset": 1521461179728,
-    "meta": 1521461231937,
+    "asset": 1521518325123,
+    "meta": 1521518326609,
     "relativePath": "Script/StartRoom.js"
   },
-  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
-    "asset": 1521461270843,
-    "meta": 1521461271929,
-    "relativePath": "Script/NetWork.js"
+  "a9a2df54-0b11-47b8-bc88-1bfb92062c10": {
+    "asset": 1521518862093,
+    "meta": 1521518884208,
+    "relativePath": "Script/WaitingRoom.js"
   }
 }
