@@ -45,7 +45,7 @@
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1521460819380,
+    "asset": 1521514763602,
     "meta": 1519962818608,
     "relativePath": "Script"
   },
@@ -80,8 +80,8 @@
     "relativePath": "resources/poker.png"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1521536308395,
-    "meta": 1521536308403,
+    "asset": 1521536411681,
+    "meta": 1521536411701,
     "relativePath": "Scene/game.fire"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
@@ -310,23 +310,23 @@
     "relativePath": "Scene/WaitingRoom.fire"
   },
   "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
-    "asset": 1521513679356,
-    "meta": 1521513695369,
+    "asset": 1521602523361,
+    "meta": 1521602533967,
     "relativePath": "Script/NetWork.js"
   },
   "1faecdc0-371b-4655-b3c4-1529224c3649": {
-    "asset": 1521518325123,
-    "meta": 1521518326609,
+    "asset": 1521612691192,
+    "meta": 1521612812234,
     "relativePath": "Script/StartRoom.js"
   },
   "a9a2df54-0b11-47b8-bc88-1bfb92062c10": {
-    "asset": 1521529545947,
-    "meta": 1521529558980,
+    "asset": 1521613463306,
+    "meta": 1521613466219,
     "relativePath": "Script/WaitingRoom.js"
   },
   "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1521536300430,
-    "meta": 1521536303588,
+    "asset": 1521624273924,
+    "meta": 1521624275421,
     "relativePath": "Script/playing.js"
   }
 }

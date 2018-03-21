@@ -49,6 +49,7 @@ cc.Class({
                 if (flag) {
                     Global.playerName = name;
                     Global.roomNum = number;
+                    Global.roomWaitType = "join"
                     // 跳转房间等候场景
                     cc.director.loadScene('WaitingRoom');
                 }else{

@@ -127,9 +127,16 @@ cc.Class({
 
             self.playerDizhuAction.active = false;
 
-            self.loadAllPoker(cards);
-            self.refreshCount();
-            self.showCards(PlayerType.player);
+            Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
+            Network.socket.emit('getCards', Global.roomNum, 3);
+            Network.socket.on('getCardsBack' + Global.roomNum, function (cards) {
+                console.log(cards);
+                self.startPlayer(cards);
+            });
+            Network.socket.on('getDipaiCardsBack' + Global.roomNum, function (cards) {
+                console.log(cards);
+                self.startDipai(cards);
+            });
         });
     },
 
@@ -146,46 +153,27 @@ cc.Class({
         return array;
     },
 
-    //生成上家
-    startUp: function startUp() {
-
-        for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + this.leftIndex * 16];
-            this.leftPokers[i] = pokerSprite;
-        }
-        this.bubbleSortCards(this.leftPokers);
-        // this.showPokers(this.leftPokers, PlayerType.left);
-    },
-
-    //生成下家
-    startDown: function startDown() {
-
-        for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + this.rightIndex * 16 + 3];
-            this.rightPokers[i] = pokerSprite;
-        }
-        this.bubbleSortCards(this.rightPokers);
-        // this.showPokers(this.rightPokers, PlayerType.right);
-    },
-
     //生成当前玩家
-    startPlayer: function startPlayer() {
-        for (var i = 0; i < 16; i++) {
-            var pokerSprite = this.allPokers[i + Global.roomIndex * 16 + 3];
+    startPlayer: function startPlayer(cards) {
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
             this.playerPokers[i] = pokerSprite;
         }
         this.bubbleSortCards(this.playerPokers);
-        // this.showPokers(this.playerPokers, PlayerType.player);
-
+        this.showCards(PlayerType.player);
+        //刷新数量
+        this.refreshCount();
     },
 
     //生成三张底牌
-    startDipai: function startDipai() {
-        for (var i = 0; i < 3; i++) {
-            var pokerSprite = this.allPokers[i];
+    startDipai: function startDipai(cards) {
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
             this.dipaiPokers[i] = pokerSprite;
         }
-        this.bubbleSortCards(this.dipaiPokers);
+        this.showCards(PlayerType.dipai);
         // this.showPokers(this.dipaiPokers, PlayerType.dipai);
     },
     showCards: function showCards(type) {
@@ -207,6 +195,7 @@ cc.Class({
         }
     },
     loadAllPoker: function loadAllPoker(originCards) {
+        var pokers = [];
         for (var i = 0; i < originCards.length; i++) {
 
             var pokerSprite = cc.instantiate(this.poker);
@@ -215,15 +204,9 @@ cc.Class({
             // console.log("名称" + pokerName);
             pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
 
-            this.allPokers[i] = pokerSprite;
+            pokers.push(pokerSprite);
         }
-        //洗牌
-        this.allPokers = this.shuffleArray(this.allPokers);
-        //发牌
-        this.startDipai();
-        this.startUp();
-        this.startPlayer();
-        this.startDown();
+        return pokers;
     },
 
     /** 
@@ -281,8 +264,13 @@ cc.Class({
 
     //刷新显示数量
     refreshCount: function refreshCount() {
-        this.leftCount.string = "" + this.leftPokers.length;
-        this.rightCount.string = "" + this.rightPokers.length;
+        var self = this;
+        Network.socket.emit('refreshCardsCount', Global.roomNum);
+        Network.socket.on('refreshCardsCountBack' + Global.roomNum, function (datas) {
+            console.log(datas);
+            self.leftCount.string = "" + datas[self.leftIndex];
+            self.rightCount.string = "" + datas[self.rightIndex];
+        });
     },
 
     //设置Index
