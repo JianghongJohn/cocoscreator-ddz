@@ -51,7 +51,20 @@ let Network = cc.Class({
                 callback(data || null);
             });
         }
-    }
+    },
+    //字符串转json
+    parseJson(s) {
+	try {
+		return JSON.parse(s);
+	} catch (e) { }
+},
+
+//json转字符串
+    stringifyJson(j) {
+	try {
+		return JSON.stringify(j);
+	} catch (e) { }
+},
 });
 
 window.Network = instance ? instance : new Network();

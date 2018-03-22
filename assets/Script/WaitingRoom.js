@@ -31,12 +31,12 @@ cc.Class({
             Network.socket.emit("getRoomData",Global.roomNum);
         }
         
-        Network.socket.on("getRoomDataBack"+Global.roomNum,function(data){
+        Network.socket.on("getRoomDataBack" ,function(data){
             console.log(data);
             var playerIndex = 0;
             for (let index = 0; index < data.length; index++) {
                 const player = data[index];
-                if (player.name == Global.playerName) {
+                if (player == Global.playerName) {
                     playerIndex = index;
                     Global.roomIndex = playerIndex;
                 }
@@ -44,21 +44,21 @@ cc.Class({
             if(data.length==2){
                 if (playerIndex == 0) {
                     self.leftName.string = "等待加入";
-                    self.rightName.string = data[1].name?data[1].name:"等待加入";
+                    self.rightName.string = data[1]?data[1]:"等待加入";
                 } else if(playerIndex == 1) {
-                    self.leftName.string = data[0].name?data[0].name:"等待加入";
+                    self.leftName.string = data[0]?data[0]:"等待加入";
                     self.rightName.string = "等待加入";
                 }
             }else{
                 if (playerIndex == 0) {
-                    self.leftName.string = data[2].name?data[2].name:"等待加入";
-                    self.rightName.string = data[1].name?data[1].name:"等待加入";
+                    self.leftName.string = data[2]?data[2]:"等待加入";
+                    self.rightName.string = data[1]?data[1]:"等待加入";
                 } else if(playerIndex == 1) {
-                    self.leftName.string = data[0].name?data[0].name:"等待加入";
-                    self.rightName.string = data[2].name?data[2].name:"等待加入";
+                    self.leftName.string = data[0]?data[0]:"等待加入";
+                    self.rightName.string = data[2]?data[2]:"等待加入";
                 }else{
-                    self.leftName.string = data[1].name?data[1].name:"等待加入";
-                    self.rightName.string = data[0].name?data[0].name:"等待加入";
+                    self.leftName.string = data[1]?data[1]:"等待加入";
+                    self.rightName.string = data[0]?data[0]:"等待加入";
                 }
             }
             

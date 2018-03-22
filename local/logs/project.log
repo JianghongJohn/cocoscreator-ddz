@@ -1,56 +1,55 @@
-2018-03-21T02:39:11.748Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-21T02:39:11.753Z - normal: checking language setting...
-2018-03-21T02:39:11.753Z - normal: Language: zh
-2018-03-21T02:39:12.662Z - success: protocol editor-framework registered
-2018-03-21T02:39:12.663Z - success: protocol app registered
-2018-03-21T02:39:12.663Z - success: protocol theme registered
-2018-03-21T02:39:12.663Z - success: protocol packages registered
-2018-03-21T02:39:12.663Z - success: protocol unpack registerred
-2018-03-21T02:39:12.663Z - success: protocol disable-commonjs registerred
-2018-03-21T02:39:12.894Z - normal: connected!
-2018-03-21T02:39:12.897Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-21T02:39:12.899Z - normal: Initializing Cocos2d
-2018-03-21T02:39:13.129Z - normal: Initializing Asset Database
-2018-03-21T02:39:13.163Z - success: protocol uuid registerred
-2018-03-21T02:39:13.163Z - success: protocol db registerred
-2018-03-21T02:39:13.163Z - success: protocol thumbnail registerred
-2018-03-21T02:39:13.163Z - normal: Loading editor/builtin packages
-2018-03-21T02:39:13.187Z - success: anysdk loaded
-2018-03-21T02:39:13.310Z - success: assets loaded
-2018-03-21T02:39:13.314Z - success: builder loaded
-2018-03-21T02:39:13.317Z - success: cocos-analytics loaded
-2018-03-21T02:39:13.322Z - success: console loaded
-2018-03-21T02:39:13.327Z - success: hierarchy loaded
-2018-03-21T02:39:13.332Z - success: inspector loaded
-2018-03-21T02:39:13.334Z - success: keystore loaded
-2018-03-21T02:39:13.339Z - success: node-library loaded
-2018-03-21T02:39:13.341Z - success: package-asset loaded
-2018-03-21T02:39:13.344Z - success: preferences loaded
-2018-03-21T02:39:13.347Z - success: project-exporter loaded
-2018-03-21T02:39:13.366Z - success: project-importer loaded
-2018-03-21T02:39:13.369Z - success: project-settings loaded
-2018-03-21T02:39:13.373Z - success: ui-kit loaded
-2018-03-21T02:39:13.378Z - success: ui-grid loaded
-2018-03-21T02:39:13.383Z - success: scene loaded
-2018-03-21T02:39:13.385Z - success: sprite-editor loaded
-2018-03-21T02:39:13.390Z - success: store loaded
-2018-03-21T02:39:13.396Z - success: timeline loaded
-2018-03-21T02:39:13.396Z - normal: Loading builtin packages
-2018-03-21T02:39:13.401Z - success: asset-db-debugger loaded
-2018-03-21T02:39:13.402Z - success: color-picker loaded
-2018-03-21T02:39:13.406Z - success: package-manager loaded
-2018-03-21T02:39:13.419Z - success: sdkbox loaded
-2018-03-21T02:39:13.423Z - success: tester loaded
-2018-03-21T02:39:13.432Z - success: ui-kit-preview-extra loaded
-2018-03-21T02:39:13.435Z - success: ui-kit-preview loaded
-2018-03-21T02:39:13.440Z - success: ui-tree loaded
-2018-03-21T02:39:14.561Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-21T02:39:14.563Z - normal: Loading packages
-2018-03-21T02:39:14.576Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-21T02:39:14.578Z - normal: [LuaCPP Support] version 0.3
-2018-03-21T02:39:14.579Z - success: creator-luacpp-support loaded
-2018-03-21T02:39:14.579Z - normal: Watching packages
-2018-03-21T02:39:14.638Z - normal: Run Application
-2018-03-21T02:39:15.231Z - success: preview server running at http://localhost:7456
-2018-03-21T02:39:21.487Z - normal: 1.8.1
-2018-03-21T09:01:38.698Z - success: Chrome debug setting has been updated to .vscode/launch.json, please install Debugger for Chrome VS Code extension to debug your project.
+2018-03-22T02:16:14.355Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-22T02:16:14.360Z - normal: checking language setting...
+2018-03-22T02:16:14.360Z - normal: Language: zh
+2018-03-22T02:16:15.232Z - success: protocol editor-framework registered
+2018-03-22T02:16:15.232Z - success: protocol app registered
+2018-03-22T02:16:15.232Z - success: protocol theme registered
+2018-03-22T02:16:15.232Z - success: protocol packages registered
+2018-03-22T02:16:15.233Z - success: protocol unpack registerred
+2018-03-22T02:16:15.233Z - success: protocol disable-commonjs registerred
+2018-03-22T02:16:15.469Z - normal: connected!
+2018-03-22T02:16:15.470Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-22T02:16:15.471Z - normal: Initializing Cocos2d
+2018-03-22T02:16:15.702Z - normal: Initializing Asset Database
+2018-03-22T02:16:15.735Z - success: protocol uuid registerred
+2018-03-22T02:16:15.735Z - success: protocol db registerred
+2018-03-22T02:16:15.735Z - success: protocol thumbnail registerred
+2018-03-22T02:16:15.735Z - normal: Loading editor/builtin packages
+2018-03-22T02:16:15.759Z - success: anysdk loaded
+2018-03-22T02:16:15.882Z - success: assets loaded
+2018-03-22T02:16:15.887Z - success: builder loaded
+2018-03-22T02:16:15.889Z - success: cocos-analytics loaded
+2018-03-22T02:16:15.894Z - success: console loaded
+2018-03-22T02:16:15.899Z - success: hierarchy loaded
+2018-03-22T02:16:15.905Z - success: inspector loaded
+2018-03-22T02:16:15.907Z - success: keystore loaded
+2018-03-22T02:16:15.912Z - success: node-library loaded
+2018-03-22T02:16:15.914Z - success: package-asset loaded
+2018-03-22T02:16:15.916Z - success: preferences loaded
+2018-03-22T02:16:15.920Z - success: project-exporter loaded
+2018-03-22T02:16:15.937Z - success: project-importer loaded
+2018-03-22T02:16:15.941Z - success: project-settings loaded
+2018-03-22T02:16:15.945Z - success: ui-kit loaded
+2018-03-22T02:16:15.950Z - success: ui-grid loaded
+2018-03-22T02:16:15.955Z - success: scene loaded
+2018-03-22T02:16:15.957Z - success: sprite-editor loaded
+2018-03-22T02:16:15.962Z - success: store loaded
+2018-03-22T02:16:15.975Z - success: timeline loaded
+2018-03-22T02:16:15.975Z - normal: Loading builtin packages
+2018-03-22T02:16:15.979Z - success: asset-db-debugger loaded
+2018-03-22T02:16:15.981Z - success: color-picker loaded
+2018-03-22T02:16:15.985Z - success: package-manager loaded
+2018-03-22T02:16:15.990Z - success: sdkbox loaded
+2018-03-22T02:16:15.994Z - success: tester loaded
+2018-03-22T02:16:16.004Z - success: ui-kit-preview-extra loaded
+2018-03-22T02:16:16.007Z - success: ui-kit-preview loaded
+2018-03-22T02:16:16.012Z - success: ui-tree loaded
+2018-03-22T02:16:17.067Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-03-22T02:16:17.070Z - normal: Loading packages
+2018-03-22T02:16:17.083Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-22T02:16:17.085Z - normal: [LuaCPP Support] version 0.3
+2018-03-22T02:16:17.086Z - success: creator-luacpp-support loaded
+2018-03-22T02:16:17.086Z - normal: Watching packages
+2018-03-22T02:16:17.150Z - normal: Run Application
+2018-03-22T02:16:17.744Z - success: preview server running at http://localhost:7456
+2018-03-22T02:16:23.122Z - normal: 1.8.1

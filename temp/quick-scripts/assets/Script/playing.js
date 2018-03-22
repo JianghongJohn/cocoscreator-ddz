@@ -111,7 +111,12 @@ cc.Class({
 
     //测试获取Poker
     startPoker: function startPoker() {
-        this.playerReady.string = "已准备";
+        if (this.playerReady.string == "已准备") {
+            this.playerReady.string = "请准备";
+        } else {
+            this.playerReady.string = "已准备";
+        }
+
         Network.socket.emit('readyGame', Global.roomNum, Global.roomIndex);
         var self = this;
         //获取所有Poker

@@ -80,19 +80,14 @@
     "relativePath": "resources/poker.png"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1521536411681,
-    "meta": 1521536411701,
+    "asset": 1521703663336,
+    "meta": 1521703663386,
     "relativePath": "Scene/game.fire"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
     "asset": 1520823856911,
     "meta": 1520823856922,
     "relativePath": "resources/OnePoker.prefab"
-  },
-  "ca151cd9-a482-40fa-af4b-7892f0df559f": {
-    "asset": 1520839800448,
-    "meta": 1520839802321,
-    "relativePath": "Script/pokerTypes.js"
   },
   "74e2f267-8637-493b-8bc1-1a285159ebb5": {
     "asset": 1520921685087,
@@ -309,24 +304,29 @@
     "meta": 1521528264631,
     "relativePath": "Scene/WaitingRoom.fire"
   },
-  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
-    "asset": 1521602523361,
-    "meta": 1521602533967,
-    "relativePath": "Script/NetWork.js"
-  },
   "1faecdc0-371b-4655-b3c4-1529224c3649": {
     "asset": 1521612691192,
     "meta": 1521612812234,
     "relativePath": "Script/StartRoom.js"
   },
+  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
+    "asset": 1521700970312,
+    "meta": 1521701006698,
+    "relativePath": "Script/NetWork.js"
+  },
   "a9a2df54-0b11-47b8-bc88-1bfb92062c10": {
-    "asset": 1521613463306,
-    "meta": 1521613466219,
+    "asset": 1521703308159,
+    "meta": 1521703310642,
     "relativePath": "Script/WaitingRoom.js"
   },
   "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1521624273924,
-    "meta": 1521624275421,
+    "asset": 1521703749204,
+    "meta": 1521703760051,
     "relativePath": "Script/playing.js"
+  },
+  "ca151cd9-a482-40fa-af4b-7892f0df559f": {
+    "asset": 1521704077863,
+    "meta": 1521704893679,
+    "relativePath": "Script/pokerTypes.js"
   }
 }

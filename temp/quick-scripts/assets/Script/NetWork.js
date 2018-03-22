@@ -58,6 +58,20 @@ var Network = cc.Class({
                 callback(data || null);
             });
         }
+    },
+    //字符串转json
+    parseJson: function parseJson(s) {
+        try {
+            return JSON.parse(s);
+        } catch (e) {}
+    },
+
+
+    //json转字符串
+    stringifyJson: function stringifyJson(j) {
+        try {
+            return JSON.stringify(j);
+        } catch (e) {}
     }
 });
 

@@ -96,8 +96,7 @@ cc.Class({
         var cardsInfo = this.getCarAnalyseInfo(cards);
 
         switch (length) {
-            case 1:
-                //单
+            case 0:
                 return CardType.c0;
                 break;
             case 1:
