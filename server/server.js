@@ -144,9 +144,10 @@ io.on('connection', function (socket) {
     socket.on('readyGame', function (roomNum, roomIndex) {
         console.log("readyGame" + roomNum);
 
-        socket.broadcast.emit('readyGame' + roomNum, roomIndex);
-
         var room = roomMap[roomNum];
+
+        broadCast('readyGame' + roomNum, roomIndex,room);
+        
         players = room.playerList;
         player = players[roomIndex];
         //玩家准备状态
@@ -160,8 +161,9 @@ io.on('connection', function (socket) {
         if (room.readyCount == 3) {
             //都准备好了
             distributeCards(room);
-            socket.emit('startGame' + roomNum)
-            socket.broadcast.emit('startGame' + roomNum)
+            //开始抢地主序号
+            let dizhuIndex = Math.round(Math.random() * 10) % 3;
+            broadCast('startGame' + roomNum,dizhuIndex,room)
         }
     });
     socket.on("getCards", function (roomNum,playerIndex) {
@@ -187,7 +189,7 @@ io.on('connection', function (socket) {
         socket.emit('refreshCardsCountBack' + roomNum ,[players[0].pokerList.length,players[1].pokerList.length,players[2].pokerList.length])
 
     });
-
+    //叫地主
 
 });
 /**
@@ -256,30 +258,23 @@ function shuffleArray(array) {
     }
     return array;
 };
-/**
- * 开始
- * @param {房间} room 
- */
-function startGame(room) {
-    //开始抢地主序号
-    let dizhuIndex = Math.round(Math.random() * 10) % 3;
-    
-}
+
 function qiangdizhu (msg) {
     //抢地主逻辑
 	console.log('onQiangDizhu');
 	let msgBean = msg;
 
-	let playerName = msgBean.playerName;
+	let playerIndex = msgBean.playerIndex;
 	let roomNum = msgBean.roomNum;
 	let qiangdizhu = msgBean.qiangdizhu;
 
 	let room = roomMap[roomNum];
 	let pc = roomControllerMap[roomNum];
-	let player = playerMap[playerName];
+    let player = room.playerList[playerIndex];
+    
 	player.noGrab = !qiangdizhu;
 
-	if (room && pc && player) {
+    if (room && pc && player) {
 		if (qiangdizhu) {
 			pc.lastGrabIndex = player.index;
 		}

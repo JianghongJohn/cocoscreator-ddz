@@ -7,7 +7,10 @@ window.Global = {
     isPass:false,       //是否点了不出
     roomIndex: -1,      //当前玩家座位号 (0,1,2);
 };
-
+//检测变量是否存在
+function checkExist(obj) {
+	return typeof obj != 'undefined';
+};
 
 // /**
 //  * Custom

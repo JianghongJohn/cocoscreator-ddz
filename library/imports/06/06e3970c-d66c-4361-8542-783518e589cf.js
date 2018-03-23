@@ -32,6 +32,37 @@ cc.Class({
         this.node.off(cc.Node.EventType.TOUCH_END, this.endCallback, this);
         this.node.off(cc.Node.EventType.TOUCH_MOVE, this.moveCallback, this);
     },
+
+    //销毁Poker
+    desTroyPokers: function desTroyPokers(cards) {
+        if (cards == 'undefined') {
+            cards = this._pokerSpriteList;
+        }
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = cards[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var _pokerSprite = _step.value;
+
+                _pokerSprite.destroy();
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    },
     start: function start() {},
 
     /* 展示poker */
@@ -40,42 +71,42 @@ cc.Class({
 
         for (var i = 0; i < cards.length; i++) {
 
-            var _pokerSprite = cards[i];
+            var _pokerSprite2 = cards[i];
             //存储Poker节点
-            this._pokerSpriteList.push(_pokerSprite);
+            this._pokerSpriteList.push(_pokerSprite2);
 
             // var Poker = pokerSprite.getComponent('Poker');
-            this.node.addChild(_pokerSprite);
+            this.node.addChild(_pokerSprite2);
             if (type == 0) {
                 var gap = 18; //牌间隙
-                _pokerSprite.scale = 0.8;
+                _pokerSprite2.scale = 0.8;
                 var x = -startx * gap + i * gap + gap / 2;
                 // console.log(x);
-                _pokerSprite.setPosition(-150 + x, 0);
+                _pokerSprite2.setPosition(-150 + x, 0);
             } else if (type == 1) {
                 var _gap = 18; //牌间隙
-                _pokerSprite.scale = 0.8;
+                _pokerSprite2.scale = 0.8;
                 var _x = -startx * _gap + i * _gap + _gap / 2;
                 // console.log(x);
-                _pokerSprite.setPosition(150 + _x, 0);
+                _pokerSprite2.setPosition(150 + _x, 0);
             } else if (type == 3) {
                 var _gap2 = 80; //牌间隙
-                _pokerSprite.scale = 0.5;
+                _pokerSprite2.scale = 0.5;
                 var _x2 = -startx * _gap2 + _gap2 / 2 + i * _gap2;
                 // console.log(x);
-                _pokerSprite.setPosition(_x2, 0);
+                _pokerSprite2.setPosition(_x2, 0);
             } else if (type == 4) {
                 var _gap3 = 12; //牌间隙
-                _pokerSprite.scale = 0.6;
+                _pokerSprite2.scale = 0.6;
                 var _x3 = -startx * _gap3 + _gap3 / 2 + i * _gap3;
                 // console.log(x);
-                _pokerSprite.setPosition(_x3, 0);
+                _pokerSprite2.setPosition(_x3, 0);
             } else {
                 var _gap4 = 25; //牌间隙
-                _pokerSprite.scale = 1;
+                _pokerSprite2.scale = 1;
                 var _x4 = -startx * _gap4 + i * _gap4 + _gap4 / 2;
                 // console.log(x);
-                _pokerSprite.setPosition(_x4, 0);
+                _pokerSprite2.setPosition(_x4, 0);
             }
         }
     },
@@ -87,13 +118,13 @@ cc.Class({
      */
     pokerAllDown: function pokerAllDown() {
         for (var i in this._pokerSpriteList) {
-            var _pokerSprite2 = this._pokerSpriteList[i];
-            if (_pokerSprite2.status === POSITION_UP) _pokerSprite2.y -= 20;
+            var _pokerSprite3 = this._pokerSpriteList[i];
+            if (_pokerSprite3.status === POSITION_UP) _pokerSprite3.y -= 20;
 
-            _pokerSprite2.status = POSITION_DOWN;
-            _pokerSprite2.isChiose = false;
+            _pokerSprite3.status = POSITION_DOWN;
+            _pokerSprite3.isChiose = false;
             // pokerSprite.opacity = 255;
-            _pokerSprite2.color = new cc.color(255, 255, 255);
+            _pokerSprite3.color = new cc.color(255, 255, 255);
 
             Global.selectPokers = [];
         }
@@ -104,13 +135,13 @@ cc.Class({
     _getCardForTouch: function _getCardForTouch(touch) {
         for (var i = this._pokerSpriteList.length - 1; i >= 0; i--) {
             // 需要倒序
-            var _pokerSprite3 = this._pokerSpriteList[i];
+            var _pokerSprite4 = this._pokerSpriteList[i];
             //全屏坐标系
-            var box = _pokerSprite3.getBoundingBoxToWorld();
+            var box = _pokerSprite4.getBoundingBoxToWorld();
             if (cc.rectContainsPoint(box, touch)) {
                 console.log('in');
-                _pokerSprite3.isChiose = true;
-                _pokerSprite3.color = new cc.color(200, 200, 200);
+                _pokerSprite4.isChiose = true;
+                _pokerSprite4.color = new cc.color(200, 200, 200);
 
                 // pokerSprite.opacity = 185;
                 return; //关键， 找到一个就返回
@@ -178,15 +209,15 @@ cc.Class({
         console.log("end");
 
         for (var i = 0; i < this._pokerSpriteList.length; i++) {
-            var _pokerSprite4 = this._pokerSpriteList[i];
+            var _pokerSprite5 = this._pokerSpriteList[i];
 
-            if (_pokerSprite4.isChiose) {
-                _pokerSprite4.isChiose = false;
+            if (_pokerSprite5.isChiose) {
+                _pokerSprite5.isChiose = false;
                 // pokerSprite.opacity = 255;
-                _pokerSprite4.color = new cc.color(255, 255, 255);
-                if (_pokerSprite4.status === POSITION_UP) {
-                    _pokerSprite4.status = POSITION_DOWN;
-                    _pokerSprite4.y -= 20;
+                _pokerSprite5.color = new cc.color(255, 255, 255);
+                if (_pokerSprite5.status === POSITION_UP) {
+                    _pokerSprite5.status = POSITION_DOWN;
+                    _pokerSprite5.y -= 20;
 
                     //移除所选牌
                     var index = -1;
@@ -195,16 +226,16 @@ cc.Class({
                         //选中的卡牌
                         var selectCard = selectPoker.getComponent('Poker');
                         //数组里的卡牌
-                        var card = _pokerSprite4.getComponent('Poker');
+                        var card = _pokerSprite5.getComponent('Poker');
                         if (selectPoker._imageName == card._imageName) index = k;
                     }
                     if (index != -1) Global.selectPokers.splice(index, 1);
                 } else {
-                    _pokerSprite4.status = POSITION_UP;
-                    _pokerSprite4.y += 20;
+                    _pokerSprite5.status = POSITION_UP;
+                    _pokerSprite5.y += 20;
 
                     //添加选择的牌
-                    Global.selectPokers.push(_pokerSprite4);
+                    Global.selectPokers.push(_pokerSprite5);
                 }
             } else {}
         }

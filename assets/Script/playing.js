@@ -117,7 +117,7 @@ cc.Class({
         Network.socket.emit('readyGame',  Global.roomNum,Global.roomIndex);
         var self = this;
         //获取所有Poker
-        Network.socket.on('startGame' + Global.roomNum, function (cards) {
+        Network.socket.on('startGame' + Global.roomNum, function (playerIndex) {
             //隐藏控件
             self.maskBackground.active = false;
 
@@ -128,6 +128,11 @@ cc.Class({
             self.playerAction.active = false;
             
             self.playerDizhuAction.active = false;
+
+            if (playerIndex == Global.roomIndex) {
+
+                self.playerDizhuAction.active = true;
+            }
 
             Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
             Network.socket.emit('getCards' ,Global.roomNum,3);
@@ -152,6 +157,13 @@ cc.Class({
             array[j] = temp;
         }
         return array;
+    },
+    /**
+     * 重新发牌开始
+     */
+    restartGame(){
+        let playerHandCardsShow =  this.playerHandCards.getComponent('ShowPoker');
+        playerHandCardsShow.desTroyPokers();
     },
     //生成当前玩家
     startPlayer(cards) {

@@ -94,20 +94,10 @@
     "meta": 1520921688516,
     "relativePath": "Script/Poker.js"
   },
-  "58ef9805-4298-44a9-91eb-4ca2171238ed": {
-    "asset": 1521008050355,
-    "meta": 1521008059068,
-    "relativePath": "Script/Global.js"
-  },
   "707eab1f-b119-4a62-b3f2-2fb089ccd3ff": {
     "asset": 1521170141939,
     "meta": 1521170143846,
     "relativePath": "socket.io.js"
-  },
-  "06e3970c-d66c-4361-8542-783518e589cf": {
-    "asset": 1521172886321,
-    "meta": 1521172887955,
-    "relativePath": "Script/ShowPoker.js"
   },
   "55965322-7a1c-44ce-a8a3-ab6a8fdf4a27": {
     "asset": 1521528258939,
@@ -300,8 +290,8 @@
     "relativePath": "prefab/videoplayer.prefab"
   },
   "f8bbf744-8ddc-472b-9b5c-f82c1a974e92": {
-    "asset": 1521528264624,
-    "meta": 1521528264631,
+    "asset": 1521785936074,
+    "meta": 1521785936104,
     "relativePath": "Scene/WaitingRoom.fire"
   },
   "1faecdc0-371b-4655-b3c4-1529224c3649": {
@@ -319,14 +309,24 @@
     "meta": 1521703310642,
     "relativePath": "Script/WaitingRoom.js"
   },
-  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1521703749204,
-    "meta": 1521703760051,
-    "relativePath": "Script/playing.js"
-  },
   "ca151cd9-a482-40fa-af4b-7892f0df559f": {
     "asset": 1521704077863,
     "meta": 1521704893679,
     "relativePath": "Script/pokerTypes.js"
+  },
+  "58ef9805-4298-44a9-91eb-4ca2171238ed": {
+    "asset": 1521796203123,
+    "meta": 1521797612716,
+    "relativePath": "Script/Global.js"
+  },
+  "81d5fbe9-27de-470b-9bbd-d63d29964861": {
+    "asset": 1521796275634,
+    "meta": 1521797612859,
+    "relativePath": "Script/playing.js"
+  },
+  "06e3970c-d66c-4361-8542-783518e589cf": {
+    "asset": 1521796251611,
+    "meta": 1521797612888,
+    "relativePath": "Script/ShowPoker.js"
   }
 }

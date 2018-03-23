@@ -27,7 +27,15 @@ cc.Class({
         this.node.off(cc.Node.EventType.TOUCH_END, this.endCallback, this);
         this.node.off(cc.Node.EventType.TOUCH_MOVE, this.moveCallback, this);
     },
-
+    //销毁Poker
+    desTroyPokers(cards){
+        if (cards == 'undefined') {
+            cards = this._pokerSpriteList;
+        }
+        for (const pokerSprite of cards) {
+            pokerSprite.destroy();
+        }
+    },
     start() {
 
     },
