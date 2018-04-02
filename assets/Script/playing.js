@@ -163,7 +163,11 @@ cc.Class({
      */
     restartGame(){
         let playerHandCardsShow =  this.playerHandCards.getComponent('ShowPoker');
-        playerHandCardsShow.desTroyPokers();
+        playerHandCardsShow.desTroyPokers(new Array());
+        
+        let dipai = this.dipaiShowPoker.getComponent('ShowPoker');
+        dipai.desTroyPokers(new Array());
+
     },
     //生成当前玩家
     startPlayer(cards) {

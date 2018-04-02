@@ -35,7 +35,7 @@ cc.Class({
 
     //销毁Poker
     desTroyPokers: function desTroyPokers(cards) {
-        if (cards == 'undefined') {
+        if (cards.length == 0) {
             cards = this._pokerSpriteList;
         }
         var _iteratorNormalCompletion = true;

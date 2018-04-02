@@ -190,7 +190,10 @@ io.on('connection', function (socket) {
 
     });
     //叫地主
-
+    socket.on("qiangdizhu", function (msg) {
+        let data =  parseJson(msg);
+        qiangdizhu(data);
+    });
 });
 /**
  * 广播
@@ -303,8 +306,10 @@ function qiangdizhu (msg) {
 				let nextPlayer = room.playerList[nextIndex];
 				console.log('noGrab:', nextPlayer.noGrab);
 				if (nextPlayer.noGrab === null || !nextPlayer.noGrab) {//下一家上一次抢地主为空或抢地主，则通知再抢地主
-					let _msg = { f: nextPlayer.name + 'qiangdizhu', msg: 'qiangdizhu' };
-					broadcast(_msg);
+                    let _msg = { f: nextPlayer.name + 'qiangdizhu', msg: 'qiangdizhu' };
+                    let message = qiangdizhu
+
+					broadCast(_msg);
 				} else {
 					//判断下下家
 					let doubleNextIndex = (player.index + 2) % 3;
@@ -315,7 +320,7 @@ function qiangdizhu (msg) {
 					}
 					else {//通知下下家抢地主
 						let _msg = { f: doubleNextPlayer.name + 'qiangdizhu', msg: 'qiangdizhu' };
-						broadcast(_msg);
+						broadCast(_msg);
 					}
 				}
 			}

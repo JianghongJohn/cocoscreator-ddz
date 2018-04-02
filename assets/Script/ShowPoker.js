@@ -29,7 +29,7 @@ cc.Class({
     },
     //销毁Poker
     desTroyPokers(cards){
-        if (cards == 'undefined') {
+        if (cards.length == 0) {
             cards = this._pokerSpriteList;
         }
         for (const pokerSprite of cards) {

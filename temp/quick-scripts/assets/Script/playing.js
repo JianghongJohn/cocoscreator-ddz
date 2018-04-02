@@ -168,7 +168,10 @@ cc.Class({
      */
     restartGame: function restartGame() {
         var playerHandCardsShow = this.playerHandCards.getComponent('ShowPoker');
-        playerHandCardsShow.desTroyPokers();
+        playerHandCardsShow.desTroyPokers(new Array());
+
+        var dipai = this.dipaiShowPoker.getComponent('ShowPoker');
+        dipai.desTroyPokers(new Array());
     },
 
     //生成当前玩家
