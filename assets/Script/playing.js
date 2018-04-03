@@ -45,6 +45,8 @@ cc.Class({
         rightCount: cc.Label, //右边数量
         rightShowPoker: cc.Node, //右边展示Poker
         rightbuchu: cc.Label, //右边不出
+        
+        playerbuchu: cc.Label, //玩家不出或不抢
 
         playerHandCards: cc.Node, //玩家手牌
         playerOutCards: cc.Node, //玩家出牌
@@ -118,13 +120,16 @@ cc.Class({
         var self = this;
         //获取所有Poker
         Network.socket.on('startGame' + Global.roomNum, function (playerIndex) {
+            self.restartGame();
             //隐藏控件
             self.maskBackground.active = false;
 
             self.leftbuchu.string = "";
             
             self.rightbuchu.string = "";
-            
+
+            self.playerbuchu.string = "";
+
             self.playerAction.active = false;
             
             self.playerDizhuAction.active = false;
@@ -135,7 +140,6 @@ cc.Class({
             }
 
             Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
-            Network.socket.emit('getCards' ,Global.roomNum,3);
             Network.socket.on('getCardsBack'+Global.roomNum, function(cards){
                 console.log(cards);
                 self.startPlayer(cards);
@@ -144,6 +148,52 @@ cc.Class({
                 console.log(cards);
                 self.startDipai(cards);
             });
+        });
+        //有人抢地主
+        Network.socket.on('qiangdizhuResult' , function (msg) {
+
+            console.log(msg);
+            let data = Network.parseJson(msg);
+            let playerIndex = data.index;
+            let qiangdizhu = data.qiangdizhuResult;
+
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = qiangdizhu?"抢地主":"不抢";
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = qiangdizhu?"抢地主":"不抢";
+            } else {
+                self.playerbuchu.string = qiangdizhu?"抢地主":"不抢";
+            }
+            
+        });
+        //目前抢地主用户
+        Network.socket.on('qiangdizhuNotice' , function (playerIndex) {
+
+            if (playerIndex == Global.roomIndex) {
+                self.playerDizhuAction.active = true;
+            }else{
+                self.playerDizhuAction.active = false;
+            }
+        });
+        //开始出牌
+        Network.socket.on('startPlayerPoker' , function (playerIndex) {
+
+            self.playerDizhuAction.active = false;
+            self.leftbuchu.string = "";
+            self.rightbuchu.string = "";
+            self.playerbuchu.string = "";
+            //展示底牌
+            Network.socket.emit('getCards' ,Global.roomNum,3);
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "出牌";
+                self.refreshCount()
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "出牌";
+                self.refreshCount()
+            } else {
+                self.playerAction.active = true;
+                Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
+            }
         });
     },
     //洗牌算法
@@ -211,6 +261,7 @@ cc.Class({
     },
 
     loadAllPoker(originCards) {
+
         var pokers = [];
         for (let i = 0; i < originCards.length; i++) {
 

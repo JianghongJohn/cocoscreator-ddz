@@ -67,11 +67,14 @@ cc.Class({
 
     /* 展示poker */
     showPokers: function showPokers(cards, type) {
+        this._pokerSpriteList = [];
+
         var startx = cards.length / 2; //开始x坐标
 
         for (var i = 0; i < cards.length; i++) {
 
             var _pokerSprite2 = cards[i];
+            _pokerSprite2.removeFromParent(false);
             //存储Poker节点
             this._pokerSpriteList.push(_pokerSprite2);
 
@@ -139,7 +142,7 @@ cc.Class({
             //全屏坐标系
             var box = _pokerSprite4.getBoundingBoxToWorld();
             if (cc.rectContainsPoint(box, touch)) {
-                console.log('in');
+                // console.log('in');
                 _pokerSprite4.isChiose = true;
                 _pokerSprite4.color = new cc.color(200, 200, 200);
 
@@ -191,7 +194,7 @@ cc.Class({
         // console.log(touchLoc.x + "," + touchLoc.y)
         var touches = event.getTouches();
         var touchLoc = touches[0].getLocation();
-        console.log("start:" + touchLoc.x + "," + touchLoc.y);
+        // console.log("start:" + touchLoc.x + "," + touchLoc.y)
         this._touchStart = this.node.convertToNodeSpace(touchLoc); //将坐标转换为当前节点坐标
         // console.log(this._touchStart.x + "," + this._touchStart.y)
         this._getCardForTouch(this._touchStart);
@@ -199,14 +202,14 @@ cc.Class({
     moveCallback: function moveCallback(event) {
         var touches = event.getTouches();
         var touchLoc = touches[0].getLocation();
-        console.log("move:" + touchLoc.x + "," + touchLoc.y);
+        // console.log("move:" + touchLoc.x + "," + touchLoc.y)
         this._touchMove = this.node.convertToNodeSpace(touchLoc); //将坐标转换为当前节点坐标
         this._getCardForTouch(this._touchMove);
         //当选过头了，往回拖的时候取消选择
         // this._checkSelectCardReserve(this._touchStart, this._touchMove);
     },
     endCallback: function endCallback(event) {
-        console.log("end");
+        // console.log("end")
 
         for (var i = 0; i < this._pokerSpriteList.length; i++) {
             var _pokerSprite5 = this._pokerSpriteList[i];
