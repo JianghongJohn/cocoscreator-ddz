@@ -2570,7 +2570,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "抢地主",
+    "_N$string": "叫地主",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2806,7 +2806,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "不抢",
+    "_N$string": "不叫",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2923,11 +2923,11 @@
       "__id__": 60
     },
     "_enabled": true,
-    "buqiangBtn": {
-      "__id__": 71
+    "buqiangLabel": {
+      "__id__": 69
     },
-    "qiangBtn": {
-      "__id__": 65
+    "qiangLabel": {
+      "__id__": 63
     }
   },
   {

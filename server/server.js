@@ -69,6 +69,9 @@ function PlayController(room) {
     this.isFirstPoker;
     // 地主牌
     this.dizhuPokers;
+    //候选地主队列
+    this.readyDizhu = new Array();
+    this.actionCount = 0;
 
     this.lastGrabIndex = -1; //最后抢地主的序号
     this.passCount = 0; //不抢的次数
@@ -248,9 +251,16 @@ function shuffleArray(array) {
     }
     return array;
 };
-
+/**
+ *  候选人为空，
+    第一次从A~C 遍历一遍，
+    如果候选人为空，就问是不是叫地主
+    如果候选人有了，就问是不是抢地主
+    第一轮过去后，候选人为空，重新开始牌局。
+    如果有候选人，就再问一遍第一个叫地主的人要不要抢
+ * @param {消息美容} msg 
+ */
 function qiangdizhu(msg) {
-    //抢地主逻辑
 
     let msgBean = msg;
 
@@ -263,65 +273,66 @@ function qiangdizhu(msg) {
     let player = room.playerList[playerIndex];
 
     player.noGrab = !qiangdizhu;
+    //增加一次抢地主操作次数
+    pc.actionCount++;
     let mes = { index: playerIndex, qiangdizhuResult: qiangdizhu };
-
     //通知抢还是不抢给其他人显示
     broadCast('qiangdizhuResult', stringifyJson(mes), room)
 
-    if (room && pc && player) {
+    if (pc.actionCount < 3) {//第一轮
         if (qiangdizhu) {
-            pc.lastGrabIndex = player.index;
+            pc.readyDizhu.push(playerIndex);
+            pc.lastGrabIndex = playerIndex;
         }
-        pc.remainCount--;
-        //不抢的次数
-        if (pc.passCount >= 2) {
-            if (pc.lastGrabIndex == -1) {//重新发牌
-                restartSendCards(room);
-            } else {//通知出牌
-                //只有一个人
-                firstPlayerCards(room,pc);
-            }
+        let nextIndex = (player.index + 1) % 3;
+        // let nextPlayer = room.playerList[nextIndex];
+        //通知下一家
+        if (pc.readyDizhu.length == 0) {
+            //展示叫地主
+            let message = 'qiangdizhuNotice';
+            let index = nextIndex;
+            let mes = { nextIndex: index, isFirst: true };
+            broadCast(message, stringifyJson(mes), room);
         } else {
-            if (pc.remainCount <= 0) {
-                if (pc.lastGrabIndex == -1) {//重新发牌
-                    restartSendCards(room);
-                } else {//通知出牌
-                    firstPlayerCards(room,pc);
-                }
-            } else {
-                if (qiangdizhu == false){
-                    pc.passCount++;
-                }
+            //展示抢地主
+            let message = 'qiangdizhuNotice';
+            let index = nextIndex;
+            let mes = { nextIndex: index, isFirst: false };
+            broadCast(message, stringifyJson(mes), room);
+        }
 
-                //下一家是否不抢
-                let nextIndex = (player.index + 1) % 3;
-                let nextPlayer = room.playerList[nextIndex];
-                console.log('noGrab:', nextPlayer.noGrab);
+    } else if (pc.actionCount == 3) {
+        if (qiangdizhu) {
+            pc.readyDizhu.push(playerIndex);
+            pc.lastGrabIndex = playerIndex;
+        }
+        if (pc.readyDizhu.length == 0) {
+            // 通知重新发牌
+            restartSendCards(room);
 
-                if (nextPlayer.noGrab === null || !nextPlayer.noGrab) {//下一家上一次抢地主为空或抢地主，则通知再抢地主
+        } else if (pc.readyDizhu.length == 1) {
+            //通知抢地主结束
+            firstPlayerCards(room, pc);
+        } else {
+            //通知第一家抢地主
+            let nextDizhuIndex = pc.readyDizhu[0];
+            //展示抢地主
+            let message = 'qiangdizhuNotice';
+            let index = nextDizhuIndex;
+            let mes = { nextIndex: index, isFirst: false };
+            broadCast(message, stringifyJson(mes), room);
+        }
 
-                    let message = 'qiangdizhuNotice';
-                    let index = nextIndex;
-
-                    broadCast(message, index, room);
-                } else {
-                    //判断下下家
-                    let doubleNextIndex = (player.index + 2) % 3;
-                    let doubleNextPlayer = room.playerList[doubleNextIndex];
-                    console.log('下下家：', doubleNextIndex, ' lastGrabIndex:', pc.lastGrabIndex);
-                    if (doubleNextIndex == pc.lastGrabIndex) {//通知下下出牌
-
-                        firstPlayerCards(room,pc);
-                    }else {//通知下下家抢地主
-                        let message = 'qiangdizhuNotice';
-                        let index = doubleNextIndex;
-
-                        broadCast(message, index, room);
-                    }
-                }
-            }
+    } else {
+        //抢则当地主，不抢为上一抢地主的人
+        if (qiangdizhu) {
+            pc.lastGrabIndex = playerIndex;
+            firstPlayerCards(room, pc);
+        } else {
+            firstPlayerCards(room, pc);
         }
     }
+
 }
 /**
  * 重新发牌
@@ -346,10 +357,10 @@ function firstPlayerCards(room, pc) {
             var dizhuPokers = player.pokerList.concat(pc.dizhuPokers);
             player.pokerList = dizhuPokers;
             //将地主牌给玩家
-            console.log('抢地主完毕'+player.pokerList);
+            console.log('抢地主完毕' + player.pokerList);
         }
     }
-    
+
     pc.currentPlayingIndex = pc.lastGrabIndex;
     pc.isFirstPoker = true;
     broadCast("startPlayerPoker", pc.lastGrabIndex, room);

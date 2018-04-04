@@ -169,12 +169,21 @@ cc.Class({
             }
         });
         //目前抢地主用户
-        Network.socket.on('qiangdizhuNotice', function (playerIndex) {
-
-            if (playerIndex == Global.roomIndex) {
+        Network.socket.on('qiangdizhuNotice', function (msg) {
+            var data = Network.parseJson(msg);
+            var isFirst = data.isFirst;
+            if (data.nextIndex == Global.roomIndex) {
                 self.playerDizhuAction.active = true;
             } else {
                 self.playerDizhuAction.active = false;
+            }
+            //叫地主和抢地主
+            if (isFirst) {
+                var dizhuNode = self.playerDizhuAction.getComponent('playerDizhuAction');
+                dizhuNode.setFirst(true);
+            } else {
+                var _dizhuNode = self.playerDizhuAction.getComponent('playerDizhuAction');
+                _dizhuNode.setFirst(false);
             }
         });
         //开始出牌
@@ -197,6 +206,8 @@ cc.Class({
                 Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
             }
         });
+        Network.socket.on('buchu', function (playerIndex) {});
+        Network.socket.on('chupai', function (playerIndex) {});
     },
 
     //洗牌算法

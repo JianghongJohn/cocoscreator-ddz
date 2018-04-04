@@ -203,7 +203,7 @@ function checkIsWangzha(cards) {
 }
 //顺子的判断
 function checkIsShunzi(cardsInfo, length) {
-    var falg = false;
+    var flag = false;
     if (cardsInfo[0].length != length) {
         //单排数组长度为所有扑克牌
     } else if (checkElementIsContain(17, cardsInfo[0]) || checkElementIsContain(16, cardsInfo[0]) || checkElementIsContain(15, cardsInfo[0])) {
@@ -217,7 +217,7 @@ function checkIsShunzi(cardsInfo, length) {
 }
 //连对子判断
 function checkIsLianDuizi(cardsInfo, length) {
-    var falg = false;
+    var flag = false;
     if (cardsInfo[1].length != length / 2 || 0 != length % 2) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(17, cardsInfo[1]) || checkElementIsContain(16, cardsInfo[1]) || checkElementIsContain(15, cardsInfo[1])) {
@@ -231,7 +231,7 @@ function checkIsLianDuizi(cardsInfo, length) {
 }
 
 function checkIsFeiJi(cardsInfo, length, count) {
-    var falg = false;
+    var flag = false;
     if (cardsInfo[2].length != length / count || 0 != length % 3) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(15, cardsInfo[count])) {

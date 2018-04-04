@@ -54,6 +54,10 @@ cc.Class({
         playerDizhuAction: cc.Node, //玩家按钮
 
         dipaiShowPoker: cc.Node, //右边展示Poker
+
+        leftTip: cc.Node, //左边手牌了
+        rightTip: cc.Node, //右边出牌了
+        playerTip: cc.Node, //玩家出牌了
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -138,6 +142,8 @@ cc.Class({
 
                 self.playerDizhuAction.active = true;
             }
+            //当前操作对象
+            self.setTip(playerIndex);
 
             Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
             Network.socket.on('getCardsBack'+Global.roomNum, function(cards){
@@ -167,13 +173,26 @@ cc.Class({
             
         });
         //目前抢地主用户
-        Network.socket.on('qiangdizhuNotice' , function (playerIndex) {
+        Network.socket.on('qiangdizhuNotice' , function (msg) {
+           let data = Network.parseJson(msg);
+            let isFirst = data.isFirst;
+            //当前操作对象
+            self.setTip(data.nextIndex);
 
-            if (playerIndex == Global.roomIndex) {
+            if (data.nextIndex == Global.roomIndex) {
                 self.playerDizhuAction.active = true;
             }else{
                 self.playerDizhuAction.active = false;
             }
+            //叫地主和抢地主
+            if (isFirst) {
+                let dizhuNode = self.playerDizhuAction.getComponent('playerDizhuAction');
+                dizhuNode.setFirst(true);
+            }else{
+                let dizhuNode = self.playerDizhuAction.getComponent('playerDizhuAction');
+                dizhuNode.setFirst(false);
+            }
+
         });
         //开始出牌
         Network.socket.on('startPlayerPoker' , function (playerIndex) {
@@ -182,6 +201,8 @@ cc.Class({
             self.leftbuchu.string = "";
             self.rightbuchu.string = "";
             self.playerbuchu.string = "";
+            //当前操作对象
+            self.setTip(playerIndex);
             //展示底牌
             Network.socket.emit('getCards' ,Global.roomNum,3);
             if (playerIndex == self.leftIndex) {
@@ -194,6 +215,12 @@ cc.Class({
                 self.playerAction.active = true;
                 Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
             }
+        });
+        Network.socket.on('buchu' , function (playerIndex) {
+
+        });
+        Network.socket.on('chupai' , function (playerIndex) {
+
         });
     },
     //洗牌算法
@@ -352,6 +379,13 @@ cc.Class({
             this.rightIndex = 0;
         }
     },
+    //设置提示的显示
+    setTip(index){
+        this.leftTip.active = (index == this.leftIndex);
+        this.rightTip.active = (index == this.rightIndex);
+        this.playerTip.active = (index == Global.roomIndex);
+    },
+
     start() {
 
     },
