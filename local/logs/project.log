@@ -1,55 +1,311 @@
-2018-04-03T03:16:23.347Z - normal: Load ~/.CocosCreator/settings.json
-2018-04-03T03:16:23.352Z - normal: checking language setting...
-2018-04-03T03:16:23.352Z - normal: Language: zh
-2018-04-03T03:16:24.230Z - success: protocol editor-framework registered
-2018-04-03T03:16:24.230Z - success: protocol app registered
-2018-04-03T03:16:24.230Z - success: protocol theme registered
-2018-04-03T03:16:24.230Z - success: protocol packages registered
-2018-04-03T03:16:24.231Z - success: protocol unpack registerred
-2018-04-03T03:16:24.231Z - success: protocol disable-commonjs registerred
-2018-04-03T03:16:24.495Z - normal: connected!
-2018-04-03T03:16:24.496Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-03T03:16:24.498Z - normal: Initializing Cocos2d
-2018-04-03T03:16:24.739Z - normal: Initializing Asset Database
-2018-04-03T03:16:24.776Z - success: protocol uuid registerred
-2018-04-03T03:16:24.776Z - success: protocol db registerred
-2018-04-03T03:16:24.777Z - success: protocol thumbnail registerred
-2018-04-03T03:16:24.777Z - normal: Loading editor/builtin packages
-2018-04-03T03:16:24.802Z - success: anysdk loaded
-2018-04-03T03:16:24.931Z - success: assets loaded
-2018-04-03T03:16:24.935Z - success: builder loaded
-2018-04-03T03:16:24.938Z - success: cocos-analytics loaded
-2018-04-03T03:16:24.943Z - success: console loaded
-2018-04-03T03:16:24.949Z - success: hierarchy loaded
-2018-04-03T03:16:24.955Z - success: inspector loaded
-2018-04-03T03:16:24.957Z - success: keystore loaded
-2018-04-03T03:16:24.962Z - success: node-library loaded
-2018-04-03T03:16:24.964Z - success: package-asset loaded
-2018-04-03T03:16:24.967Z - success: preferences loaded
-2018-04-03T03:16:24.970Z - success: project-exporter loaded
-2018-04-03T03:16:24.990Z - success: project-importer loaded
-2018-04-03T03:16:24.993Z - success: project-settings loaded
-2018-04-03T03:16:24.997Z - success: ui-kit loaded
-2018-04-03T03:16:25.002Z - success: ui-grid loaded
-2018-04-03T03:16:25.015Z - success: scene loaded
-2018-04-03T03:16:25.017Z - success: sprite-editor loaded
-2018-04-03T03:16:25.022Z - success: store loaded
-2018-04-03T03:16:25.028Z - success: timeline loaded
-2018-04-03T03:16:25.028Z - normal: Loading builtin packages
-2018-04-03T03:16:25.033Z - success: asset-db-debugger loaded
-2018-04-03T03:16:25.034Z - success: color-picker loaded
-2018-04-03T03:16:25.038Z - success: package-manager loaded
-2018-04-03T03:16:25.043Z - success: sdkbox loaded
-2018-04-03T03:16:25.048Z - success: tester loaded
-2018-04-03T03:16:25.058Z - success: ui-kit-preview-extra loaded
-2018-04-03T03:16:25.062Z - success: ui-kit-preview loaded
-2018-04-03T03:16:25.067Z - success: ui-tree loaded
-2018-04-03T03:16:26.193Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-03T03:16:26.196Z - normal: Loading packages
-2018-04-03T03:16:26.210Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-04-03T03:16:26.212Z - normal: [LuaCPP Support] version 0.3
-2018-04-03T03:16:26.213Z - success: creator-luacpp-support loaded
-2018-04-03T03:16:26.213Z - normal: Watching packages
-2018-04-03T03:16:26.271Z - normal: Run Application
-2018-04-03T03:16:27.157Z - success: preview server running at http://localhost:7456
-2018-04-03T03:16:32.350Z - normal: 1.8.1
+2018-04-04T02:04:11.427Z - normal: Load ~/.CocosCreator/settings.json
+2018-04-04T02:04:11.432Z - normal: checking language setting...
+2018-04-04T02:04:11.432Z - normal: Language: zh
+2018-04-04T02:04:12.310Z - success: protocol editor-framework registered
+2018-04-04T02:04:12.310Z - success: protocol app registered
+2018-04-04T02:04:12.310Z - success: protocol theme registered
+2018-04-04T02:04:12.310Z - success: protocol packages registered
+2018-04-04T02:04:12.310Z - success: protocol unpack registerred
+2018-04-04T02:04:12.311Z - success: protocol disable-commonjs registerred
+2018-04-04T02:04:12.542Z - normal: connected!
+2018-04-04T02:04:12.545Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-04-04T02:04:12.547Z - normal: Initializing Cocos2d
+2018-04-04T02:04:12.823Z - normal: Initializing Asset Database
+2018-04-04T02:04:12.886Z - success: protocol uuid registerred
+2018-04-04T02:04:12.886Z - success: protocol db registerred
+2018-04-04T02:04:12.887Z - success: protocol thumbnail registerred
+2018-04-04T02:04:12.887Z - normal: Loading editor/builtin packages
+2018-04-04T02:04:12.925Z - success: anysdk loaded
+2018-04-04T02:04:13.092Z - success: assets loaded
+2018-04-04T02:04:13.097Z - success: builder loaded
+2018-04-04T02:04:13.099Z - success: cocos-analytics loaded
+2018-04-04T02:04:13.105Z - success: console loaded
+2018-04-04T02:04:13.111Z - success: hierarchy loaded
+2018-04-04T02:04:13.116Z - success: inspector loaded
+2018-04-04T02:04:13.118Z - success: keystore loaded
+2018-04-04T02:04:13.123Z - success: node-library loaded
+2018-04-04T02:04:13.125Z - success: package-asset loaded
+2018-04-04T02:04:13.128Z - success: preferences loaded
+2018-04-04T02:04:13.131Z - success: project-exporter loaded
+2018-04-04T02:04:13.151Z - success: project-importer loaded
+2018-04-04T02:04:13.154Z - success: project-settings loaded
+2018-04-04T02:04:13.160Z - success: ui-kit loaded
+2018-04-04T02:04:13.167Z - success: ui-grid loaded
+2018-04-04T02:04:13.193Z - success: scene loaded
+2018-04-04T02:04:13.198Z - success: sprite-editor loaded
+2018-04-04T02:04:13.203Z - success: store loaded
+2018-04-04T02:04:13.210Z - success: timeline loaded
+2018-04-04T02:04:13.210Z - normal: Loading builtin packages
+2018-04-04T02:04:13.216Z - success: asset-db-debugger loaded
+2018-04-04T02:04:13.217Z - success: color-picker loaded
+2018-04-04T02:04:13.221Z - success: package-manager loaded
+2018-04-04T02:04:13.227Z - success: sdkbox loaded
+2018-04-04T02:04:13.233Z - success: tester loaded
+2018-04-04T02:04:13.246Z - success: ui-kit-preview-extra loaded
+2018-04-04T02:04:13.251Z - success: ui-kit-preview loaded
+2018-04-04T02:04:13.254Z - success: ui-tree loaded
+2018-04-04T02:04:15.008Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-04-04T02:04:15.011Z - normal: Loading packages
+2018-04-04T02:04:15.025Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-04-04T02:04:15.027Z - normal: [LuaCPP Support] version 0.3
+2018-04-04T02:04:15.028Z - success: creator-luacpp-support loaded
+2018-04-04T02:04:15.028Z - normal: Watching packages
+2018-04-04T02:04:15.098Z - normal: Run Application
+2018-04-04T02:04:15.769Z - success: preview server running at http://localhost:7456
+2018-04-04T02:04:26.138Z - normal: 1.8.1
+2018-04-04T02:44:57.851Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:50869
+2018-04-04T03:09:18.570Z - failed: load script [pokerTypes] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:09:18.572Z - error: Each script can have at most one Component.
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:349:16)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:18.573Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js] failed : TypeError: Cannot set property '__props__' of null
+    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:788:19)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+2018-04-04T03:09:18.577Z - error: A Class already exists with the same __classname__ : "pokerTypes".
+    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
+    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
+    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+2018-04-04T03:09:18.578Z - error: A Class already exists with the same __cid__ : "ca151zZpIJA+q9LeJLw31Wf".
+    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:18.578Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:09:45.697Z - failed: load script [pokerTypes] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:09:45.697Z - error: Each script can have at most one Component.
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:349:16)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:45.698Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js] failed : TypeError: Cannot set property '__props__' of null
+    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:788:19)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+2018-04-04T03:09:45.702Z - error: A Class already exists with the same __classname__ : "pokerTypes".
+    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
+    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
+    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+2018-04-04T03:09:45.702Z - error: A Class already exists with the same __cid__ : "ca151zZpIJA+q9LeJLw31Wf".
+    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:45.703Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:09:53.243Z - failed: load script [pokerTypes] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:09:53.244Z - error: Each script can have at most one Component.
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:349:16)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:53.245Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js] failed : TypeError: Cannot set property '__props__' of null
+    at declareProperties (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:788:19)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:942:9)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:8:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:72:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:79:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/playerAction.js:82:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+2018-04-04T03:09:53.246Z - error: A Class already exists with the same __classname__ : "pokerTypes".
+    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
+    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
+    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+2018-04-04T03:09:53.247Z - error: A Class already exists with the same __cid__ : "ca151zZpIJA+q9LeJLw31Wf".
+    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
+    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
+    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:39:4)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+2018-04-04T03:09:53.247Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : ReferenceError: sortByLength is not defined
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:19)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:302:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:305:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2018-04-04T03:49:44.527Z - failed: load script [pokerTypes] failed : TypeError: Cannot read property 'length' of undefined
+    at Object.sortByLength (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:100:27)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:283:12)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:296:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:299:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2018-04-04T03:49:44.537Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : TypeError: Cannot read property 'length' of undefined
+    at Object.sortByLength (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:100:27)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:283:12)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:289:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:296:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:299:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2018-04-04T03:52:02.911Z - failed: load script [pokerTypes] failed : TypeError: Cannot read property 'length' of undefined
+    at Object.sortByLength (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:98:27)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:279:12)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:285:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:292:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2018-04-04T03:52:02.916Z - failed: load script [/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js] failed : TypeError: Cannot read property 'length' of undefined
+    at Object.sortByLength (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:98:27)
+    at __define (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:279:12)
+    at /Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:285:13
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:292:11)
+    at Object.<anonymous> (/Users/hyjt/Desktop/source/cocos/Jneth-ddz/temp/quick-scripts/assets/Script/pokerTypes.js:295:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2018-04-04T03:55:18.599Z - warn: Script attached to "OnePoker" in prefab "OnePoker.prefab" is missing or invalid. Detailed information:
+Node path: "OnePoker"
+Asset url: "db://assets/resources/OnePoker.prefab"
+Script UUID: "ca151cd9-a482-40fa-af4b-7892f0df559f"
+Class ID: "ca151zZpIJA+q9LeJLw31Wf"
+
+2018-04-04T03:55:47.473Z - warn: Script attached to "OnePoker" in prefab "OnePoker.prefab" is missing or invalid. Detailed information:
+Node path: "OnePoker"
+Asset url: "db://assets/resources/OnePoker.prefab"
+Script UUID: "ca151cd9-a482-40fa-af4b-7892f0df559f"
+Class ID: "ca151zZpIJA+q9LeJLw31Wf"
+
+2018-04-04T04:04:39.573Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:141046
+2018-04-04T05:00:35.529Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174537
+2018-04-04T05:00:35.532Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174541
+2018-04-04T05:00:35.533Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174543
+2018-04-04T05:00:35.535Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174545
+2018-04-04T05:00:35.536Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174547
+2018-04-04T05:00:35.536Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174549
+2018-04-04T05:00:35.537Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174552
+2018-04-04T05:00:35.537Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174554
+2018-04-04T05:00:35.538Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:174556

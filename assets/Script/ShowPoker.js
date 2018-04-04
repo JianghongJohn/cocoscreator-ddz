@@ -28,7 +28,7 @@ cc.Class({
         this.node.off(cc.Node.EventType.TOUCH_MOVE, this.moveCallback, this);
     },
     //销毁Poker
-    desTroyPokers(cards){
+    desTroyPokers(cards) {
         if (cards.length == 0) {
             cards = this._pokerSpriteList;
         }
@@ -103,7 +103,7 @@ cc.Class({
             pokerSprite.status = POSITION_DOWN;
             pokerSprite.isChiose = false;
             // pokerSprite.opacity = 255;
-            pokerSprite.color = new cc.color(255,255,255);
+            pokerSprite.color = new cc.color(255, 255, 255);
 
             Global.selectPokers = [];
         }
@@ -118,14 +118,14 @@ cc.Class({
             if (cc.rectContainsPoint(box, touch)) {
                 // console.log('in');
                 pokerSprite.isChiose = true;
-                pokerSprite.color = new cc.color(200,200,200);
-                
+                pokerSprite.color = new cc.color(200, 200, 200);
+
                 // pokerSprite.opacity = 185;
                 return; //关键， 找到一个就返回
-            }else{
+            } else {
                 //this.pokerAllDown();
             }
-            
+
         }
     },
 
@@ -139,7 +139,7 @@ cc.Class({
             for (let i in this._pokerSpriteList) {
                 let sprite = this._pokerSpriteList[i];
                 if (p1.x - sprite.x > -25) { //
-                    pokerSprite.color = new cc.color(255,255,255);
+                    pokerSprite.color = new cc.color(255, 255, 255);
                     // sprite.opacity = 255;
                     sprite.isChiose = false;
                 }
@@ -152,17 +152,17 @@ cc.Class({
             for (let i = 0; i < this._pokerSpriteList.length; i++) {
                 if (!cc.rectIntersectsRect(this._pokerSpriteList[i].getBoundingBoxToWorld(), rect)) {
                     this._pokerSpriteList[i].isChiose = false;
-                    pokerSprite.color = new cc.color(255,255,255);
+                    pokerSprite.color = new cc.color(255, 255, 255);
                     // this._pokerSpriteList[i].opacity = 255;
                 }
             }
         }
 
     },
-/**
- * 
- * @param {点击事件} event 
- */
+    /**
+     * 
+     * @param {点击事件} event 
+     */
     startCallback(event) {
         // console.log(touchLoc.x + "," + touchLoc.y)
         let touches = event.getTouches();
@@ -194,7 +194,7 @@ cc.Class({
             if (pokerSprite.isChiose) {
                 pokerSprite.isChiose = false;
                 // pokerSprite.opacity = 255;
-                pokerSprite.color = new cc.color(255,255,255);
+                pokerSprite.color = new cc.color(255, 255, 255);
                 if (pokerSprite.status === POSITION_UP) {
                     pokerSprite.status = POSITION_DOWN;
                     pokerSprite.y -= 20;
@@ -207,7 +207,7 @@ cc.Class({
                         var selectCard = selectPoker.getComponent('Poker');
                         //数组里的卡牌
                         var card = pokerSprite.getComponent('Poker');
-                        if (selectPoker._imageName == card._imageName)
+                        if (selectCard._imageName == card._imageName)
                             index = k;
                     }
                     if (index != -1)
@@ -219,7 +219,7 @@ cc.Class({
                     //添加选择的牌
                     Global.selectPokers.push(pokerSprite);
                 }
-            }else{
+            } else {
 
             }
         }

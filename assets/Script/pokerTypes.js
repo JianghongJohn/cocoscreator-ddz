@@ -30,18 +30,15 @@ var CardType = cc.Enum({
     c1112223344: -1, //飞机带对子.  
     c0: -1 //不能出牌  
 });
-cc.Class({
-    extends: cc.Component,
 
-    properties: {},
 
     //获取牌的等级
-    getGrade(card) {
+    function getGrade(card) {
         return card.getComponent('Poker')._grade;
-    },
+    };
 
     //牌生成一个反应数量的数组
-    getCarAnalyseInfo(cards) {
+    function getCarAnalyseInfo(cards) {
 
         var oneArray = [];
         var twoArray = [];
@@ -51,10 +48,10 @@ cc.Class({
         var jumpCount = 1;
         for (let i = 0; i < cards.length; i += jumpCount) {
             var sameCount = 1;
-            var grade = this.getGrade(cards[i]);
+            var grade = getGrade(cards[i]);
 
             for (let j = i + 1; j < cards.length; j++) {
-                var grade1 = this.getGrade(cards[j]);
+                var grade1 = getGrade(cards[j]);
                 if (grade != grade1) {
                     break;
                 }
@@ -89,11 +86,12 @@ cc.Class({
         };
         var allInfo = [oneArray, twoArray, threeArray, fourArray];
         console.log(allInfo)
-    },
+        return allInfo;
+    }
     //根据长度筛选先
-    sortByLength(cards) {
+    function sortByLength(cards) {
         let length = cards.length;
-        var cardsInfo = this.getCarAnalyseInfo(cards);
+        var cardsInfo = getCarAnalyseInfo(cards);
 
         switch (length) {
             case 0:
@@ -105,7 +103,7 @@ cc.Class({
                 break;
             case 2:
                 //进行对子的判断和王炸判断
-                if (this.checkIsWangzha(cards)) {
+                if (checkIsWangzha(cards)) {
                     return CardType.c20;
                 } else if (cards[1].length == 1) {
                     return CardType.c2;
@@ -132,7 +130,7 @@ cc.Class({
                     return CardType.c31;
                 }else if (cardsInfo[3].length == 0) {
                     return CardType.c4;
-                }else if (this.checkIsShunzi(cardsInfo,length)){
+                }else if (checkIsShunzi(cardsInfo,length)){
                     return CardType.c123;
                 }
                 break;
@@ -142,9 +140,9 @@ cc.Class({
                     return CardType.c411;
                 }else if (cardsInfo[2].length == 2) {
                     return CardType.c111222;
-                }else if (this.checkIsShunzi(cardsInfo,length)){
+                }else if (checkIsShunzi(cardsInfo,length)){
                     return CardType.c123;
-                }else if (this.checkIsLianDuizi(cardsInfo,length)){
+                }else if (checkIsLianDuizi(cardsInfo,length)){
                     return CardType.c1122;
                 }
                 break;
@@ -154,9 +152,9 @@ cc.Class({
                     return CardType.c422;
                 }else if (cardsInfo[2].length == 2) {
                     return CardType.c11122234;
-                }else if (this.checkIsShunzi(cardsInfo,length)){
+                }else if (checkIsShunzi(cardsInfo,length)){
                     return CardType.c123;
-                }else if (this.checkIsLianDuizi(cardsInfo,length)){
+                }else if (checkIsLianDuizi(cardsInfo,length)){
                     return CardType.c1122;
                 }
                 break;
@@ -169,9 +167,9 @@ cc.Class({
                  * 飞机带单：%4为0，从前到后或者后到前，每三张差1，8-16张
                  * 飞机带双：%5为0，从前到后或者后到前，每三张差1，10-15张
                  */
-                if (this.checkIsShunzi(cardsInfo,length)){
+                if (checkIsShunzi(cardsInfo,length)){
                     return CardType.c123;
-                }else if (this.checkIsLianDuizi(cardsInfo,length)){
+                }else if (checkIsLianDuizi(cardsInfo,length)){
                     return CardType.c1122;
                 }else if (checkIsFeiJi(cardsInfo,length,3)) {
                     //飞机不带
@@ -186,20 +184,21 @@ cc.Class({
                 break;
         }
         return CardType.c0;
-    },
+    }
+
     //进行对子的判断和王炸判断
-    checkIsWangzha(cards) {
-        var grade1 = this.getGrade(cards[0]);
-        var grade2 = this.getGrade(cards[1]);
+    function checkIsWangzha(cards) {
+        var grade1 = getGrade(cards[0]);
+        var grade2 = getGrade(cards[1]);
         //王炸
         if (grade1 == 17 && grade2 == 16) {
             return true;
         }
         return false;
-    },
+    }
     //顺子的判断
-    checkIsShunzi(cardsInfo,length){
-        var falg = false;
+    function checkIsShunzi(cardsInfo,length){
+        var flag = false;
         if (cardsInfo[0].length != length) {
             //单排数组长度为所有扑克牌
         }else if( checkElementIsContain(17,cardsInfo[0])||checkElementIsContain(16,cardsInfo[0])||checkElementIsContain(15,cardsInfo[0])){
@@ -210,10 +209,10 @@ cc.Class({
         }
 
         return flag;
-    },
+    }
     //连对子判断
-    checkIsLianDuizi(cardsInfo,length){
-        var falg = false;
+    function checkIsLianDuizi(cardsInfo,length){
+        var flag = false;
         if ((cardsInfo[1].length != length/2) || (0 != length % 2)) {
             //对子数组长度为所有扑克牌/2 length为2的整除
         }else if( checkElementIsContain(17,cardsInfo[1])||checkElementIsContain(16,cardsInfo[1])||checkElementIsContain(15,cardsInfo[1])){
@@ -224,10 +223,10 @@ cc.Class({
         }
 
         return flag;
-    },
+    }
     
-    checkIsFeiJi(cardsInfo,length,count){
-        var falg = false;
+    function checkIsFeiJi(cardsInfo,length,count){
+        var flag = false;
         if ((cardsInfo[2].length != length/count) || (0 != length % 3)) {
             //对子数组长度为所有扑克牌/2 length为2的整除
         }else if(checkElementIsContain(15,cardsInfo[count])){
@@ -237,10 +236,10 @@ cc.Class({
             flag = true;
         }
         return flag;
-    },
+    }
 
                 //检查数组是否包含元素
-                checkElementIsContain(element, array) {
+                function checkElementIsContain(element, array) {
                 
                     for (const grade of array) {
                         if (grade == element) {
@@ -248,7 +247,8 @@ cc.Class({
                         }
                     }
                     return false;
-                },
-    
-
-});
+                };
+module.exports = {
+    CardType:CardType,
+    sortByLength:sortByLength
+}

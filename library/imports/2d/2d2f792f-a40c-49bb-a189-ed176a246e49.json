@@ -18,7 +18,7 @@
         "__id__": 2
       },
       {
-        "__id__": 89
+        "__id__": 91
       }
     ],
     "_tag": -1,
@@ -75,17 +75,17 @@
         "__id__": 36
       },
       {
-        "__id__": 74
+        "__id__": 76
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 87
+        "__id__": 89
       },
       {
-        "__id__": 88
+        "__id__": 90
       }
     ],
     "_prefab": null,
@@ -1434,10 +1434,10 @@
         "__id__": 41
       },
       {
-        "__id__": 58
+        "__id__": 60
       },
       {
-        "__id__": 72
+        "__id__": 74
       }
     ],
     "_tag": -1,
@@ -1622,17 +1622,17 @@
         "__id__": 42
       },
       {
-        "__id__": 47
+        "__id__": 48
       },
       {
-        "__id__": 52
+        "__id__": 53
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 57
+        "__id__": 59
       }
     ],
     "_prefab": null,
@@ -1674,7 +1674,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tishi",
+    "_name": "chupai",
     "_objFlags": 0,
     "_parent": {
       "__id__": 41
@@ -1856,7 +1856,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 47
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -1896,25 +1900,34 @@
     }
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 41
+    },
+    "component": "playerAction",
+    "handler": "chupaiAction",
+    "customEventData": ""
+  },
+  {
     "__type__": "cc.Node",
-    "_name": "chupai",
+    "_name": "tishi",
     "_objFlags": 0,
     "_parent": {
       "__id__": 41
     },
     "_children": [
       {
-        "__id__": 48
+        "__id__": 49
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 50
+        "__id__": 51
       },
       {
-        "__id__": 51
+        "__id__": 52
       }
     ],
     "_prefab": null,
@@ -1959,14 +1972,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 47
+      "__id__": 48
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 49
+        "__id__": 50
       }
     ],
     "_prefab": null,
@@ -2011,7 +2024,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 49
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2033,7 +2046,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 47
+      "__id__": 48
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2059,7 +2072,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 47
+      "__id__": 48
     },
     "_enabled": true,
     "transition": 2,
@@ -2115,7 +2128,7 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 47
+      "__id__": 48
     }
   },
   {
@@ -2127,17 +2140,17 @@
     },
     "_children": [
       {
-        "__id__": 53
+        "__id__": 54
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 55
+        "__id__": 56
       },
       {
-        "__id__": 56
+        "__id__": 57
       }
     ],
     "_prefab": null,
@@ -2182,14 +2195,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 52
+      "__id__": 53
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 54
+        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -2234,7 +2247,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 53
+      "__id__": 54
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2256,7 +2269,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 52
+      "__id__": 53
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2282,7 +2295,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 52
+      "__id__": 53
     },
     "_enabled": true,
     "transition": 2,
@@ -2302,7 +2315,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 58
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -2338,8 +2355,17 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 52
+      "__id__": 53
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 41
+    },
+    "component": "playerAction",
+    "handler": "buchuAction",
+    "customEventData": ""
   },
   {
     "__type__": "a1bdc0QNF5Oga829CTvGN49",
@@ -2350,13 +2376,13 @@
     },
     "_enabled": true,
     "buchuBtn": {
-      "__id__": 56
+      "__id__": 57
     },
     "tishiBtn": {
       "__id__": 46
     },
     "chupaiBtn": {
-      "__id__": 51
+      "__id__": 52
     }
   },
   {
@@ -2368,17 +2394,17 @@
     },
     "_children": [
       {
-        "__id__": 59
+        "__id__": 61
       },
       {
-        "__id__": 65
+        "__id__": 67
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 71
+        "__id__": 73
       }
     ],
     "_prefab": null,
@@ -2423,21 +2449,21 @@
     "_name": "qiangdizhu",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 58
+      "__id__": 60
     },
     "_children": [
       {
-        "__id__": 60
+        "__id__": 62
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 62
+        "__id__": 64
       },
       {
-        "__id__": 63
+        "__id__": 65
       }
     ],
     "_prefab": null,
@@ -2482,14 +2508,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 59
+      "__id__": 61
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 61
+        "__id__": 63
       }
     ],
     "_prefab": null,
@@ -2534,7 +2560,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 60
+      "__id__": 62
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2556,7 +2582,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 61
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2582,7 +2608,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 61
     },
     "_enabled": true,
     "transition": 2,
@@ -2604,7 +2630,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 64
+        "__id__": 66
       }
     ],
     "_N$interactable": true,
@@ -2642,13 +2668,13 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 59
+      "__id__": 61
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 58
+      "__id__": 60
     },
     "component": "playerDizhuAction",
     "handler": "qiang",
@@ -2659,21 +2685,21 @@
     "_name": "buqiang",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 58
+      "__id__": 60
     },
     "_children": [
       {
-        "__id__": 66
+        "__id__": 68
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 70
       },
       {
-        "__id__": 69
+        "__id__": 71
       }
     ],
     "_prefab": null,
@@ -2718,14 +2744,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 65
+      "__id__": 67
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 67
+        "__id__": 69
       }
     ],
     "_prefab": null,
@@ -2770,7 +2796,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 66
+      "__id__": 68
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2792,7 +2818,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 65
+      "__id__": 67
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2818,7 +2844,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 65
+      "__id__": 67
     },
     "_enabled": true,
     "transition": 2,
@@ -2840,7 +2866,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 70
+        "__id__": 72
       }
     ],
     "_N$interactable": true,
@@ -2878,13 +2904,13 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 65
+      "__id__": 67
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 58
+      "__id__": 60
     },
     "component": "playerDizhuAction",
     "handler": "buqiang",
@@ -2895,14 +2921,14 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 58
+      "__id__": 60
     },
     "_enabled": true,
     "buqiangBtn": {
-      "__id__": 69
+      "__id__": 71
     },
     "qiangBtn": {
-      "__id__": 63
+      "__id__": 65
     }
   },
   {
@@ -2917,7 +2943,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 73
+        "__id__": 75
       }
     ],
     "_prefab": null,
@@ -2962,7 +2988,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 72
+      "__id__": 74
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2988,23 +3014,23 @@
     },
     "_children": [
       {
-        "__id__": 75
-      },
-      {
-        "__id__": 81
+        "__id__": 77
       },
       {
         "__id__": 83
+      },
+      {
+        "__id__": 85
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 85
+        "__id__": 87
       },
       {
-        "__id__": 86
+        "__id__": 88
       }
     ],
     "_prefab": null,
@@ -3049,21 +3075,21 @@
     "_name": "btnStart",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 74
+      "__id__": 76
     },
     "_children": [
       {
-        "__id__": 76
+        "__id__": 78
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 78
+        "__id__": 80
       },
       {
-        "__id__": 79
+        "__id__": 81
       }
     ],
     "_prefab": null,
@@ -3108,14 +3134,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 75
+      "__id__": 77
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 77
+        "__id__": 79
       }
     ],
     "_prefab": null,
@@ -3160,7 +3186,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 76
+      "__id__": 78
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -3182,7 +3208,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 77
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3208,7 +3234,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 77
     },
     "_enabled": true,
     "transition": 2,
@@ -3230,7 +3256,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 80
+        "__id__": 82
       }
     ],
     "_N$interactable": true,
@@ -3268,7 +3294,7 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 75
+      "__id__": 77
     }
   },
   {
@@ -3285,14 +3311,14 @@
     "_name": "leftReady",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 74
+      "__id__": 76
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 82
+        "__id__": 84
       }
     ],
     "_prefab": null,
@@ -3337,7 +3363,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 81
+      "__id__": 83
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -3359,14 +3385,14 @@
     "_name": "rightReady",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 74
+      "__id__": 76
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 84
+        "__id__": 86
       }
     ],
     "_prefab": null,
@@ -3411,7 +3437,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 83
+      "__id__": 85
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -3433,7 +3459,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 76
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -3459,7 +3485,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 76
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3517,19 +3543,19 @@
     "playerPokersOut": [],
     "pokerSpriteFrameMap": {},
     "leftReady": {
-      "__id__": 82
-    },
-    "rightReady": {
       "__id__": 84
     },
+    "rightReady": {
+      "__id__": 86
+    },
     "playerReady": {
-      "__id__": 77
+      "__id__": 79
     },
     "maskBackground": {
-      "__id__": 74
+      "__id__": 76
     },
     "startBtn": {
-      "__id__": 79
+      "__id__": 81
     },
     "leftCount": {
       "__id__": 25
@@ -3550,7 +3576,7 @@
       "__id__": 28
     },
     "playerbuchu": {
-      "__id__": 73
+      "__id__": 75
     },
     "playerHandCards": {
       "__id__": 37
@@ -3562,7 +3588,7 @@
       "__id__": 41
     },
     "playerDizhuAction": {
-      "__id__": 58
+      "__id__": 60
     },
     "dipaiShowPoker": {
       "__id__": 13
@@ -3577,17 +3603,17 @@
     },
     "_children": [
       {
-        "__id__": 90
+        "__id__": 92
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
-        "__id__": 92
+        "__id__": 94
       },
       {
-        "__id__": 93
+        "__id__": 95
       }
     ],
     "_prefab": null,
@@ -3632,14 +3658,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 89
+      "__id__": 91
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 91
+        "__id__": 93
       }
     ],
     "_prefab": null,
@@ -3684,7 +3710,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 90
+      "__id__": 92
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -3706,7 +3732,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 91
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3732,7 +3758,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 91
     },
     "_enabled": true,
     "transition": 2,
@@ -3754,7 +3780,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 94
+        "__id__": 96
       }
     ],
     "_N$interactable": true,
@@ -3792,7 +3818,7 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 89
+      "__id__": 91
     }
   },
   {

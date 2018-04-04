@@ -230,7 +230,7 @@ cc.Class({
                         var selectCard = selectPoker.getComponent('Poker');
                         //数组里的卡牌
                         var card = _pokerSprite5.getComponent('Poker');
-                        if (selectPoker._imageName == card._imageName) index = k;
+                        if (selectCard._imageName == card._imageName) index = k;
                     }
                     if (index != -1) Global.selectPokers.splice(index, 1);
                 } else {

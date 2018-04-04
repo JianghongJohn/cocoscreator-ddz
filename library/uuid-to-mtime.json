@@ -80,19 +80,14 @@
     "relativePath": "resources/poker.png"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1522745154354,
-    "meta": 1522745154369,
+    "asset": 1522823153819,
+    "meta": 1522823153843,
     "relativePath": "Scene/game.fire"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
-    "asset": 1520823856911,
-    "meta": 1520823856922,
+    "asset": 1522821196005,
+    "meta": 1522821196024,
     "relativePath": "resources/OnePoker.prefab"
-  },
-  "74e2f267-8637-493b-8bc1-1a285159ebb5": {
-    "asset": 1520921685087,
-    "meta": 1520921688516,
-    "relativePath": "Script/Poker.js"
   },
   "707eab1f-b119-4a62-b3f2-2fb089ccd3ff": {
     "asset": 1521170141939,
@@ -309,34 +304,39 @@
     "meta": 1521703310642,
     "relativePath": "Script/WaitingRoom.js"
   },
-  "ca151cd9-a482-40fa-af4b-7892f0df559f": {
-    "asset": 1521704077863,
-    "meta": 1521704893679,
-    "relativePath": "Script/pokerTypes.js"
-  },
   "58ef9805-4298-44a9-91eb-4ca2171238ed": {
     "asset": 1521796203123,
     "meta": 1521797612716,
     "relativePath": "Script/Global.js"
   },
-  "a1bdcd10-345e-4e81-af36-f424ef18de3d": {
-    "asset": 1522655137730,
-    "meta": 1522655140712,
-    "relativePath": "Script/playerAction.js"
-  },
-  "7a27f6e5-62a1-4721-9e9b-100acd2b90df": {
-    "asset": 1522735737696,
-    "meta": 1522735932178,
-    "relativePath": "Script/playerDizhuAction.js"
-  },
-  "06e3970c-d66c-4361-8542-783518e589cf": {
-    "asset": 1522744450497,
-    "meta": 1522744463514,
-    "relativePath": "Script/ShowPoker.js"
-  },
   "81d5fbe9-27de-470b-9bbd-d63d29964861": {
     "asset": 1522745081870,
     "meta": 1522745083295,
     "relativePath": "Script/playing.js"
+  },
+  "7a27f6e5-62a1-4721-9e9b-100acd2b90df": {
+    "asset": 1522811243337,
+    "meta": 1522811358120,
+    "relativePath": "Script/playerDizhuAction.js"
+  },
+  "74e2f267-8637-493b-8bc1-1a285159ebb5": {
+    "asset": 1522813732000,
+    "meta": 1522813783900,
+    "relativePath": "Script/Poker.js"
+  },
+  "a1bdcd10-345e-4e81-af36-f424ef18de3d": {
+    "asset": 1522821852887,
+    "meta": 1522821870808,
+    "relativePath": "Script/playerAction.js"
+  },
+  "06e3970c-d66c-4361-8542-783518e589cf": {
+    "asset": 1522822908988,
+    "meta": 1522822924936,
+    "relativePath": "Script/ShowPoker.js"
+  },
+  "ca151cd9-a482-40fa-af4b-7892f0df559f": {
+    "asset": 1522823215692,
+    "meta": 1522823301196,
+    "relativePath": "Script/pokerTypes.js"
   }
 }
