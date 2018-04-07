@@ -1,231 +1,55 @@
-2018-03-23T05:38:08.453Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-23T05:38:08.458Z - normal: checking language setting...
-2018-03-23T05:38:08.458Z - normal: Language: zh
-2018-03-23T05:38:09.311Z - success: protocol editor-framework registered
-2018-03-23T05:38:09.311Z - success: protocol app registered
-2018-03-23T05:38:09.311Z - success: protocol theme registered
-2018-03-23T05:38:09.312Z - success: protocol packages registered
-2018-03-23T05:38:09.312Z - success: protocol unpack registerred
-2018-03-23T05:38:09.312Z - success: protocol disable-commonjs registerred
-2018-03-23T05:38:09.520Z - normal: connected!
-2018-03-23T05:38:09.521Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-23T05:38:09.522Z - normal: Initializing Cocos2d
-2018-03-23T05:38:09.758Z - normal: Initializing Asset Database
-2018-03-23T05:38:09.794Z - success: protocol uuid registerred
-2018-03-23T05:38:09.794Z - success: protocol db registerred
-2018-03-23T05:38:09.794Z - success: protocol thumbnail registerred
-2018-03-23T05:38:09.795Z - normal: Loading editor/builtin packages
-2018-03-23T05:38:09.819Z - success: anysdk loaded
-2018-03-23T05:38:09.950Z - success: assets loaded
-2018-03-23T05:38:09.956Z - success: builder loaded
-2018-03-23T05:38:09.959Z - success: cocos-analytics loaded
-2018-03-23T05:38:09.964Z - success: console loaded
-2018-03-23T05:38:09.970Z - success: hierarchy loaded
-2018-03-23T05:38:09.976Z - success: inspector loaded
-2018-03-23T05:38:09.977Z - success: keystore loaded
-2018-03-23T05:38:09.983Z - success: node-library loaded
-2018-03-23T05:38:09.985Z - success: package-asset loaded
-2018-03-23T05:38:09.988Z - success: preferences loaded
-2018-03-23T05:38:09.992Z - success: project-exporter loaded
-2018-03-23T05:38:10.011Z - success: project-importer loaded
-2018-03-23T05:38:10.015Z - success: project-settings loaded
-2018-03-23T05:38:10.019Z - success: ui-kit loaded
-2018-03-23T05:38:10.024Z - success: ui-grid loaded
-2018-03-23T05:38:10.030Z - success: scene loaded
-2018-03-23T05:38:10.031Z - success: sprite-editor loaded
-2018-03-23T05:38:10.036Z - success: store loaded
-2018-03-23T05:38:10.043Z - success: timeline loaded
-2018-03-23T05:38:10.043Z - normal: Loading builtin packages
-2018-03-23T05:38:10.048Z - success: asset-db-debugger loaded
-2018-03-23T05:38:10.049Z - success: color-picker loaded
-2018-03-23T05:38:10.060Z - success: package-manager loaded
-2018-03-23T05:38:10.066Z - success: sdkbox loaded
-2018-03-23T05:38:10.071Z - success: tester loaded
-2018-03-23T05:38:10.080Z - success: ui-kit-preview-extra loaded
-2018-03-23T05:38:10.083Z - success: ui-kit-preview loaded
-2018-03-23T05:38:10.087Z - success: ui-tree loaded
-2018-03-23T05:38:11.201Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-03-23T05:38:11.203Z - normal: Loading packages
-2018-03-23T05:38:11.218Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-03-23T05:38:11.220Z - normal: [LuaCPP Support] version 0.3
-2018-03-23T05:38:11.221Z - success: creator-luacpp-support loaded
-2018-03-23T05:38:11.221Z - normal: Watching packages
-2018-03-23T05:38:11.281Z - normal: Run Application
-2018-03-23T05:38:11.855Z - success: preview server running at http://localhost:7456
-2018-03-23T05:38:16.942Z - normal: 1.8.1
-2018-03-23T06:15:56.908Z - normal: Simulator: WORKAREA WIDTH 1920.00, HEIGHT 979.00
-2018-03-23T06:15:56.910Z - normal: Simulator: FRAME SCALE = 1.00
-2018-03-23T06:15:56.925Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:56.929Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:56.930Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:57.051Z - normal: Simulator: 
-2018-03-23T06:15:57.051Z - normal: Simulator: {
-2018-03-23T06:15:57.051Z - normal: Simulator: 	gl.supports_OES_map_buffer: false
-2018-03-23T06:15:57.052Z - normal: Simulator: 	gl.supports_vertex_array_object: true
-2018-03-23T06:15:57.052Z - normal: Simulator: 	cocos2d.x.version: 1.7.0
-2018-03-23T06:15:57.052Z - normal: Simulator: 	gl.vendor: Intel Inc.
-2018-03-23T06:15:57.052Z - normal: Simulator: 	gl.supports_PVRTC: false
-2018-03-23T06:15:57.053Z - normal: Simulator: 	gl.renderer: Intel Iris OpenGL Engine
-2018-03-23T06:15:57.053Z - normal: Simulator: 	cocos2d.x.compiled_with_profiler: false
-2018-03-23T06:15:57.053Z - normal: Simulator: 	gl.max_texture_size: 16384
-2018-03-23T06:15:57.054Z - normal: Simulator: 	gl.supports_ETC1: false
-2018-03-23T06:15:57.057Z - normal: Simulator: 	gl.supports_BGRA8888: false
-2018-03-23T06:15:57.057Z - normal: Simulator: 	cocos2d.x.build_type: DEBUG
-2018-03-23T06:15:57.057Z - normal: Simulator: 	gl.max_texture_units: 16
-2018-03-23T06:15:57.058Z - normal: Simulator: 	gl.supports_OES_packed_depth_stencil: false
-2018-03-23T06:15:57.058Z - normal: Simulator: 	gl.supports_discard_framebuffer: false
-2018-03-23T06:15:57.058Z - normal: Simulator: 	gl.supports_NPOT: true
-2018-03-23T06:15:57.059Z - normal: Simulator: 	gl.version: 2.1 INTEL-10.30.14
-2018-03-23T06:15:57.059Z - normal: Simulator: 	cocos2d.x.compiled_with_gl_state_cache: true
-2018-03-23T06:15:57.059Z - normal: Simulator: 	gl.supports_OES_depth24: false
-2018-03-23T06:15:57.059Z - normal: Simulator: }
-2018-03-23T06:15:57.060Z - normal: Simulator: 
-2018-03-23T06:15:57.060Z - normal: Simulator: 
-2018-03-23T06:15:57.060Z - normal: Simulator: cocos2d: warning, Director::setProjection() failed because size is 0
-2018-03-23T06:15:57.066Z - normal: Simulator: Project Config:
-2018-03-23T06:15:57.067Z - normal: Simulator:     project dir: /Applications/CocosCreator.app/Contents/Resources/cocos2d-x/simulator/mac/Simulator.app/Contents/Resources/
-2018-03-23T06:15:57.068Z - normal: Simulator:     writable path: $(PROJDIR)/
-2018-03-23T06:15:57.068Z - normal: Simulator:     script file: $(PROJDIR)/main.js
-2018-03-23T06:15:57.069Z - normal: Simulator:     frame size: 960 x 640
-2018-03-23T06:15:57.070Z - normal: Simulator:     frame scale: 1.00
-2018-03-23T06:15:57.073Z - normal: Simulator:     show console: NO
-2018-03-23T06:15:57.074Z - normal: Simulator:     write debug log: NO ()
-2018-03-23T06:15:57.074Z - normal: Simulator:     listen: 
-2018-03-23T06:15:57.074Z - normal: Simulator:     debugger: none
-2018-03-23T06:15:57.075Z - normal: Simulator:     add searching path:
-2018-03-23T06:15:57.076Z - normal: Simulator: ------------------------------------------------
-2018-03-23T06:15:57.076Z - normal: Simulator: LOAD Js FILE: main.js
-2018-03-23T06:15:57.077Z - normal: Simulator: ------------------------------------------------
-2018-03-23T06:15:57.077Z - normal: Simulator: Initializing JavaScriptCore 
-2018-03-23T06:15:57.245Z - normal: Simulator: JS: Cocos2d-x-lite v1.7.0
-2018-03-23T06:15:57.667Z - normal: Simulator: iShow!
-2018-03-23T06:15:57.920Z - normal: Simulator: JS: InitScene: 2.3479999999999563ms
-2018-03-23T06:15:57.921Z - normal: Simulator: JS: AutoRelease: 0.18600000000003547ms
-2018-03-23T06:15:57.921Z - normal: Simulator: JS: Destroy: 0.08699999999998909ms
-2018-03-23T06:15:57.921Z - normal: Simulator: JS: AttachPersist: 0.020000000000095497ms
-2018-03-23T06:15:57.975Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:57.983Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.984Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:57.992Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.993Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:57.993Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:57.993Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.994Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.995Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:57.995Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.995Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:57.995Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:57.996Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:57.996Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:57.996Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:57.997Z - normal: Simulator: JSB SocketIO.connect method called
-2018-03-23T06:15:57.999Z - normal: Simulator: Calling native SocketIO.connect method
-2018-03-23T06:15:58.003Z - normal: Simulator: In the constructor of HttpClient!
-2018-03-23T06:15:58.026Z - normal: Simulator: JS: Activate: 83.644ms
-2018-03-23T06:15:58.040Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:58.041Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:58.082Z - normal: Simulator: SIOClientImpl::handshake() failed
-2018-03-23T06:15:58.082Z - normal: Simulator: error buffer: 无法连接到服务器。
-2018-03-23T06:15:58.083Z - normal: Simulator: JSB SocketIO::SIODelegate->onError method called from native with data: 无法连接到服务器。
-2018-03-23T06:15:58.083Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'error' data: 无法连接到服务器。
-2018-03-23T06:15:58.083Z - normal: Simulator: JSB SocketIO::SIODelegate->onClose method called from native
-2018-03-23T06:15:58.084Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'disconnect' data: 
-2018-03-23T06:15:58.084Z - normal: Simulator: disconnect ... 
-2018-03-23T06:15:58.611Z - normal: Simulator: WORKAREA WIDTH 1920.00, HEIGHT 979.00
-2018-03-23T06:15:58.611Z - normal: Simulator: FRAME SCALE = 1.00
-2018-03-23T06:15:58.631Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:58.632Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:58.632Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
-2018-03-23T06:15:58.743Z - normal: Simulator: 
-2018-03-23T06:15:58.743Z - normal: Simulator: {
-2018-03-23T06:15:58.743Z - normal: Simulator: 	gl.supports_OES_map_buffer: false
-2018-03-23T06:15:58.744Z - normal: Simulator: 	gl.supports_vertex_array_object: true
-2018-03-23T06:15:58.744Z - normal: Simulator: 	cocos2d.x.version: 1.7.0
-2018-03-23T06:15:58.744Z - normal: Simulator: 	gl.vendor: Intel Inc.
-2018-03-23T06:15:58.744Z - normal: Simulator: 	gl.supports_PVRTC: false
-2018-03-23T06:15:58.745Z - normal: Simulator: 	gl.renderer: Intel Iris OpenGL Engine
-2018-03-23T06:15:58.745Z - normal: Simulator: 	cocos2d.x.compiled_with_profiler: false
-2018-03-23T06:15:58.745Z - normal: Simulator: 	gl.max_texture_size: 16384
-2018-03-23T06:15:58.745Z - normal: Simulator: 	gl.supports_ETC1: false
-2018-03-23T06:15:58.746Z - normal: Simulator: 	gl.supports_BGRA8888: false
-2018-03-23T06:15:58.746Z - normal: Simulator: 	cocos2d.x.build_type: DEBUG
-2018-03-23T06:15:58.746Z - normal: Simulator: 	gl.max_texture_units: 16
-2018-03-23T06:15:58.747Z - normal: Simulator: 	gl.supports_OES_packed_depth_stencil: false
-2018-03-23T06:15:58.747Z - normal: Simulator: 	gl.supports_discard_framebuffer: false
-2018-03-23T06:15:58.747Z - normal: Simulator: 	gl.supports_NPOT: true
-2018-03-23T06:15:58.747Z - normal: Simulator: 	gl.version: 2.1 INTEL-10.30.14
-2018-03-23T06:15:58.748Z - normal: Simulator: 	cocos2d.x.compiled_with_gl_state_cache: true
-2018-03-23T06:15:58.748Z - normal: Simulator: 	gl.supports_OES_depth24: false
-2018-03-23T06:15:58.748Z - normal: Simulator: }
-2018-03-23T06:15:58.749Z - normal: Simulator: 
-2018-03-23T06:15:58.749Z - normal: Simulator: 
-2018-03-23T06:15:58.749Z - normal: Simulator: cocos2d: warning, Director::setProjection() failed because size is 0
-2018-03-23T06:15:58.797Z - normal: Simulator: Project Config:
-2018-03-23T06:15:58.798Z - normal: Simulator:     project dir: /Applications/CocosCreator.app/Contents/Resources/cocos2d-x/simulator/mac/Simulator.app/Contents/Resources/
-2018-03-23T06:15:58.798Z - normal: Simulator:     writable path: $(PROJDIR)/
-2018-03-23T06:15:58.800Z - normal: Simulator:     script file: $(PROJDIR)/main.js
-2018-03-23T06:15:58.804Z - normal: Simulator:     frame size: 960 x 640
-2018-03-23T06:15:58.804Z - normal: Simulator:     frame scale: 1.00
-2018-03-23T06:15:58.805Z - normal: Simulator:     show console: NO
-2018-03-23T06:15:58.805Z - normal: Simulator:     write debug log: NO ()
-2018-03-23T06:15:58.805Z - normal: Simulator:     listen: 
-2018-03-23T06:15:58.805Z - normal: Simulator:     debugger: none
-2018-03-23T06:15:58.806Z - normal: Simulator:     add searching path:
-2018-03-23T06:15:58.806Z - normal: Simulator: ------------------------------------------------
-2018-03-23T06:15:58.806Z - normal: Simulator: LOAD Js FILE: main.js
-2018-03-23T06:15:58.807Z - normal: Simulator: ------------------------------------------------
-2018-03-23T06:15:58.807Z - normal: Simulator: Initializing JavaScriptCore 
-2018-03-23T06:15:58.901Z - normal: Simulator: JS: Cocos2d-x-lite v1.7.0
-2018-03-23T06:15:59.267Z - normal: Simulator: iShow!
-2018-03-23T06:15:59.473Z - normal: Simulator: JS: InitScene: 1.67999999999995ms
-2018-03-23T06:15:59.474Z - normal: Simulator: JS: AutoRelease: 0.13599999999996726ms
-2018-03-23T06:15:59.474Z - normal: Simulator: JS: Destroy: 0.055000000000063665ms
-2018-03-23T06:15:59.475Z - normal: Simulator: JS: AttachPersist: 0.0049999999999954525ms
-2018-03-23T06:15:59.522Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:59.529Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.530Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:59.532Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.535Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:59.535Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:59.536Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.547Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.547Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:59.548Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.548Z - normal: Simulator: [Edit text] content size = (160.000000, 40.000000)
-2018-03-23T06:15:59.548Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:59.549Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:15:59.549Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:59.550Z - normal: Simulator: JS: [WARN]: Sorry, lineHeight of system font not supported on JSB.
-2018-03-23T06:15:59.550Z - normal: Simulator: JSB SocketIO.connect method called
-2018-03-23T06:15:59.550Z - normal: Simulator: Calling native SocketIO.connect method
-2018-03-23T06:15:59.550Z - normal: Simulator: In the constructor of HttpClient!
-2018-03-23T06:15:59.551Z - normal: Simulator: JS: Activate: 70.77999999999997ms
-2018-03-23T06:15:59.553Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:59.555Z - normal: Simulator: [Edit text] content size = (250.000000, 80.000000)
-2018-03-23T06:15:59.582Z - normal: Simulator: SIOClientImpl::handshake() failed
-2018-03-23T06:15:59.582Z - normal: Simulator: error buffer: 无法连接到服务器。
-2018-03-23T06:15:59.583Z - normal: Simulator: JSB SocketIO::SIODelegate->onError method called from native with data: 无法连接到服务器。
-2018-03-23T06:15:59.583Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'error' data: 无法连接到服务器。
-2018-03-23T06:15:59.583Z - normal: Simulator: JSB SocketIO::SIODelegate->onClose method called from native
-2018-03-23T06:15:59.583Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'disconnect' data: 
-2018-03-23T06:15:59.584Z - normal: Simulator: disconnect ... 
-2018-03-23T06:16:23.157Z - normal: Simulator: JSB SocketIO::SIODelegate->onError method called from native with data: Client not yet connected
-2018-03-23T06:16:23.159Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'error' data: Client not yet connected
-2018-03-23T06:16:23.160Z - normal: Simulator: JSB SocketIO eventName to: 'creatRoomReturn'
-2018-03-23T06:16:34.440Z - normal: Simulator: JSB SocketIO::SIODelegate->onError method called from native with data: Client not yet connected
-2018-03-23T06:16:34.441Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'error' data: Client not yet connected
-2018-03-23T06:16:34.441Z - normal: Simulator: JSB SocketIO eventName to: 'creatRoomReturn'
-2018-03-23T06:16:41.219Z - normal: Simulator: JSB SocketIO::SIODelegate->onError method called from native with data: Client not yet connected
-2018-03-23T06:16:41.220Z - normal: Simulator: JSB SocketIO::SIODelegate->fireEventToScript method called from native with name 'error' data: Client not yet connected
-2018-03-23T06:16:41.226Z - normal: Simulator: JSB SocketIO eventName to: 'creatRoomReturn'
-2018-03-23T06:16:44.847Z - normal: Simulator: ScriptEngine::cleanup begin ...
-2018-03-23T06:16:44.848Z - normal: Simulator: GC begin ..., (Native -> JS map) count: 92
-2018-03-23T06:16:44.874Z - normal: Simulator: GC end ..., (Native -> JS map) count: 65
-2018-03-23T06:16:44.875Z - normal: Simulator: GC begin ..., (Native -> JS map) count: 65
-2018-03-23T06:16:44.875Z - normal: Simulator: GC end ..., (Native -> JS map) count: 65
-2018-03-23T06:16:44.875Z - normal: Simulator: GC begin ..., (Native -> JS map) count: 65
-2018-03-23T06:16:44.897Z - normal: Simulator: GC end ..., (Native -> JS map) count: 65
-2018-03-23T06:16:44.902Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:16:44.906Z - normal: Simulator: setReturnType not implemented
-2018-03-23T06:16:44.910Z - normal: Simulator: ScriptEngine::cleanup end ...
-2018-03-23T09:33:36.265Z - info: shutdown preview server
+2018-03-25T07:03:06.810Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-25T07:03:06.813Z - normal: checking language setting...
+2018-03-25T07:03:06.813Z - normal: Language: zh
+2018-03-25T07:03:07.803Z - success: protocol editor-framework registered
+2018-03-25T07:03:07.803Z - success: protocol app registered
+2018-03-25T07:03:07.804Z - success: protocol theme registered
+2018-03-25T07:03:07.804Z - success: protocol packages registered
+2018-03-25T07:03:07.804Z - success: protocol unpack registerred
+2018-03-25T07:03:07.804Z - success: protocol disable-commonjs registerred
+2018-03-25T07:03:08.083Z - normal: connected!
+2018-03-25T07:03:08.087Z - normal: Check project /Users/jianghongjohn/Desktop/cocos2d-x/ddz
+2018-03-25T07:03:08.089Z - normal: Initializing Cocos2d
+2018-03-25T07:03:08.360Z - normal: Initializing Asset Database
+2018-03-25T07:03:08.403Z - success: protocol uuid registerred
+2018-03-25T07:03:08.403Z - success: protocol db registerred
+2018-03-25T07:03:08.404Z - success: protocol thumbnail registerred
+2018-03-25T07:03:08.404Z - normal: Loading editor/builtin packages
+2018-03-25T07:03:08.432Z - success: anysdk loaded
+2018-03-25T07:03:08.563Z - success: assets loaded
+2018-03-25T07:03:08.568Z - success: builder loaded
+2018-03-25T07:03:08.571Z - success: cocos-analytics loaded
+2018-03-25T07:03:08.577Z - success: console loaded
+2018-03-25T07:03:08.583Z - success: hierarchy loaded
+2018-03-25T07:03:08.589Z - success: inspector loaded
+2018-03-25T07:03:08.590Z - success: keystore loaded
+2018-03-25T07:03:08.596Z - success: node-library loaded
+2018-03-25T07:03:08.598Z - success: package-asset loaded
+2018-03-25T07:03:08.601Z - success: preferences loaded
+2018-03-25T07:03:08.605Z - success: project-exporter loaded
+2018-03-25T07:03:08.627Z - success: project-importer loaded
+2018-03-25T07:03:08.630Z - success: project-settings loaded
+2018-03-25T07:03:08.635Z - success: ui-kit loaded
+2018-03-25T07:03:08.640Z - success: ui-grid loaded
+2018-03-25T07:03:08.645Z - success: scene loaded
+2018-03-25T07:03:08.646Z - success: sprite-editor loaded
+2018-03-25T07:03:08.651Z - success: store loaded
+2018-03-25T07:03:08.664Z - success: timeline loaded
+2018-03-25T07:03:08.664Z - normal: Loading builtin packages
+2018-03-25T07:03:08.668Z - success: asset-db-debugger loaded
+2018-03-25T07:03:08.669Z - success: color-picker loaded
+2018-03-25T07:03:08.673Z - success: package-manager loaded
+2018-03-25T07:03:08.679Z - success: sdkbox loaded
+2018-03-25T07:03:08.684Z - success: tester loaded
+2018-03-25T07:03:08.693Z - success: ui-kit-preview-extra loaded
+2018-03-25T07:03:08.698Z - success: ui-kit-preview loaded
+2018-03-25T07:03:08.702Z - success: ui-tree loaded
+2018-03-25T07:03:09.879Z - normal: Initializing project /Users/jianghongjohn/Desktop/cocos2d-x/ddz
+2018-03-25T07:03:09.881Z - normal: Loading packages
+2018-03-25T07:03:09.897Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-03-25T07:03:09.900Z - normal: [LuaCPP Support] version 0.3
+2018-03-25T07:03:09.901Z - success: creator-luacpp-support loaded
+2018-03-25T07:03:09.901Z - normal: Watching packages
+2018-03-25T07:03:09.970Z - normal: Run Application
+2018-03-25T07:03:12.209Z - success: preview server running at http://localhost:7456
+2018-03-25T07:03:17.344Z - normal: 1.8.1
