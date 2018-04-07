@@ -36,253 +36,249 @@ var CardType = cc.Enum({
     c1112223344: -1, //飞机带对子.  
     c0: -1 //不能出牌  
 });
-cc.Class({
-    extends: cc.Component,
 
-    properties: {},
+//获取牌的等级
+function getGrade(card) {
+    return card.getComponent('Poker')._grade;
+};
 
-    //获取牌的等级
-    getGrade: function getGrade(card) {
-        return card.getComponent('Poker')._grade;
-    },
+//牌生成一个反应数量的数组
+function getCarAnalyseInfo(cards) {
 
+    var oneArray = [];
+    var twoArray = [];
+    var threeArray = [];
+    var fourArray = [];
+    //循环跳过的数量=相同牌的数量
+    var jumpCount = 1;
+    for (var i = 0; i < cards.length; i += jumpCount) {
+        var sameCount = 1;
+        var grade = getGrade(cards[i]);
 
-    //牌生成一个反应数量的数组
-    getCarAnalyseInfo: function getCarAnalyseInfo(cards) {
-
-        var oneArray = [];
-        var twoArray = [];
-        var threeArray = [];
-        var fourArray = [];
-        //循环跳过的数量=相同牌的数量
-        var jumpCount = 1;
-        for (var i = 0; i < cards.length; i += jumpCount) {
-            var sameCount = 1;
-            var grade = this.getGrade(cards[i]);
-
-            for (var j = i + 1; j < cards.length; j++) {
-                var grade1 = this.getGrade(cards[j]);
-                if (grade != grade1) {
-                    break;
-                }
-                sameCount++;
-            }
-            jumpCount = sameCount;
-
-            switch (sameCount) {
-                case 1:
-
-                    oneArray.push(grade);
-
-                    break;
-                case 2:
-
-                    twoArray.push(grade);
-
-                    break;
-                case 3:
-
-                    threeArray.push(grade);
-
-                    break;
-                case 4:
-
-                    fourArray.push(grade);
-
-                    break;
-                default:
-                    break;
-            }
-        };
-        var allInfo = [oneArray, twoArray, threeArray, fourArray];
-        console.log(allInfo);
-    },
-
-    //根据长度筛选先
-    sortByLength: function sortByLength(cards) {
-        var length = cards.length;
-        var cardsInfo = this.getCarAnalyseInfo(cards);
-
-        switch (length) {
-            case 0:
-                return CardType.c0;
+        for (var j = i + 1; j < cards.length; j++) {
+            var grade1 = getGrade(cards[j]);
+            if (grade != grade1) {
                 break;
+            }
+            sameCount++;
+        }
+        jumpCount = sameCount;
+
+        switch (sameCount) {
             case 1:
-                //单
-                return CardType.c1;
+
+                oneArray.push(grade);
+
                 break;
             case 2:
-                //进行对子的判断和王炸判断
-                if (this.checkIsWangzha(cards)) {
-                    return CardType.c20;
-                } else if (cards[1].length == 1) {
-                    return CardType.c2;
-                }
+
+                twoArray.push(grade);
+
                 break;
             case 3:
-                //3不带的判断
-                if (cardsInfo[2].length == 1) {
-                    return CardType.c3;
-                }
+
+                threeArray.push(grade);
+
                 break;
             case 4:
-                //炸弹、3带1。
-                if (cardsInfo[2].length == 1) {
-                    return CardType.c31;
-                } else if (cardsInfo[3].length == 0) {
-                    return CardType.c4;
-                }
-                break;
-            case 5:
-                //三带二、顺子
-                //炸弹、3带1。
-                if (cardsInfo[2].length == 1) {
-                    return CardType.c31;
-                } else if (cardsInfo[3].length == 0) {
-                    return CardType.c4;
-                } else if (this.checkIsShunzi(cardsInfo, length)) {
-                    return CardType.c123;
-                }
-                break;
-            case 6:
-                //顺子、四带二、飞机不带、连对
-                if (cardsInfo[3].length == 1) {
-                    return CardType.c411;
-                } else if (cardsInfo[2].length == 2) {
-                    return CardType.c111222;
-                } else if (this.checkIsShunzi(cardsInfo, length)) {
-                    return CardType.c123;
-                } else if (this.checkIsLianDuizi(cardsInfo, length)) {
-                    return CardType.c1122;
-                }
-                break;
-            case 8:
-                //顺子、四带二对、连对、飞机带单
-                if (cardsInfo[3].length == 1 && cardsInfo[1].length == 2) {
-                    return CardType.c422;
-                } else if (cardsInfo[2].length == 2) {
-                    return CardType.c11122234;
-                } else if (this.checkIsShunzi(cardsInfo, length)) {
-                    return CardType.c123;
-                } else if (this.checkIsLianDuizi(cardsInfo, length)) {
-                    return CardType.c1122;
-                }
+
+                fourArray.push(grade);
+
                 break;
             default:
-                //顺子、连对、飞机（不带、单、双）
-                /**
-                 * 顺子：每个值差1，5-11张，不含王、2
-                 * 连对：偶数，每两个差1，6-18张，不含王、2
-                 * 飞机不带：%3为0，每三张差1，6-18张
-                 * 飞机带单：%4为0，从前到后或者后到前，每三张差1，8-16张
-                 * 飞机带双：%5为0，从前到后或者后到前，每三张差1，10-15张
-                 */
-                if (this.checkIsShunzi(cardsInfo, length)) {
-                    return CardType.c123;
-                } else if (this.checkIsLianDuizi(cardsInfo, length)) {
-                    return CardType.c1122;
-                } else if (checkIsFeiJi(cardsInfo, length, 3)) {
-                    //飞机不带
-                    return CardType.c111222;
-                } else if (checkIsFeiJi(cardsInfo, length, 4)) {
-                    //飞机带单
-                    return CardType.c11122234;
-                } else if (checkIsFeiJi(cardsInfo, length, 5)) {
-                    //飞机带对子
-                    return CardType.c1112223344;
-                }
                 break;
         }
-        return CardType.c0;
-    },
+    };
+    var allInfo = [oneArray, twoArray, threeArray, fourArray];
+    console.log(allInfo);
+    return allInfo;
+}
+//根据长度筛选先
+function sortByLength(cards) {
+    var length = cards.length;
+    var cardsInfo = getCarAnalyseInfo(cards);
 
-    //进行对子的判断和王炸判断
-    checkIsWangzha: function checkIsWangzha(cards) {
-        var grade1 = this.getGrade(cards[0]);
-        var grade2 = this.getGrade(cards[1]);
-        //王炸
-        if (grade1 == 17 && grade2 == 16) {
-            return true;
-        }
-        return false;
-    },
-
-    //顺子的判断
-    checkIsShunzi: function checkIsShunzi(cardsInfo, length) {
-        var falg = false;
-        if (cardsInfo[0].length != length) {
-            //单排数组长度为所有扑克牌
-        } else if (checkElementIsContain(17, cardsInfo[0]) || checkElementIsContain(16, cardsInfo[0]) || checkElementIsContain(15, cardsInfo[0])) {
-            //不可以包含王、2
-        } else if (cardsInfo[0][length - 1] - cardsInfo[0][0] == length - 1) {
-            //（第一张牌值  - 最后一张牌值）== (length-1)
-            flag = true;
-        }
-
-        return flag;
-    },
-
-    //连对子判断
-    checkIsLianDuizi: function checkIsLianDuizi(cardsInfo, length) {
-        var falg = false;
-        if (cardsInfo[1].length != length / 2 || 0 != length % 2) {
-            //对子数组长度为所有扑克牌/2 length为2的整除
-        } else if (checkElementIsContain(17, cardsInfo[1]) || checkElementIsContain(16, cardsInfo[1]) || checkElementIsContain(15, cardsInfo[1])) {
-            //不可以包含王、2
-        } else if (cardsInfo[1][length - 1] - cardsInfo[1][0] == length / 2 - 1) {
-            //（第一张牌值  - 最后一张牌值）== (length/2-1)
-            flag = true;
-        }
-
-        return flag;
-    },
-    checkIsFeiJi: function checkIsFeiJi(cardsInfo, length, count) {
-        var falg = false;
-        if (cardsInfo[2].length != length / count || 0 != length % 3) {
-            //对子数组长度为所有扑克牌/2 length为2的整除
-        } else if (checkElementIsContain(15, cardsInfo[count])) {
-            //不可以包含、2
-        } else if (cardsInfo[2][length - 1] - cardsInfo[2][0] == length / count - 1) {
-            //（第一张牌值  - 最后一张牌值）== (length/3-1)
-            flag = true;
-        }
-        return flag;
-    },
-
-
-    //检查数组是否包含元素
-    checkElementIsContain: function checkElementIsContain(element, array) {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-
-            for (var _iterator = array[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var grade = _step.value;
-
-                if (grade == element) {
-                    return true;
-                }
+    switch (length) {
+        case 0:
+            return CardType.c0;
+            break;
+        case 1:
+            //单
+            return CardType.c1;
+            break;
+        case 2:
+            //进行对子的判断和王炸判断
+            if (checkIsWangzha(cards)) {
+                return CardType.c20;
+            } else if (cards[1].length == 1) {
+                return CardType.c2;
             }
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
-                }
-            } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
-                }
+            break;
+        case 3:
+            //3不带的判断
+            if (cardsInfo[2].length == 1) {
+                return CardType.c3;
             }
-        }
-
-        return false;
+            break;
+        case 4:
+            //炸弹、3带1。
+            if (cardsInfo[2].length == 1) {
+                return CardType.c31;
+            } else if (cardsInfo[3].length == 0) {
+                return CardType.c4;
+            }
+            break;
+        case 5:
+            //三带二、顺子
+            //炸弹、3带1。
+            if (cardsInfo[2].length == 1) {
+                return CardType.c31;
+            } else if (cardsInfo[3].length == 0) {
+                return CardType.c4;
+            } else if (checkIsShunzi(cardsInfo, length)) {
+                return CardType.c123;
+            }
+            break;
+        case 6:
+            //顺子、四带二、飞机不带、连对
+            if (cardsInfo[3].length == 1) {
+                return CardType.c411;
+            } else if (cardsInfo[2].length == 2) {
+                return CardType.c111222;
+            } else if (checkIsShunzi(cardsInfo, length)) {
+                return CardType.c123;
+            } else if (checkIsLianDuizi(cardsInfo, length)) {
+                return CardType.c1122;
+            }
+            break;
+        case 8:
+            //顺子、四带二对、连对、飞机带单
+            if (cardsInfo[3].length == 1 && cardsInfo[1].length == 2) {
+                return CardType.c422;
+            } else if (cardsInfo[2].length == 2) {
+                return CardType.c11122234;
+            } else if (checkIsShunzi(cardsInfo, length)) {
+                return CardType.c123;
+            } else if (checkIsLianDuizi(cardsInfo, length)) {
+                return CardType.c1122;
+            }
+            break;
+        default:
+            //顺子、连对、飞机（不带、单、双）
+            /**
+             * 顺子：每个值差1，5-11张，不含王、2
+             * 连对：偶数，每两个差1，6-18张，不含王、2
+             * 飞机不带：%3为0，每三张差1，6-18张
+             * 飞机带单：%4为0，从前到后或者后到前，每三张差1，8-16张
+             * 飞机带双：%5为0，从前到后或者后到前，每三张差1，10-15张
+             */
+            if (checkIsShunzi(cardsInfo, length)) {
+                return CardType.c123;
+            } else if (checkIsLianDuizi(cardsInfo, length)) {
+                return CardType.c1122;
+            } else if (checkIsFeiJi(cardsInfo, length, 3)) {
+                //飞机不带
+                return CardType.c111222;
+            } else if (checkIsFeiJi(cardsInfo, length, 4)) {
+                //飞机带单
+                return CardType.c11122234;
+            } else if (checkIsFeiJi(cardsInfo, length, 5)) {
+                //飞机带对子
+                return CardType.c1112223344;
+            }
+            break;
     }
-});
+    return CardType.c0;
+}
+
+//进行对子的判断和王炸判断
+function checkIsWangzha(cards) {
+    var grade1 = getGrade(cards[0]);
+    var grade2 = getGrade(cards[1]);
+    //王炸
+    if (grade1 == 17 && grade2 == 16) {
+        return true;
+    }
+    return false;
+}
+//顺子的判断
+function checkIsShunzi(cardsInfo, length) {
+    var flag = false;
+    if (cardsInfo[0].length != length) {
+        //单排数组长度为所有扑克牌
+    } else if (checkElementIsContain(17, cardsInfo[0]) || checkElementIsContain(16, cardsInfo[0]) || checkElementIsContain(15, cardsInfo[0])) {
+        //不可以包含王、2
+    } else if (cardsInfo[0][length - 1] - cardsInfo[0][0] == length - 1) {
+        //（第一张牌值  - 最后一张牌值）== (length-1)
+        flag = true;
+    }
+
+    return flag;
+}
+//连对子判断
+function checkIsLianDuizi(cardsInfo, length) {
+    var flag = false;
+    if (cardsInfo[1].length != length / 2 || 0 != length % 2) {
+        //对子数组长度为所有扑克牌/2 length为2的整除
+    } else if (checkElementIsContain(17, cardsInfo[1]) || checkElementIsContain(16, cardsInfo[1]) || checkElementIsContain(15, cardsInfo[1])) {
+        //不可以包含王、2
+    } else if (cardsInfo[1][length - 1] - cardsInfo[1][0] == length / 2 - 1) {
+        //（第一张牌值  - 最后一张牌值）== (length/2-1)
+        flag = true;
+    }
+
+    return flag;
+}
+
+function checkIsFeiJi(cardsInfo, length, count) {
+    var flag = false;
+    if (cardsInfo[2].length != length / count || 0 != length % 3) {
+        //对子数组长度为所有扑克牌/2 length为2的整除
+    } else if (checkElementIsContain(15, cardsInfo[count])) {
+        //不可以包含、2
+    } else if (cardsInfo[2][length - 1] - cardsInfo[2][0] == length / count - 1) {
+        //（第一张牌值  - 最后一张牌值）== (length/3-1)
+        flag = true;
+    }
+    return flag;
+}
+
+//检查数组是否包含元素
+function checkElementIsContain(element, array) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+
+        for (var _iterator = array[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var grade = _step.value;
+
+            if (grade == element) {
+                return true;
+            }
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    return false;
+};
+module.exports = {
+    CardType: CardType,
+    sortByLength: sortByLength
+};
 
 cc._RF.pop();
         }

@@ -13,7 +13,7 @@ http.listen(3000, function () {
     console.log('listening on *:3000');
 });
 // 玩家
-function Player(socket,name, index) {
+function Player(socket, name, index) {
     this.name = name;
     this.socket = socket;
     this.index = index;
@@ -26,15 +26,15 @@ function Player(socket,name, index) {
     }
 };
 //房间
-function Room(socket,roomNum) {
+function Room(socket, roomNum) {
     this.roomNum = roomNum; //房号
     this.playerList = new Array(); //玩家列表
     this.readyCount = 0; //准备数量
     // 地主牌
     this.dizhuPokers = new Array();
     //加入用户
-    this.join = function (playerSocket,playerName) {
-        let player = new Player(playerSocket,playerName, this.playerList.length);
+    this.join = function (playerSocket, playerName) {
+        let player = new Player(playerSocket, playerName, this.playerList.length);
         playerMap[playerName] = player;
 
         this.playerList.push(player);
@@ -69,6 +69,9 @@ function PlayController(room) {
     this.isFirstPoker;
     // 地主牌
     this.dizhuPokers;
+    //候选地主队列
+    this.readyDizhu = new Array();
+    this.actionCount = 0;
 
     this.lastGrabIndex = -1; //最后抢地主的序号
     this.passCount = 0; //不抢的次数
@@ -98,12 +101,12 @@ io.on('connection', function (socket) {
         }
         if (flag) {
             //创建房间
-            let room = new Room(socket,roomNumber);
+            let room = new Room(socket, roomNumber);
 
             //创建玩家
             roomList.push(room);
 
-            room.join(socket,userName);
+            room.join(socket, userName);
         }
         console.log("创建房间" + roomNumber);
         socket.emit('creatRoomReturn', flag);
@@ -117,7 +120,7 @@ io.on('connection', function (socket) {
             if (room.roomNum == roomNumber) {
                 var players = room.playerList;
                 if (players.length < 3) {
-                    room.join(socket,userName);
+                    room.join(socket, userName);
                     flag = true;
                 }
             }
@@ -130,13 +133,13 @@ io.on('connection', function (socket) {
     //获取房间信息
 
     socket.on("getRoomData", function (data) {
-        console.log("获取房间信息"+data)
+        console.log("获取房间信息" + data)
         var room = roomMap[data];
         var playersName = [];
         for (const player of room.playerList) {
             playersName.push(player.name);
         }
-        broadCast("getRoomDataBack"  ,playersName,room);
+        broadCast("getRoomDataBack", playersName, room);
 
     })
 
@@ -146,8 +149,8 @@ io.on('connection', function (socket) {
 
         var room = roomMap[roomNum];
 
-        broadCast('readyGame' + roomNum, roomIndex,room);
-        
+        broadCast('readyGame' + roomNum, roomIndex, room);
+
         players = room.playerList;
         player = players[roomIndex];
         //玩家准备状态
@@ -159,63 +162,53 @@ io.on('connection', function (socket) {
         }
         //检查准备状态
         if (room.readyCount == 3) {
-            //都准备好了
-            distributeCards(room);
-            //开始抢地主序号
-            let dizhuIndex = Math.round(Math.random() * 10) % 3;
-            broadCast('startGame' + roomNum,dizhuIndex,room)
+            restartSendCards(room);
         }
     });
-    socket.on("getCards", function (roomNum,playerIndex) {
-        console.log("获取卡"+roomNum+"位置"+playerIndex)
+    socket.on("getCards", function (roomNum, playerIndex) {
+        console.log("获取卡" + roomNum + "位置" + playerIndex)
         var room = roomMap[roomNum];
         var cards;
         //地主牌
-        if (playerIndex>2) {
+        if (playerIndex > 2) {
             cards = room.dizhuPokers;
-            socket.emit('getDipaiCardsBack' + roomNum ,cards)
-        }else{
+            socket.emit('getDipaiCardsBack' + roomNum, cards)
+        } else {
             players = room.playerList;
             player = players[playerIndex];
             cards = player.pokerList;
-            socket.emit('getCardsBack' + roomNum ,cards)
+            socket.emit('getCardsBack' + roomNum, cards)
         }
-        
+
     })
     //刷新回显Poker数量
     socket.on("refreshCardsCount", function (roomNum) {
         var room = roomMap[roomNum];
         var players = room.playerList;
-        socket.emit('refreshCardsCountBack' + roomNum ,[players[0].pokerList.length,players[1].pokerList.length,players[2].pokerList.length])
+        socket.emit('refreshCardsCountBack' + roomNum, [players[0].pokerList.length, players[1].pokerList.length, players[2].pokerList.length])
 
     });
     //叫地主
-
+    socket.on("qiangdizhu", function (msg) {
+        console.log('onQiangDizhu:' + msg);
+        let data = parseJson(msg);
+        qiangdizhu(data);
+    });
 });
-/**
- * 广播
- * @param {消息文字} 消息文字 
- * @param {消息内容} 消息内容
- * @param {房间号} 房间号
- */
-function broadCast(type, msg ,room) {
-    //获取该用户的socket对象
-    var players = room.playerList;
-    for (const player of players) {
-        
-        socket = player.socket;
-        console.log("传递消息："+type+"\n内容："+msg);
-        socket.emit(type,msg);
-    }
-}
 
 /**
  * 
  * @param {根据房间号生成Poker并分配} room 
  */
 function distributeCards(room) {
+    //先清空原始数据
     var cards = loadAllPoker();
+    room.dizhuPokers = new Array();
     var players = room.playerList;
+    players[0].pokerList = new Array();
+    players[1].pokerList = new Array();
+    players[2].pokerList = new Array();
+
     for (let index = 0; index < cards.length; index++) {
         const element = cards[index];
 
@@ -235,7 +228,7 @@ function distributeCards(room) {
     let pc = new PlayController(room);
     roomControllerMap[room.roomNum] = pc;
     pc.dizhuPokers = room.dizhuPokers;
-    console.log("地主牌"+room.dizhuPokers);
+    console.log("地主牌" + room.dizhuPokers);
 }
 //加载所有卡片
 function loadAllPoker() {
@@ -258,89 +251,158 @@ function shuffleArray(array) {
     }
     return array;
 };
+/**
+ *  候选人为空，
+    第一次从A~C 遍历一遍，
+    如果候选人为空，就问是不是叫地主
+    如果候选人有了，就问是不是抢地主
+    第一轮过去后，候选人为空，重新开始牌局。
+    如果有候选人，就再问一遍第一个叫地主的人要不要抢
+ * @param {消息美容} msg 
+ */
+function qiangdizhu(msg) {
 
-function qiangdizhu (msg) {
-    //抢地主逻辑
-	console.log('onQiangDizhu');
-	let msgBean = msg;
+    let msgBean = msg;
 
-	let playerIndex = msgBean.playerIndex;
-	let roomNum = msgBean.roomNum;
-	let qiangdizhu = msgBean.qiangdizhu;
+    let playerIndex = msgBean.playerIndex;
+    let roomNum = msgBean.roomNum;
+    let qiangdizhu = msgBean.qiangdizhu;
 
-	let room = roomMap[roomNum];
-	let pc = roomControllerMap[roomNum];
+    let room = roomMap[roomNum];
+    let pc = roomControllerMap[roomNum];
     let player = room.playerList[playerIndex];
-    
-	player.noGrab = !qiangdizhu;
 
-    if (room && pc && player) {
-		if (qiangdizhu) {
-			pc.lastGrabIndex = player.index;
-		}
-		pc.remainCount--;
+    player.noGrab = !qiangdizhu;
+    //增加一次抢地主操作次数
+    pc.actionCount++;
+    let mes = { index: playerIndex, qiangdizhuResult: qiangdizhu };
+    //通知抢还是不抢给其他人显示
+    broadCast('qiangdizhuResult', stringifyJson(mes), room)
 
-		if (pc.passCount >= 2) {
-			if (pc.lastGrabIndex == -1) {//重新发牌
-				dealingCard(room);
-			} else {//通知出牌
-				notifyPlayerPlay(room, pc);
-			}
-		} else {
-			if (pc.remainCount <= 0) {
-				if (pc.lastGrabIndex == -1) {//重新发牌
-					dealingCard(room);
-				}
-				else {//通知出牌
-					notifyPlayerPlay(room, pc);
-				}
-			} else {
-				if (qiangdizhu == false)
-					pc.passCount++;
+    if (pc.actionCount < 3) {//第一轮
+        if (qiangdizhu) {
+            pc.readyDizhu.push(playerIndex);
+            pc.lastGrabIndex = playerIndex;
+        }
+        let nextIndex = (player.index + 1) % 3;
+        // let nextPlayer = room.playerList[nextIndex];
+        //通知下一家
+        if (pc.readyDizhu.length == 0) {
+            //展示叫地主
+            let message = 'qiangdizhuNotice';
+            let index = nextIndex;
+            let mes = { nextIndex: index, isFirst: true };
+            broadCast(message, stringifyJson(mes), room);
+        } else {
+            //展示抢地主
+            let message = 'qiangdizhuNotice';
+            let index = nextIndex;
+            let mes = { nextIndex: index, isFirst: false };
+            broadCast(message, stringifyJson(mes), room);
+        }
 
-				//下一家是否不抢
-				let nextIndex = (player.index + 1) % 3;
-				let nextPlayer = room.playerList[nextIndex];
-				console.log('noGrab:', nextPlayer.noGrab);
-				if (nextPlayer.noGrab === null || !nextPlayer.noGrab) {//下一家上一次抢地主为空或抢地主，则通知再抢地主
-					let _msg = { f: nextPlayer.name + 'qiangdizhu', msg: 'qiangdizhu' };
-					broadcast(_msg);
-				} else {
-					//判断下下家
-					let doubleNextIndex = (player.index + 2) % 3;
-					let doubleNextPlayer = room.playerList[doubleNextIndex];
-					console.log('下下家：', doubleNextIndex, ' lastGrabIndex:', pc.lastGrabIndex);
-					if (doubleNextIndex == pc.lastGrabIndex) {//通知下下出牌
-						notifyPlayerPlay(room, pc);
-					}
-					else {//通知下下家抢地主
-						let _msg = { f: doubleNextPlayer.name + 'qiangdizhu', msg: 'qiangdizhu' };
-						broadcast(_msg);
-					}
-				}
-			}
-		}
-	}
+    } else if (pc.actionCount == 3) {
+        if (qiangdizhu) {
+            pc.readyDizhu.push(playerIndex);
+            pc.lastGrabIndex = playerIndex;
+        }
+        if (pc.readyDizhu.length == 0) {
+            // 通知重新发牌
+            restartSendCards(room);
+
+        } else if (pc.readyDizhu.length == 1) {
+            //通知抢地主结束
+            firstPlayerCards(room, pc);
+        } else {
+            //通知第一家抢地主
+            let nextDizhuIndex = pc.readyDizhu[0];
+            //展示抢地主
+            let message = 'qiangdizhuNotice';
+            let index = nextDizhuIndex;
+            let mes = { nextIndex: index, isFirst: false };
+            broadCast(message, stringifyJson(mes), room);
+        }
+
+    } else {
+        //抢则当地主，不抢为上一抢地主的人
+        if (qiangdizhu) {
+            pc.lastGrabIndex = playerIndex;
+            firstPlayerCards(room, pc);
+        } else {
+            firstPlayerCards(room, pc);
+        }
+    }
+
 }
+/**
+ * 重新发牌
+ * @param {房间号} room 
+ */
+function restartSendCards(room) {
+    //都准备好了
+    distributeCards(room);
+    //开始抢地主序号
+    let dizhuIndex = Math.round(Math.random() * 10) % 3;
+    broadCast('startGame' + room.roomNum, dizhuIndex, room);
+}
+/**
+ * 开始打牌
+ * @param {房间号} room 
+ */
+function firstPlayerCards(room, pc) {
+    //将地主牌给这个人
+    var players = room.playerList;
+    for (const player of players) {
+        if (player.index == pc.lastGrabIndex) {
+            var dizhuPokers = player.pokerList.concat(pc.dizhuPokers);
+            player.pokerList = dizhuPokers;
+            //将地主牌给玩家
+            console.log('抢地主完毕' + player.pokerList);
+        }
+    }
+
+    pc.currentPlayingIndex = pc.lastGrabIndex;
+    pc.isFirstPoker = true;
+    broadCast("startPlayerPoker", pc.lastGrabIndex, room);
+}
+
+
 
 
 
 
 //字符串转json
 function parseJson(s) {
-	try {
-		return JSON.parse(s);
-	} catch (e) { }
+    try {
+        return JSON.parse(s);
+    } catch (e) { }
 };
 
 //json转字符串
 function stringifyJson(j) {
-	try {
-		return JSON.stringify(j);
-	} catch (e) { }
+    try {
+        return JSON.stringify(j);
+    } catch (e) { }
 };
 
 //检测变量是否存在
 function checkExist(obj) {
-	return typeof obj != 'undefined';
+    return typeof obj != 'undefined';
 };
+
+/**
+ * 广播
+ * @param {消息文字} 消息文字 
+ * @param {消息内容} 消息内容
+ * @param {房间} 房间
+ */
+function broadCast(type, msg, room) {
+    //获取该用户的socket对象
+    var players = room.playerList;
+    console.log("传递消息：" + type + "\n内容：" + msg);
+    for (const player of players) {
+
+        socket = player.socket;
+        socket.emit(type, msg);
+    }
+}

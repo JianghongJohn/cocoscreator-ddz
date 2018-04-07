@@ -28,8 +28,8 @@ cc.Class({
         this.node.off(cc.Node.EventType.TOUCH_MOVE, this.moveCallback, this);
     },
     //销毁Poker
-    desTroyPokers(cards){
-        if (cards == 'undefined') {
+    desTroyPokers(cards) {
+        if (cards.length == 0) {
             cards = this._pokerSpriteList;
         }
         for (const pokerSprite of cards) {
@@ -41,11 +41,14 @@ cc.Class({
     },
     /* 展示poker */
     showPokers(cards, type) {
+        this._pokerSpriteList = [];
+
         let startx = cards.length / 2; //开始x坐标
 
         for (let i = 0; i < cards.length; i++) {
 
             let pokerSprite = cards[i];
+            pokerSprite.removeFromParent(false);
             //存储Poker节点
             this._pokerSpriteList.push(pokerSprite);
 
@@ -100,7 +103,7 @@ cc.Class({
             pokerSprite.status = POSITION_DOWN;
             pokerSprite.isChiose = false;
             // pokerSprite.opacity = 255;
-            pokerSprite.color = new cc.color(255,255,255);
+            pokerSprite.color = new cc.color(255, 255, 255);
 
             Global.selectPokers = [];
         }
@@ -113,16 +116,16 @@ cc.Class({
             //全屏坐标系
             let box = pokerSprite.getBoundingBoxToWorld();
             if (cc.rectContainsPoint(box, touch)) {
-                console.log('in');
+                // console.log('in');
                 pokerSprite.isChiose = true;
-                pokerSprite.color = new cc.color(200,200,200);
-                
+                pokerSprite.color = new cc.color(200, 200, 200);
+
                 // pokerSprite.opacity = 185;
                 return; //关键， 找到一个就返回
-            }else{
+            } else {
                 //this.pokerAllDown();
             }
-            
+
         }
     },
 
@@ -136,7 +139,7 @@ cc.Class({
             for (let i in this._pokerSpriteList) {
                 let sprite = this._pokerSpriteList[i];
                 if (p1.x - sprite.x > -25) { //
-                    pokerSprite.color = new cc.color(255,255,255);
+                    pokerSprite.color = new cc.color(255, 255, 255);
                     // sprite.opacity = 255;
                     sprite.isChiose = false;
                 }
@@ -149,22 +152,22 @@ cc.Class({
             for (let i = 0; i < this._pokerSpriteList.length; i++) {
                 if (!cc.rectIntersectsRect(this._pokerSpriteList[i].getBoundingBoxToWorld(), rect)) {
                     this._pokerSpriteList[i].isChiose = false;
-                    pokerSprite.color = new cc.color(255,255,255);
+                    pokerSprite.color = new cc.color(255, 255, 255);
                     // this._pokerSpriteList[i].opacity = 255;
                 }
             }
         }
 
     },
-/**
- * 
- * @param {点击事件} event 
- */
+    /**
+     * 
+     * @param {点击事件} event 
+     */
     startCallback(event) {
         // console.log(touchLoc.x + "," + touchLoc.y)
         let touches = event.getTouches();
         let touchLoc = touches[0].getLocation();
-        console.log("start:" + touchLoc.x + "," + touchLoc.y)
+        // console.log("start:" + touchLoc.x + "," + touchLoc.y)
         this._touchStart = this.node.convertToNodeSpace(touchLoc); //将坐标转换为当前节点坐标
         // console.log(this._touchStart.x + "," + this._touchStart.y)
         this._getCardForTouch(this._touchStart);
@@ -174,7 +177,7 @@ cc.Class({
     moveCallback(event) {
         let touches = event.getTouches();
         let touchLoc = touches[0].getLocation();
-        console.log("move:" + touchLoc.x + "," + touchLoc.y)
+        // console.log("move:" + touchLoc.x + "," + touchLoc.y)
         this._touchMove = this.node.convertToNodeSpace(touchLoc); //将坐标转换为当前节点坐标
         this._getCardForTouch(this._touchMove);
         //当选过头了，往回拖的时候取消选择
@@ -183,7 +186,7 @@ cc.Class({
 
 
     endCallback(event) {
-        console.log("end")
+        // console.log("end")
 
         for (let i = 0; i < this._pokerSpriteList.length; i++) {
             let pokerSprite = this._pokerSpriteList[i];
@@ -191,7 +194,7 @@ cc.Class({
             if (pokerSprite.isChiose) {
                 pokerSprite.isChiose = false;
                 // pokerSprite.opacity = 255;
-                pokerSprite.color = new cc.color(255,255,255);
+                pokerSprite.color = new cc.color(255, 255, 255);
                 if (pokerSprite.status === POSITION_UP) {
                     pokerSprite.status = POSITION_DOWN;
                     pokerSprite.y -= 20;
@@ -204,7 +207,7 @@ cc.Class({
                         var selectCard = selectPoker.getComponent('Poker');
                         //数组里的卡牌
                         var card = pokerSprite.getComponent('Poker');
-                        if (selectPoker._imageName == card._imageName)
+                        if (selectCard._imageName == card._imageName)
                             index = k;
                     }
                     if (index != -1)
@@ -216,7 +219,7 @@ cc.Class({
                     //添加选择的牌
                     Global.selectPokers.push(pokerSprite);
                 }
-            }else{
+            } else {
 
             }
         }
