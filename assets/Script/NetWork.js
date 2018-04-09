@@ -4,7 +4,7 @@ let Network = cc.Class({
         socket: null
     },
     initNetwork() {
-        let socketIo = io.connect('192.168.0.56:3000');
+        let socketIo = io.connect('http://localhost:3000');
         this.socket = socketIo;
     },
     // 发送消息给服务器并接收
