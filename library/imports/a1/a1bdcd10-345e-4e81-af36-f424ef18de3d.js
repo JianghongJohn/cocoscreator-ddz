@@ -28,7 +28,6 @@ cc.Class({
     },
     chupaiAction: function chupaiAction() {
         var pokers = Global.selectPokers;
-        debugger;
         var type = pokerTypes.sortByLength(pokers);
         var pokerData = new Array();
         var _iteratorNormalCompletion = true;
@@ -40,8 +39,9 @@ cc.Class({
                 var card = _step.value;
 
                 var poker = card.getComponent('Poker');
-                // let cardId = poker._cardId;
-                // pokerData.push(cardId);
+                debugger;
+                var cardId = poker._cardId;
+                pokerData.push(cardId);
             }
         } catch (err) {
             _didIteratorError = true;
@@ -58,7 +58,9 @@ cc.Class({
             }
         }
 
-        debugger;
+        var mes = { pokers: pokerData, cardsType: type, roomNum: Global.roomNum, playerIndex: Global.roomIndex };
+
+        Network.socket.emit('chupai', Network.stringifyJson(mes));
     }
 }
 

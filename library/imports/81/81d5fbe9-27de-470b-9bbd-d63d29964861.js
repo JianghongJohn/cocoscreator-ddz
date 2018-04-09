@@ -28,8 +28,8 @@ cc.Class({
     properties: {
         poker: cc.Prefab, //扑克
         allPokers: [], //所有牌
-        leftPokers: [], //左边牌
-        rightPokers: [], //右边牌
+        // leftPokers: [], //左边牌
+        // rightPokers: [], //右边牌
         playerPokers: [], //玩家牌
         dipaiPokers: [], //底牌
         leftPokersOut: [], //左边打出牌
@@ -59,7 +59,11 @@ cc.Class({
         playerAction: cc.Node, //玩家按钮
         playerDizhuAction: cc.Node, //玩家按钮
 
-        dipaiShowPoker: cc.Node //右边展示Poker
+        dipaiShowPoker: cc.Node, //右边展示Poker
+
+        leftTip: cc.Node, //左边手牌了
+        rightTip: cc.Node, //右边出牌了
+        playerTip: cc.Node //玩家出牌了
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -141,6 +145,8 @@ cc.Class({
 
                 self.playerDizhuAction.active = true;
             }
+            //当前操作对象
+            self.setTip(playerIndex);
 
             Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
             Network.socket.on('getCardsBack' + Global.roomNum, function (cards) {
@@ -172,6 +178,9 @@ cc.Class({
         Network.socket.on('qiangdizhuNotice', function (msg) {
             var data = Network.parseJson(msg);
             var isFirst = data.isFirst;
+            //当前操作对象
+            self.setTip(data.nextIndex);
+
             if (data.nextIndex == Global.roomIndex) {
                 self.playerDizhuAction.active = true;
             } else {
@@ -193,6 +202,8 @@ cc.Class({
             self.leftbuchu.string = "";
             self.rightbuchu.string = "";
             self.playerbuchu.string = "";
+            //当前操作对象
+            self.setTip(playerIndex);
             //展示底牌
             Network.socket.emit('getCards', Global.roomNum, 3);
             if (playerIndex == self.leftIndex) {
@@ -206,8 +217,32 @@ cc.Class({
                 Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
             }
         });
-        Network.socket.on('buchu', function (playerIndex) {});
-        Network.socket.on('chupai', function (playerIndex) {});
+        Network.socket.on('buchu', function (playerIndex) {
+            debugger;
+        });
+        Network.socket.on('chupai', function (mes) {
+            var data = Network.parseJson(mes);
+            var playerIndex = data.playerIndex;
+            var pokers = data.pokers;
+
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "";
+                self.refreshCount();
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.left);
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "";
+                self.refreshCount();
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.right);
+            } else {
+                self.playerAction.active = false;
+                //手牌
+                Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.shoupai);
+            }
+        });
     },
 
     //洗牌算法
@@ -234,8 +269,36 @@ cc.Class({
         dipai.desTroyPokers(new Array());
     },
 
+    /**
+     * 
+     * @param {数字Poker} cards 
+     * @param {展示位置} playerType 
+     */
+    startShowPokers: function startShowPokers(cards, playerType) {
+
+        var pokerDatas = [];
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
+            pokerDatas[i] = pokerSprite;
+        }
+        //左边
+        if (playerType == PlayerType.left) {
+            this.leftPokersOut = pokerDatas;
+            this.bubbleSortCards(this.leftPokersOut);
+        } else if (playerType == PlayerType.right) {
+            this.rightPokersOut = pokerDatas;
+            this.bubbleSortCards(this.rightPokersOut);
+        } else if (playerType == PlayerType.shoupai) {
+            this.playerPokersOut = pokerDatas;
+            this.bubbleSortCards(this.playerPokersOut);
+        }
+        this.showCards(playerType);
+    },
+
     //生成当前玩家
     startPlayer: function startPlayer(cards) {
+        this.playerPokers = [];
         var pokers = this.loadAllPoker(cards);
         for (var i = 0; i < cards.length; i++) {
             var pokerSprite = pokers[i];
@@ -249,6 +312,7 @@ cc.Class({
 
     //生成三张底牌
     startDipai: function startDipai(cards) {
+        this.dipaiPokers = [];
         var pokers = this.loadAllPoker(cards);
         for (var i = 0; i < cards.length; i++) {
             var pokerSprite = pokers[i];
@@ -260,16 +324,17 @@ cc.Class({
     showCards: function showCards(type) {
         if (type == PlayerType.left) {
             var showPoker = this.leftShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.leftPokers, PlayerType.left);
+            showPoker.showPokers(this.leftPokersOut, PlayerType.left);
         } else if (type == PlayerType.right) {
             var showPoker = this.rightShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.rightPokers, PlayerType.right);
+            showPoker.showPokers(this.rightPokersOut, PlayerType.right);
         } else if (type == PlayerType.player) {
             var showPoker = this.playerHandCards.getComponent('ShowPoker');
             showPoker.showPokers(this.playerPokers, PlayerType.player);
         } else if (type == PlayerType.shoupai) {
+            //打出的牌
             var showPoker = this.playerOutCards.getComponent('ShowPoker');
-            showPoker.showPokers(cards, PlayerType.shoupai);
+            showPoker.showPokers(this.playerPokersOut, PlayerType.shoupai);
         } else {
             var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
             showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
@@ -367,6 +432,13 @@ cc.Class({
             this.leftIndex = 1;
             this.rightIndex = 0;
         }
+    },
+
+    //设置提示的显示
+    setTip: function setTip(index) {
+        this.leftTip.active = index == this.leftIndex;
+        this.rightTip.active = index == this.rightIndex;
+        this.playerTip.active = index == Global.roomIndex;
     },
     start: function start() {}
 }

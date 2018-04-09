@@ -194,6 +194,16 @@ io.on('connection', function (socket) {
         let data = parseJson(msg);
         qiangdizhu(data);
     });
+    //出牌
+    socket.on('buchu' , function (mes) {
+        console.log("不出",mes);
+        chupai(mes,false);
+    });
+    socket.on('chupai' , function (mes) {
+        console.log("出牌",mes);
+        chupai(mes,true);
+    });
+
 });
 
 /**
@@ -365,7 +375,33 @@ function firstPlayerCards(room, pc) {
     pc.isFirstPoker = true;
     broadCast("startPlayerPoker", pc.lastGrabIndex, room);
 }
+/**
+ * 
+ * @param {消息} mes 
+ * @param {是否出牌} isOut 
+ */
+function chupai(mes,isOut){
+    let msgBean = parseJson(mes);
 
+    let playerIndex = msgBean.playerIndex;
+    let roomNum = msgBean.roomNum;
+    let pokers = msgBean.pokers;
+    let cardsType = msgBean.cardsType;
+    let room = roomMap[roomNum];
+    let pc = roomControllerMap[roomNum];
+    let player = room.playerList[playerIndex];
+
+    if (isOut) {
+        pc.lastPokerWraper = cardsType;
+        pc.lastPokers = pokers;
+        let backMes = {'pokers':pokers,'playerIndex':playerIndex};
+        broadCast('chupai',stringifyJson(backMes),room)
+        //手牌减少
+        var ans = player.pokerList.filter((n) => !pokers.includes(n));
+        player.pokerList = ans;
+        console.log("手牌变化");   
+    }
+}
 
 
 

@@ -41,6 +41,8 @@ cc.Class({
     },
     /* 展示poker */
     showPokers(cards, type) {
+        this.desTroyPokers(this._pokerSpriteList);
+        
         this._pokerSpriteList = [];
 
         let startx = cards.length / 2; //开始x坐标

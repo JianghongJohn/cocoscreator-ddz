@@ -22,8 +22,8 @@ cc.Class({
     properties: {
         poker: cc.Prefab, //扑克
         allPokers: [], //所有牌
-        leftPokers: [], //左边牌
-        rightPokers: [], //右边牌
+        // leftPokers: [], //左边牌
+        // rightPokers: [], //右边牌
         playerPokers: [], //玩家牌
         dipaiPokers: [], //底牌
         leftPokersOut: [], //左边打出牌
@@ -217,10 +217,30 @@ cc.Class({
             }
         });
         Network.socket.on('buchu' , function (playerIndex) {
-
+            debugger
         });
-        Network.socket.on('chupai' , function (playerIndex) {
+        Network.socket.on('chupai' , function (mes) {
+            let data = Network.parseJson(mes);
+            let playerIndex = data.playerIndex;
+            let pokers = data.pokers;
 
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "";
+                self.refreshCount()
+                //出的牌
+                self.startShowPokers(pokers,PlayerType.left);
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "";
+                self.refreshCount()
+                //出的牌
+                self.startShowPokers(pokers,PlayerType.right);
+            } else {
+                self.playerAction.active = false;
+                //手牌
+                Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
+                //出的牌
+                self.startShowPokers(pokers,PlayerType.shoupai);
+            }
         });
     },
     //洗牌算法
@@ -246,8 +266,36 @@ cc.Class({
         dipai.desTroyPokers(new Array());
 
     },
+    /**
+     * 
+     * @param {数字Poker} cards 
+     * @param {展示位置} playerType 
+     */
+    startShowPokers(cards,playerType){
+        
+        var pokerDatas = [];
+        var pokers = this.loadAllPoker(cards);
+        for (let i = 0; i < cards.length; i++) {
+            let pokerSprite = pokers[i];
+            pokerDatas[i] = pokerSprite;
+        }
+        //左边
+        if (playerType == PlayerType.left) {
+            this.leftPokersOut = pokerDatas;
+            this.bubbleSortCards(this.leftPokersOut);
+        }else if (playerType == PlayerType.right) {
+            this.rightPokersOut = pokerDatas;
+            this.bubbleSortCards(this.rightPokersOut);
+        }else if (playerType == PlayerType.shoupai) {
+            this.playerPokersOut = pokerDatas;
+            this.bubbleSortCards(this.playerPokersOut);
+        }
+        this.showCards(playerType);
+        
+    },
     //生成当前玩家
     startPlayer(cards) {
+        this.playerPokers = [];
         var pokers = this.loadAllPoker(cards);
         for (let i = 0; i < cards.length; i++) {
             let pokerSprite = pokers[i];
@@ -260,6 +308,7 @@ cc.Class({
     },
     //生成三张底牌
     startDipai(cards) {
+        this.dipaiPokers = [];
         var pokers = this.loadAllPoker(cards);
         for (let i = 0; i < cards.length; i++) {
             let pokerSprite = pokers[i];
@@ -271,16 +320,17 @@ cc.Class({
     showCards(type) {
         if (type == PlayerType.left) {
             var showPoker = this.leftShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.leftPokers, PlayerType.left);
+            showPoker.showPokers(this.leftPokersOut, PlayerType.left);
         } else if (type == PlayerType.right) {
             var showPoker = this.rightShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.rightPokers, PlayerType.right);
+            showPoker.showPokers(this.rightPokersOut, PlayerType.right);
         } else if (type == PlayerType.player) {
             var showPoker = this.playerHandCards.getComponent('ShowPoker');
             showPoker.showPokers(this.playerPokers, PlayerType.player);
         } else if (type == PlayerType.shoupai) {
+            //打出的牌
             var showPoker = this.playerOutCards.getComponent('ShowPoker');
-            showPoker.showPokers(cards, PlayerType.shoupai);
+            showPoker.showPokers(this.playerPokersOut, PlayerType.shoupai);
         } else {
             var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
             showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);

@@ -24,16 +24,19 @@ cc.Class({
     },
     chupaiAction(){
        let pokers = Global.selectPokers;
-       debugger
        var type = pokerTypes.sortByLength(pokers);
        var pokerData = new Array();
        for (const card of pokers) {
         var poker = card.getComponent('Poker');
-        // let cardId = poker._cardId;
-        // pokerData.push(cardId);
+        debugger;
+        let cardId = poker._cardId;
+        pokerData.push(cardId);
        }
 
-       debugger;
+       let mes = {pokers:pokerData,cardsType:type,roomNum: Global.roomNum,playerIndex:Global.roomIndex,};
+
+       Network.socket.emit('chupai',  Network.stringifyJson(mes));
+
     },
 
     // update (dt) {},
