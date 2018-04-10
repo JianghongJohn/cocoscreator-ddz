@@ -28,6 +28,7 @@ cc.Class({
     },
     chupaiAction: function chupaiAction() {
         var pokers = Global.selectPokers;
+        pokerTypes.bubbleSortCards(pokers);
         if (pokers.length == 0) {
             //牌型不符合
             console.log("未选择牌");

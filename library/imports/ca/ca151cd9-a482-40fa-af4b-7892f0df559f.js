@@ -18,6 +18,7 @@ cc._RF.push(module, 'ca151zZpIJA+q9LeJLw31Wf', 'pokerTypes');
 　　飞机带翅膀：三顺＋同数量的单牌或同数量的对牌。如：444555+79 或333444555+7799JJ
 　　四带二：四张牌＋两手牌。（注意：四带二不是炸弹）。如：5555＋3＋8 或 4444＋55＋77 。
  */
+var PokerObj = require("Poker");
 
 var CardType = cc.Enum({
     c1: 0, //单牌。  
@@ -39,13 +40,12 @@ var CardType = cc.Enum({
 
 //获取牌的等级
 function getGrade(card) {
-    debugger;
     return card.getComponent('Poker')._grade;
 };
 
 //牌生成一个反应数量的数组
 function getCarAnalyseInfo(cards) {
-    debugger;
+
     var oneArray = [];
     var twoArray = [];
     var threeArray = [];
@@ -125,7 +125,7 @@ function sortByLength(cards) {
             //炸弹、3带1。
             if (cardsInfo[2].length == 1) {
                 return CardType.c31;
-            } else if (cardsInfo[3].length == 0) {
+            } else if (cardsInfo[3].length == 1) {
                 return CardType.c4;
             }
             break;
@@ -134,7 +134,7 @@ function sortByLength(cards) {
             //炸弹、3带1。
             if (cardsInfo[2].length == 1) {
                 return CardType.c31;
-            } else if (cardsInfo[3].length == 0) {
+            } else if (cardsInfo[3].length == 1) {
                 return CardType.c4;
             } else if (checkIsShunzi(cardsInfo, length)) {
                 return CardType.c123;
@@ -209,7 +209,7 @@ function checkIsShunzi(cardsInfo, length) {
         //单排数组长度为所有扑克牌
     } else if (checkElementIsContain(17, cardsInfo[0]) || checkElementIsContain(16, cardsInfo[0]) || checkElementIsContain(15, cardsInfo[0])) {
         //不可以包含王、2
-    } else if (cardsInfo[0][length - 1] - cardsInfo[0][0] == length - 1) {
+    } else if (cardsInfo[0][0] - cardsInfo[0][cardsInfo[0].length - 1] == length - 1) {
         //（第一张牌值  - 最后一张牌值）== (length-1)
         flag = true;
     }
@@ -223,7 +223,7 @@ function checkIsLianDuizi(cardsInfo, length) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(17, cardsInfo[1]) || checkElementIsContain(16, cardsInfo[1]) || checkElementIsContain(15, cardsInfo[1])) {
         //不可以包含王、2
-    } else if (cardsInfo[1][length - 1] - cardsInfo[1][0] == length / 2 - 1) {
+    } else if (cardsInfo[1][0] - cardsInfo[1][cardsInfo[1].length - 1] == length / 2 - 1) {
         //（第一张牌值  - 最后一张牌值）== (length/2-1)
         flag = true;
     }
@@ -237,7 +237,7 @@ function checkIsFeiJi(cardsInfo, length, count) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(15, cardsInfo[count])) {
         //不可以包含、2
-    } else if (cardsInfo[2][length - 1] - cardsInfo[2][0] == length / count - 1) {
+    } else if (cardsInfo[2][0] - cardsInfo[2][cardsInfo[2].length - 1] == length / count - 1) {
         //（第一张牌值  - 最后一张牌值）== (length/3-1)
         flag = true;
     }
@@ -276,9 +276,62 @@ function checkElementIsContain(element, array) {
 
     return false;
 };
+/** 
+     * 对牌进行排序，从小到大，使用冒泡排序，此种方法不是很好 
+     * 
+     * @param cards 
+     *            牌 
+     */
+function bubbleSortCards(cards) {
+    if (cards == null) {
+        return cards;
+    }
+    var size = cards.length;
+    // 冒泡排序,从左到右，从小到大  
+    for (var i = 0; i < size; i++) {
+        for (var j = 0; j < size - 1 - i; j++) {
+            var pokerSpriteOne = cards[j];
+            var PokerOne = pokerSpriteOne.getComponent('Poker');
+            var pokerSpriteTwo = cards[j + 1];
+            var PokerTwo = pokerSpriteTwo.getComponent('Poker');
+
+            var gradeOne = PokerOne._grade;
+            var gradeTwo = PokerTwo._grade;
+
+            var isExchange = false;
+            if (gradeOne < gradeTwo) {
+                isExchange = true;
+            } else if (gradeOne == gradeTwo) {
+                // 2张牌的grade相同  
+                var type1 = PokerOne._bigType;
+                var type2 = PokerTwo._bigType;
+
+                // 从左到右，方块、梅花、红桃、黑桃  
+                if (type1 == PokerObj.CardBigType.HEI_TAO) {
+                    isExchange = true;
+                } else if (type1 == PokerObj.CardBigType.HONG_TAO) {
+                    if (type2 == PokerObj.CardBigType.MEI_HUA || type2 == PokerObj.CardBigType.FANG_KUAI) {
+                        isExchange = true;
+                    }
+                } else if (type1 == PokerObj.CardBigType.MEI_HUA) {
+                    if (type2 == PokerObj.CardBigType.FANG_KUAI) {
+                        isExchange = true;
+                    }
+                }
+            }
+            if (isExchange) {
+                cards[j + 1] = pokerSpriteOne;
+                cards[j] = pokerSpriteTwo;
+            }
+        }
+    }
+    // console.log("我的牌"+ cards);
+    // return cards;
+};
 module.exports = {
     CardType: CardType,
-    sortByLength: sortByLength
+    sortByLength: sortByLength,
+    bubbleSortCards: bubbleSortCards
 };
 
 cc._RF.pop();
