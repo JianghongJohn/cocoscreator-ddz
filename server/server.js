@@ -65,6 +65,11 @@ function PlayController(room) {
     this.lastPokers;
     //上一手牌的牌型包装器
     this.lastPokerWraper;
+    //上一个出牌的人
+    this.lastPokerPlayer;
+    //不出的次数(到二则判断为全部不出，出牌的时候刷新为0，不出加1)
+    this.playerPassCount = 0;
+
     // 第一手牌
     this.isFirstPoker;
     // 地主牌
@@ -392,15 +397,27 @@ function chupai(mes,isOut){
     let player = room.playerList[playerIndex];
 
     if (isOut) {
+        pc.lastPokerPlayer = playerIndex;
         pc.lastPokerWraper = cardsType;
         pc.lastPokers = pokers;
+        //重置不出数量
+        pc.passCount = 0;
         let backMes = {'pokers':pokers,'playerIndex':playerIndex};
         broadCast('chupai',stringifyJson(backMes),room)
         //手牌减少
         var ans = player.pokerList.filter((n) => !pokers.includes(n));
         player.pokerList = ans;
         console.log("手牌变化");   
+    }else{
+        pc.passCount ++;
+        broadCast('buchu',playerIndex,room)
     }
+    //通知出牌
+    // 正常情况下为下一家，若存在都不出的情况则上一收出牌的人继续出
+    
+    let nextIndex = (player.index + 1) % 3;
+    broadCast("playeAction", nextIndex, room);
+
 }
 
 

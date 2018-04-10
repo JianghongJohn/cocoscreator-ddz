@@ -15,6 +15,7 @@ cc.Class({
     start () {
 
     },
+
     buchuAction(){
         let mes = {playerIndex:Global.roomIndex,roomNum: Global.roomNum};
 
@@ -24,16 +25,26 @@ cc.Class({
     },
     chupaiAction(){
        let pokers = Global.selectPokers;
+       if (pokers.length == 0) {
+           //牌型不符合
+           console.log("未选择牌");
+           return;
+       }
        var type = pokerTypes.sortByLength(pokers);
+       debugger
+       if (type == 14) {
+           //牌型不符合
+           console.log("牌型错误");
+           return;
+       }
        var pokerData = new Array();
        for (const card of pokers) {
         var poker = card.getComponent('Poker');
-        debugger;
         let cardId = poker._cardId;
         pokerData.push(cardId);
        }
 
-       let mes = {pokers:pokerData,cardsType:type,roomNum: Global.roomNum,playerIndex:Global.roomIndex,};
+       let mes = {pokers:pokerData,cardsType:type,roomNum: Global.roomNum,playerIndex:Global.roomIndex};
 
        Network.socket.emit('chupai',  Network.stringifyJson(mes));
 

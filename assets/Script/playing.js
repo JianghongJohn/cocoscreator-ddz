@@ -214,11 +214,42 @@ cc.Class({
             } else {
                 self.playerAction.active = true;
                 Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
+                //重置poker
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
             }
         });
-        Network.socket.on('buchu' , function (playerIndex) {
-            debugger
+        Network.socket.on('playeAction' , function (playerIndex) {
+
+            //当前操作对象
+            self.setTip(playerIndex);
+            if (playerIndex == Global.roomIndex) {
+                self.playerAction.active = true;
+                let blank = new Array();
+                self.startShowPokers(blank,PlayerType.shoupai);
+            }
+            
         });
+        //不出
+        Network.socket.on('buchu' , function (playerIndex) {
+            let blank = new Array();
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "不出";
+
+                self.startShowPokers(blank,PlayerType.left);
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "不出";
+                self.startShowPokers(blank,PlayerType.right);
+            } else {
+                self.playerAction.active = false;
+                self.playerbuchu.string = "不出"
+                self.startShowPokers(blank,PlayerType.shoupai);
+                //重置poker
+                var showPoker = this.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
+            }
+        });
+        //出牌
         Network.socket.on('chupai' , function (mes) {
             let data = Network.parseJson(mes);
             let playerIndex = data.playerIndex;
@@ -240,6 +271,9 @@ cc.Class({
                 Network.socket.emit('getCards' ,Global.roomNum,Global.roomIndex);
                 //出的牌
                 self.startShowPokers(pokers,PlayerType.shoupai);
+                //重置poker
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
             }
         });
     },

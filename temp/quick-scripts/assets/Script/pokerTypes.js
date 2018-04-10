@@ -39,12 +39,13 @@ var CardType = cc.Enum({
 
 //获取牌的等级
 function getGrade(card) {
+    debugger;
     return card.getComponent('Poker')._grade;
 };
 
 //牌生成一个反应数量的数组
 function getCarAnalyseInfo(cards) {
-
+    debugger;
     var oneArray = [];
     var twoArray = [];
     var threeArray = [];
@@ -97,7 +98,7 @@ function getCarAnalyseInfo(cards) {
 function sortByLength(cards) {
     var length = cards.length;
     var cardsInfo = getCarAnalyseInfo(cards);
-
+    debugger;
     switch (length) {
         case 0:
             return CardType.c0;
@@ -110,7 +111,7 @@ function sortByLength(cards) {
             //进行对子的判断和王炸判断
             if (checkIsWangzha(cards)) {
                 return CardType.c20;
-            } else if (cards[1].length == 1) {
+            } else if (cardsInfo[1].length == 1) {
                 return CardType.c2;
             }
             break;

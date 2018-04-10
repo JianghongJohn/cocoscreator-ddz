@@ -28,7 +28,18 @@ cc.Class({
     },
     chupaiAction: function chupaiAction() {
         var pokers = Global.selectPokers;
+        if (pokers.length == 0) {
+            //牌型不符合
+            console.log("未选择牌");
+            return;
+        }
         var type = pokerTypes.sortByLength(pokers);
+        debugger;
+        if (type == 14) {
+            //牌型不符合
+            console.log("牌型错误");
+            return;
+        }
         var pokerData = new Array();
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -39,7 +50,6 @@ cc.Class({
                 var card = _step.value;
 
                 var poker = card.getComponent('Poker');
-                debugger;
                 var cardId = poker._cardId;
                 pokerData.push(cardId);
             }
