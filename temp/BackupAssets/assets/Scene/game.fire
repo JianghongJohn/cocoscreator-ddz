@@ -3856,7 +3856,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 100
@@ -4076,7 +4076,7 @@
       "__id__": 2
     },
     "component": "playing",
-    "handler": "restartGame",
+    "handler": "testBtn",
     "customEventData": ""
   }
 ]

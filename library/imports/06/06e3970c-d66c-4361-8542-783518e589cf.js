@@ -6,6 +6,8 @@ cc._RF.push(module, '06e39cM1mxDYYVCeDUY5YnP', 'ShowPoker');
 
 var POSITION_UP = 1;
 var POSITION_DOWN = 2;
+
+var pokerTypes = require('pokerTypes');
 cc.Class({
     extends: cc.Component,
 
@@ -68,6 +70,10 @@ cc.Class({
     /* 展示poker */
     showPokers: function showPokers(cards, type) {
         this.desTroyPokers(this._pokerSpriteList);
+        if (type == 0 || type == 1 || type == 4) {
+            cards = pokerTypes.secondSortWithCards(cards);
+            debugger;
+        }
 
         this._pokerSpriteList = [];
 

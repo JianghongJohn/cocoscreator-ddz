@@ -1,109 +1,55 @@
-2018-04-10T01:53:28.496Z - normal: Load ~/.CocosCreator/settings.json
-2018-04-10T01:53:28.500Z - normal: checking language setting...
-2018-04-10T01:53:28.500Z - normal: Language: zh
-2018-04-10T01:53:29.368Z - success: protocol editor-framework registered
-2018-04-10T01:53:29.368Z - success: protocol app registered
-2018-04-10T01:53:29.369Z - success: protocol theme registered
-2018-04-10T01:53:29.369Z - success: protocol packages registered
-2018-04-10T01:53:29.369Z - success: protocol unpack registerred
-2018-04-10T01:53:29.369Z - success: protocol disable-commonjs registerred
-2018-04-10T01:53:29.641Z - normal: connected!
-2018-04-10T01:53:29.643Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-10T01:53:29.654Z - normal: Initializing Cocos2d
-2018-04-10T01:53:29.884Z - normal: Initializing Asset Database
-2018-04-10T01:53:29.919Z - success: protocol uuid registerred
-2018-04-10T01:53:29.920Z - success: protocol db registerred
-2018-04-10T01:53:29.920Z - success: protocol thumbnail registerred
-2018-04-10T01:53:29.920Z - normal: Loading editor/builtin packages
-2018-04-10T01:53:29.950Z - success: anysdk loaded
-2018-04-10T01:53:30.080Z - success: assets loaded
-2018-04-10T01:53:30.085Z - success: builder loaded
-2018-04-10T01:53:30.087Z - success: cocos-analytics loaded
-2018-04-10T01:53:30.093Z - success: console loaded
-2018-04-10T01:53:30.098Z - success: hierarchy loaded
-2018-04-10T01:53:30.104Z - success: inspector loaded
-2018-04-10T01:53:30.106Z - success: keystore loaded
-2018-04-10T01:53:30.111Z - success: node-library loaded
-2018-04-10T01:53:30.113Z - success: package-asset loaded
-2018-04-10T01:53:30.115Z - success: preferences loaded
-2018-04-10T01:53:30.119Z - success: project-exporter loaded
-2018-04-10T01:53:30.138Z - success: project-importer loaded
-2018-04-10T01:53:30.141Z - success: project-settings loaded
-2018-04-10T01:53:30.146Z - success: ui-kit loaded
-2018-04-10T01:53:30.151Z - success: ui-grid loaded
-2018-04-10T01:53:30.156Z - success: scene loaded
-2018-04-10T01:53:30.157Z - success: sprite-editor loaded
-2018-04-10T01:53:30.162Z - success: store loaded
-2018-04-10T01:53:30.177Z - success: timeline loaded
-2018-04-10T01:53:30.177Z - normal: Loading builtin packages
-2018-04-10T01:53:30.181Z - success: asset-db-debugger loaded
-2018-04-10T01:53:30.183Z - success: color-picker loaded
-2018-04-10T01:53:30.187Z - success: package-manager loaded
-2018-04-10T01:53:30.193Z - success: sdkbox loaded
-2018-04-10T01:53:30.197Z - success: tester loaded
-2018-04-10T01:53:30.206Z - success: ui-kit-preview-extra loaded
-2018-04-10T01:53:30.210Z - success: ui-kit-preview loaded
-2018-04-10T01:53:30.213Z - success: ui-tree loaded
-2018-04-10T01:53:31.283Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-10T01:53:31.285Z - normal: Loading packages
-2018-04-10T01:53:31.299Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-04-10T01:53:31.301Z - normal: [LuaCPP Support] version 0.3
-2018-04-10T01:53:31.302Z - success: creator-luacpp-support loaded
-2018-04-10T01:53:31.302Z - normal: Watching packages
-2018-04-10T01:53:31.362Z - normal: Run Application
-2018-04-10T01:53:32.221Z - success: preview server running at http://localhost:7456
-2018-04-10T01:53:38.130Z - normal: 1.8.1
-2018-04-10T02:38:25.690Z - failed: [db-task][sync-changes] Failed to import asset /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js, message: Compile error: TypeError: /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js: Duplicate declaration "playerIndex"
-  219 |         //不出
-  220 |         Network.socket.on('buchu' , function (playerIndex) {
-> 221 |             let playerIndex = data.playerIndex;
-      |                 ^
-  222 |             if (playerIndex == self.leftIndex) {
-  223 |                 self.leftbuchu.string = "不出";
-  224 | 
-    at File.buildCodeFrameError (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-core/lib/transformation/file/index.js:431:15)
-    at Scope.checkBlockScopedCollisions (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:398:27)
-    at Scope.registerBinding (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:592:16)
-    at Scope.registerDeclaration (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:496:14)
-    at Object.BlockScoped (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:244:28)
-    at Object.newFn (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/visitors.js:318:17)
-    at NodePath._call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:76:18)
-    at NodePath.call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:44:14)
-    at NodePath.visit (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:105:12)
-    at TraversalContext.visitQueue (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/context.js:150:16)
-2018-04-10T02:43:23.322Z - failed: [db-task][sync-changes] Failed to import asset /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js, message: Compile error: TypeError: /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js: Duplicate declaration "playerIndex"
-  219 |         //不出
-  220 |         Network.socket.on('buchu' , function (playerIndex) {
-> 221 |             let playerIndex = data.playerIndex;
-      |                 ^
-  222 |             let blank = new Array();
-  223 |             if (playerIndex == self.leftIndex) {
-  224 |                 self.leftbuchu.string = "不出";
-    at File.buildCodeFrameError (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-core/lib/transformation/file/index.js:431:15)
-    at Scope.checkBlockScopedCollisions (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:398:27)
-    at Scope.registerBinding (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:592:16)
-    at Scope.registerDeclaration (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:496:14)
-    at Object.BlockScoped (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:244:28)
-    at Object.newFn (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/visitors.js:318:17)
-    at NodePath._call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:76:18)
-    at NodePath.call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:44:14)
-    at NodePath.visit (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:105:12)
-    at TraversalContext.visitQueue (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/context.js:150:16)
-2018-04-10T02:50:36.729Z - failed: [db-task][sync-changes] Failed to import asset /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js, message: Compile error: TypeError: /Users/hyjt/Desktop/source/cocos/Jneth-ddz/assets/Script/playing.js: Duplicate declaration "playerIndex"
-  219 |         //不出
-  220 |         Network.socket.on('buchu' , function (playerIndex) {
-> 221 |             let playerIndex = data.playerIndex;
-      |                 ^
-  222 |             let blank = new Array();
-  223 |             if (playerIndex == self.leftIndex) {
-  224 |                 self.leftbuchu.string = "不出";
-    at File.buildCodeFrameError (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-core/lib/transformation/file/index.js:431:15)
-    at Scope.checkBlockScopedCollisions (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:398:27)
-    at Scope.registerBinding (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:592:16)
-    at Scope.registerDeclaration (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:496:14)
-    at Object.BlockScoped (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/scope/index.js:244:28)
-    at Object.newFn (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/visitors.js:318:17)
-    at NodePath._call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:76:18)
-    at NodePath.call (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:44:14)
-    at NodePath.visit (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/path/context.js:105:12)
-    at TraversalContext.visitQueue (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-traverse/lib/context.js:150:16)
+2018-04-11T07:20:11.348Z - normal: Load ~/.CocosCreator/settings.json
+2018-04-11T07:20:11.355Z - normal: checking language setting...
+2018-04-11T07:20:11.355Z - normal: Language: zh
+2018-04-11T07:20:12.994Z - success: protocol editor-framework registered
+2018-04-11T07:20:12.994Z - success: protocol app registered
+2018-04-11T07:20:12.995Z - success: protocol theme registered
+2018-04-11T07:20:12.995Z - success: protocol packages registered
+2018-04-11T07:20:12.995Z - success: protocol unpack registerred
+2018-04-11T07:20:12.996Z - success: protocol disable-commonjs registerred
+2018-04-11T07:20:13.263Z - normal: connected!
+2018-04-11T07:20:13.266Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-04-11T07:20:13.268Z - normal: Initializing Cocos2d
+2018-04-11T07:20:13.554Z - normal: Initializing Asset Database
+2018-04-11T07:20:13.590Z - success: protocol uuid registerred
+2018-04-11T07:20:13.590Z - success: protocol db registerred
+2018-04-11T07:20:13.590Z - success: protocol thumbnail registerred
+2018-04-11T07:20:13.590Z - normal: Loading editor/builtin packages
+2018-04-11T07:20:13.619Z - success: anysdk loaded
+2018-04-11T07:20:13.755Z - success: assets loaded
+2018-04-11T07:20:13.759Z - success: builder loaded
+2018-04-11T07:20:13.761Z - success: cocos-analytics loaded
+2018-04-11T07:20:13.767Z - success: console loaded
+2018-04-11T07:20:13.772Z - success: hierarchy loaded
+2018-04-11T07:20:13.778Z - success: inspector loaded
+2018-04-11T07:20:13.779Z - success: keystore loaded
+2018-04-11T07:20:13.784Z - success: node-library loaded
+2018-04-11T07:20:13.787Z - success: package-asset loaded
+2018-04-11T07:20:13.789Z - success: preferences loaded
+2018-04-11T07:20:13.795Z - success: project-exporter loaded
+2018-04-11T07:20:13.816Z - success: project-importer loaded
+2018-04-11T07:20:13.820Z - success: project-settings loaded
+2018-04-11T07:20:13.824Z - success: ui-kit loaded
+2018-04-11T07:20:13.829Z - success: ui-grid loaded
+2018-04-11T07:20:13.835Z - success: scene loaded
+2018-04-11T07:20:13.837Z - success: sprite-editor loaded
+2018-04-11T07:20:13.844Z - success: store loaded
+2018-04-11T07:20:13.850Z - success: timeline loaded
+2018-04-11T07:20:13.851Z - normal: Loading builtin packages
+2018-04-11T07:20:13.855Z - success: asset-db-debugger loaded
+2018-04-11T07:20:13.857Z - success: color-picker loaded
+2018-04-11T07:20:13.861Z - success: package-manager loaded
+2018-04-11T07:20:13.866Z - success: sdkbox loaded
+2018-04-11T07:20:13.871Z - success: tester loaded
+2018-04-11T07:20:13.880Z - success: ui-kit-preview-extra loaded
+2018-04-11T07:20:13.884Z - success: ui-kit-preview loaded
+2018-04-11T07:20:13.888Z - success: ui-tree loaded
+2018-04-11T07:20:15.018Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
+2018-04-11T07:20:15.020Z - normal: Loading packages
+2018-04-11T07:20:15.033Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-04-11T07:20:15.036Z - normal: [LuaCPP Support] version 0.3
+2018-04-11T07:20:15.037Z - success: creator-luacpp-support loaded
+2018-04-11T07:20:15.037Z - normal: Watching packages
+2018-04-11T07:20:15.096Z - normal: Run Application
+2018-04-11T07:20:15.667Z - success: preview server running at http://localhost:7456
+2018-04-11T07:20:21.017Z - normal: 1.8.1

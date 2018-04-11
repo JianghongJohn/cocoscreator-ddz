@@ -193,6 +193,12 @@ io.on('connection', function (socket) {
         socket.emit('refreshCardsCountBack' + roomNum, [players[0].pokerList.length, players[1].pokerList.length, players[2].pokerList.length])
 
     });
+    //重新发牌
+    socket.on("restarGame", function (roomNum) {
+        var room = roomMap[roomNum];
+        // 通知重新发牌
+        restartSendCards(room);
+    });
     //叫地主
     socket.on("qiangdizhu", function (msg) {
         console.log('onQiangDizhu:' + msg);

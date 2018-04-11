@@ -136,11 +136,22 @@ cc.Class({
      * 重新发牌开始
      */
     restartGame: function restartGame() {
+
+        //清空页面的一些东西
         var playerHandCardsShow = this.playerHandCards.getComponent('ShowPoker');
         playerHandCardsShow.desTroyPokers(new Array());
 
         var dipai = this.dipaiShowPoker.getComponent('ShowPoker');
         dipai.desTroyPokers(new Array());
+
+        var left = this.leftShowPoker.getComponent('ShowPoker');
+        left.desTroyPokers(new Array());
+
+        var right = this.rightShowPoker.getComponent('ShowPoker');
+        right.desTroyPokers(new Array());
+    },
+    testBtn: function testBtn() {
+        Network.socket.emit('restarGame', Global.roomNum, Global.roomIndex);
     },
 
     /**
@@ -259,6 +270,10 @@ cc.Class({
         this.rightTip.active = index == this.rightIndex;
         this.playerTip.active = index == Global.roomIndex;
     },
+
+    /**
+     * socket接收处理
+     */
     socketOn: function socketOn() {
         var self = this;
         Network.socket.on("readyGame" + Global.roomNum, function (roomIndex) {

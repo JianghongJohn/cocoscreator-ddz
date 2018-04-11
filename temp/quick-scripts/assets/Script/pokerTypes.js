@@ -98,7 +98,6 @@ function getCarAnalyseInfo(cards) {
 function sortByLength(cards) {
     var length = cards.length;
     var cardsInfo = getCarAnalyseInfo(cards);
-    debugger;
     switch (length) {
         case 0:
             return CardType.c0;
@@ -233,15 +232,64 @@ function checkIsLianDuizi(cardsInfo, length) {
 
 function checkIsFeiJi(cardsInfo, length, count) {
     var flag = false;
-    if (cardsInfo[2].length != length / count || 0 != length % 3) {
+    if (cardsInfo[2].length != length / count || 0 != length % count) {
         //对子数组长度为所有扑克牌/2 length为2的整除
-    } else if (checkElementIsContain(15, cardsInfo[count])) {
+    } else if (checkElementIsContain(15, cardsInfo[2])) {
         //不可以包含、2
     } else if (cardsInfo[2][0] - cardsInfo[2][cardsInfo[2].length - 1] == length / count - 1) {
         //（第一张牌值  - 最后一张牌值）== (length/3-1)
         flag = true;
     }
     return flag;
+}
+//二次排序（针对四带和三代）
+function secondSortWithCards(cards) {
+    var type = sortByLength(cards);
+    var cardsInfo = getCarAnalyseInfo(cards);
+
+    if (type == CardType.c31 || type == CardType.c32 || type == CardType.c11122234 || type == CardType.c1112223344) {
+        //将cardsInfo[2]中有的全部提前
+        //反向遍历
+        for (var i = cardsInfo[2].length - 1; i >= 0; i--) {
+
+            var grade = cardsInfo[2][i];
+            for (var j = 0; j < cards.length; j++) {
+                var pokerSpriteOne = cards[j];
+                var pokerGrade = pokerSpriteOne.getComponent('Poker')._grade;
+                //找到相等等级的提前
+                if (grade == pokerGrade) {
+                    var tempArray = [cards[j + 2], cards[j + 1], cards[j]];
+                    //合并两个数组
+                    cards = tempArray.concat(cards);
+
+                    //删除原始的三个数据
+                    cards.splice(j + 3, 3);
+
+                    break;
+                }
+            }
+        }
+    } else if (type == CardType.c411 || type == CardType.c422) {
+        //将cardsInfo[3]中有的全部提前
+        //反向遍历
+        var _grade = cardsInfo[3][0];
+        for (var _j = 0; _j < cards.length; _j++) {
+            var _pokerSpriteOne = cards[_j];
+            var _pokerGrade = _pokerSpriteOne.getComponent('Poker')._grade;
+            //找到相等等级的提前
+            if (_grade == _pokerGrade) {
+                var _tempArray = [cards[_j], cards[_j + 1], cards[_j + 2], cards[_j + 3]];
+                //合并两个数组
+                cards = _tempArray.concat(cards);
+                //删除原始的三个数据
+                cards.splice(_j + 4, 4);
+                break;
+            }
+        }
+    } else {
+        return cards;
+    }
+    return cards;
 }
 
 //检查数组是否包含元素
@@ -331,7 +379,8 @@ function bubbleSortCards(cards) {
 module.exports = {
     CardType: CardType,
     sortByLength: sortByLength,
-    bubbleSortCards: bubbleSortCards
+    bubbleSortCards: bubbleSortCards,
+    secondSortWithCards: secondSortWithCards
 };
 
 cc._RF.pop();
