@@ -291,6 +291,55 @@ function secondSortWithCards(cards) {
     }
     return cards;
 }
+/**
+ * 比较两次打的牌，后一次要大于前一次
+ * @param {上一手牌} lastPoker 
+ * @param {本次} thisPoker 
+ */
+function comparePokers(lastPoker, thisPoker) {
+    //首先判断是否为炸弹和王炸
+    if (lastPoker == CardType.c20) {
+        //上一手为王炸
+        return false;
+    } else if (thisPoker == CardType.c20) {
+        //当前为王炸
+        return true;
+    } else if (thisPoker == CardType.c4 && lastPoker != CardType.c4) {
+        //当前为炸弹,上一手不为炸弹
+        return true;
+    }
+    //长度不同则直接返回错误
+    if (Global.lastPokers.length != Global.selectPokers.length) {
+        return false;
+    }
+    //大小判断
+    if (lastPoker == thisPoker) {
+        //通用方法，从大到小(先排序一次)
+        bubbleSortCards(Global.lastPokers);
+        bubbleSortCards(Global.selectPokers);
+        var lastCardsInfo = getCarAnalyseInfo(Global.lastPokers);
+        var thisCardsInfo = getCarAnalyseInfo(Global.selectPokers);
+        var index = 0;
+        if (lastPoker == CardType.c1 || lastPoker == CardType.c123) {
+            index = 0;
+        } else if (lastPoker == CardType.c2) {
+            index = 1;
+        } else if (lastPoker == CardType.c3 || lastPoker == CardType.c31 || lastPoker == CardType.c32 || lastPoker == CardType.c11122234 || lastPoker == CardType.c1112223344) {
+            index = 2;
+        } else if (lastPoker == CardType.c4 || lastPoker == CardType.c411 || lastPoker == CardType.c422) {
+            index = 3;
+        }
+        for (var i = 0; i < lastCardsInfo[index].length; i++) {
+            if (lastCardsInfo[index][i] >= thisCardsInfo[index][i]) {
+                //出现一个小于则失败
+                return false;
+            }
+        }
+        return true;
+    }
+
+    return false;
+}
 
 //检查数组是否包含元素
 function checkElementIsContain(element, array) {
@@ -380,7 +429,8 @@ module.exports = {
     CardType: CardType,
     sortByLength: sortByLength,
     bubbleSortCards: bubbleSortCards,
-    secondSortWithCards: secondSortWithCards
+    secondSortWithCards: secondSortWithCards,
+    comparePokers: comparePokers
 };
 
 cc._RF.pop();

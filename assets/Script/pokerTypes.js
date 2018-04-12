@@ -217,7 +217,7 @@ function checkIsLianDuizi(cardsInfo, length) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(17, cardsInfo[1]) || checkElementIsContain(16, cardsInfo[1]) || checkElementIsContain(15, cardsInfo[1])) {
         //不可以包含王、2
-    } else if ( cardsInfo[1][0] - cardsInfo[1][cardsInfo[1].length - 1]  == length / 2 - 1) {
+    } else if (cardsInfo[1][0] - cardsInfo[1][cardsInfo[1].length - 1] == length / 2 - 1) {
         //（第一张牌值  - 最后一张牌值）== (length/2-1)
         flag = true;
     }
@@ -231,63 +231,109 @@ function checkIsFeiJi(cardsInfo, length, count) {
         //对子数组长度为所有扑克牌/2 length为2的整除
     } else if (checkElementIsContain(15, cardsInfo[2])) {
         //不可以包含、2
-    } else if (cardsInfo[2][0] - cardsInfo[2][cardsInfo[2].length - 1]  == length / count - 1) {
+    } else if (cardsInfo[2][0] - cardsInfo[2][cardsInfo[2].length - 1] == length / count - 1) {
         //（第一张牌值  - 最后一张牌值）== (length/3-1)
         flag = true;
     }
     return flag;
 }
 //二次排序（针对四带和三代）
-function secondSortWithCards(cards){
+function secondSortWithCards(cards) {
     let type = sortByLength(cards);
     var cardsInfo = getCarAnalyseInfo(cards);
 
-    if (type == CardType.c31 ||type == CardType.c32 ||type == CardType.c11122234 ||type == CardType.c1112223344) {
+    if (type == CardType.c31 || type == CardType.c32 || type == CardType.c11122234 || type == CardType.c1112223344) {
         //将cardsInfo[2]中有的全部提前
         //反向遍历
-        for (let i = cardsInfo[2].length -1 ; i >=0 ; i--) {
+        for (let i = cardsInfo[2].length - 1; i >= 0; i--) {
 
             let grade = cardsInfo[2][i];
-            for (let j = 0 ;  j <cards.length ; j++) {
+            for (let j = 0; j < cards.length; j++) {
                 const pokerSpriteOne = cards[j];
                 let pokerGrade = pokerSpriteOne.getComponent('Poker')._grade;
                 //找到相等等级的提前
                 if (grade == pokerGrade) {
-                    let tempArray = [cards[j+2],cards[j+1],cards[j]];
+                    let tempArray = [cards[j + 2], cards[j + 1], cards[j]];
                     //合并两个数组
                     cards = tempArray.concat(cards);
 
                     //删除原始的三个数据
-                    cards.splice(j+3,3);
+                    cards.splice(j + 3, 3);
 
                     break;
                 }
             }
         }
-    }else if (type == CardType.c411 ||type == CardType.c422) {
+    } else if (type == CardType.c411 || type == CardType.c422) {
         //将cardsInfo[3]中有的全部提前
-            //反向遍历
-            let grade = cardsInfo[3][0];
-            for (let j = 0 ; j <cards.length; j++) {
-                const pokerSpriteOne = cards[j];
-                let pokerGrade = pokerSpriteOne.getComponent('Poker')._grade;
-                //找到相等等级的提前
-                if (grade == pokerGrade) {
-                    let tempArray = [cards[j],cards[j+1],cards[j+2],cards[j+3]];
-                    //合并两个数组
-                    cards = tempArray.concat(cards);
-                    //删除原始的三个数据
-                    cards.splice(j+4,4);
-                    break;
-                }
+        //反向遍历
+        let grade = cardsInfo[3][0];
+        for (let j = 0; j < cards.length; j++) {
+            const pokerSpriteOne = cards[j];
+            let pokerGrade = pokerSpriteOne.getComponent('Poker')._grade;
+            //找到相等等级的提前
+            if (grade == pokerGrade) {
+                let tempArray = [cards[j], cards[j + 1], cards[j + 2], cards[j + 3]];
+                //合并两个数组
+                cards = tempArray.concat(cards);
+                //删除原始的三个数据
+                cards.splice(j + 4, 4);
+                break;
             }
-    }else{
+        }
+    } else {
         return cards;
     }
     return cards;
 }
+/**
+ * 比较两次打的牌，后一次要大于前一次
+ * @param {上一手牌} lastPoker 
+ * @param {本次} thisPoker 
+ */
+function comparePokers(lastPoker, thisPoker) {
+    //首先判断是否为炸弹和王炸
+    if (lastPoker == CardType.c20) {//上一手为王炸
+        return false;
+    } else if (thisPoker == CardType.c20) {//当前为王炸
+        return true;
+    } else if (thisPoker == CardType.c4 && lastPoker != CardType.c4) {//当前为炸弹,上一手不为炸弹
+        return true;
+    }
+    //长度不同则直接返回错误
+    if (Global.lastPokers.length != Global.selectPokers.length) {
+        return false;
+    }
+    //大小判断
+    if (lastPoker == thisPoker) {
+        //通用方法，从大到小(先排序一次)
+        bubbleSortCards(Global.lastPokers);
+        bubbleSortCards(Global.selectPokers);
+        let lastCardsInfo = getCarAnalyseInfo(Global.lastPokers);
+        let thisCardsInfo = getCarAnalyseInfo(Global.selectPokers);
+        let index = 0;
+        if (lastPoker == CardType.c1 || lastPoker == CardType.c123) {
+            index = 0;
+        } else if (lastPoker == CardType.c2) {
+            index = 1;
+        } else if (lastPoker == CardType.c3 || lastPoker == CardType.c31 || lastPoker == CardType.c32 || lastPoker == CardType.c11122234 || lastPoker == CardType.c1112223344) {
+            index = 2;
+        } else if (lastPoker == CardType.c4 || lastPoker == CardType.c411 || lastPoker == CardType.c422) {
+            index = 3
+        }
+        for (let i = 0; i < lastCardsInfo[index].length; i++) {
+            if (lastCardsInfo[index][i] >= thisCardsInfo[index][i]) {
+                //出现一个小于则失败
+                return false;
+            }
+        }
+        return true;
+    }
+
+    return false;
 
 
+}
 
 //检查数组是否包含元素
 function checkElementIsContain(element, array) {
@@ -305,56 +351,57 @@ function checkElementIsContain(element, array) {
      * @param cards 
      *            牌 
      */
-    function bubbleSortCards(cards) {
-        if (cards == null) {
-            return cards;
-        }
-        let size = cards.length;
-        // 冒泡排序,从左到右，从小到大  
-        for (var i = 0; i < size; i++) {
-            for (var j = 0; j < size - 1 - i; j++) {
-                let pokerSpriteOne = cards[j];
-                let PokerOne = pokerSpriteOne.getComponent('Poker');
-                let pokerSpriteTwo = cards[j + 1];
-                let PokerTwo = pokerSpriteTwo.getComponent('Poker');
+function bubbleSortCards(cards) {
+    if (cards == null) {
+        return cards;
+    }
+    let size = cards.length;
+    // 冒泡排序,从左到右，从小到大  
+    for (var i = 0; i < size; i++) {
+        for (var j = 0; j < size - 1 - i; j++) {
+            let pokerSpriteOne = cards[j];
+            let PokerOne = pokerSpriteOne.getComponent('Poker');
+            let pokerSpriteTwo = cards[j + 1];
+            let PokerTwo = pokerSpriteTwo.getComponent('Poker');
 
-                var gradeOne = PokerOne._grade;
-                var gradeTwo = PokerTwo._grade;
+            var gradeOne = PokerOne._grade;
+            var gradeTwo = PokerTwo._grade;
 
-                var isExchange = false;
-                if (gradeOne < gradeTwo) {
+            var isExchange = false;
+            if (gradeOne < gradeTwo) {
+                isExchange = true;
+            } else if (gradeOne == gradeTwo) {
+                // 2张牌的grade相同  
+                var type1 = PokerOne._bigType;
+                var type2 = PokerTwo._bigType;
+
+                // 从左到右，方块、梅花、红桃、黑桃  
+                if (type1 == PokerObj.CardBigType.HEI_TAO) {
                     isExchange = true;
-                } else if (gradeOne == gradeTwo) {
-                    // 2张牌的grade相同  
-                    var type1 = PokerOne._bigType;
-                    var type2 = PokerTwo._bigType;
-
-                    // 从左到右，方块、梅花、红桃、黑桃  
-                    if (type1 == PokerObj.CardBigType.HEI_TAO) {
+                } else if (type1 == PokerObj.CardBigType.HONG_TAO) {
+                    if (type2 == PokerObj.CardBigType.MEI_HUA ||
+                        type2 == PokerObj.CardBigType.FANG_KUAI) {
                         isExchange = true;
-                    } else if (type1 == PokerObj.CardBigType.HONG_TAO) {
-                        if (type2 == PokerObj.CardBigType.MEI_HUA ||
-                            type2 == PokerObj.CardBigType.FANG_KUAI) {
-                            isExchange = true;
-                        }
-                    } else if (type1 == PokerObj.CardBigType.MEI_HUA) {
-                        if (type2 == PokerObj.CardBigType.FANG_KUAI) {
-                            isExchange = true;
-                        }
+                    }
+                } else if (type1 == PokerObj.CardBigType.MEI_HUA) {
+                    if (type2 == PokerObj.CardBigType.FANG_KUAI) {
+                        isExchange = true;
                     }
                 }
-                if (isExchange) {
-                    cards[j + 1] = pokerSpriteOne;
-                    cards[j] = pokerSpriteTwo;
-                }
+            }
+            if (isExchange) {
+                cards[j + 1] = pokerSpriteOne;
+                cards[j] = pokerSpriteTwo;
             }
         }
-        // console.log("我的牌"+ cards);
-        // return cards;
-    };
+    }
+    // console.log("我的牌"+ cards);
+    // return cards;
+};
 module.exports = {
     CardType: CardType,
     sortByLength: sortByLength,
-    bubbleSortCards:bubbleSortCards,
-    secondSortWithCards:secondSortWithCards
+    bubbleSortCards: bubbleSortCards,
+    secondSortWithCards: secondSortWithCards,
+    comparePokers:comparePokers
 }

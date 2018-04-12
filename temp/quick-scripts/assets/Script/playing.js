@@ -283,6 +283,10 @@ cc.Class({
                 self.rightReady.string = "准备";
             } else {}
         });
+        //错误信息
+        Network.socket.on('errorPlay', function (errorMes) {
+            alert(errorMes);
+        });
         //获取所有Poker
         Network.socket.on('startGame' + Global.roomNum, function (playerIndex) {
             self.restartGame();
@@ -377,7 +381,13 @@ cc.Class({
                 showPoker.pokerAllDown();
             }
         });
-        Network.socket.on('playeAction', function (playerIndex) {
+        Network.socket.on('playeAction', function (mes) {
+            var data = Network.parseJson(mes);
+
+            var playerIndex = data.nextIndex;
+            var isFirst = data.isFirst;
+            Global.isFirst = isFirst;
+            Global.lastPokerType = data.lastPokerType;
 
             //当前操作对象
             self.setTip(playerIndex);
@@ -402,7 +412,7 @@ cc.Class({
                 self.playerbuchu.string = "不出";
                 self.startShowPokers(blank, PlayerType.shoupai);
                 //重置poker
-                var showPoker = this.playerHandCards.getComponent('ShowPoker');
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
                 showPoker.pokerAllDown();
             }
         });
@@ -411,6 +421,10 @@ cc.Class({
             var data = Network.parseJson(mes);
             var playerIndex = data.playerIndex;
             var pokers = data.pokers;
+
+            //存储上一手牌
+            var pokerSprites = self.loadAllPoker(pokers);
+            Global.lastPokers = pokerSprites;
 
             if (playerIndex == self.leftIndex) {
                 self.leftbuchu.string = "";

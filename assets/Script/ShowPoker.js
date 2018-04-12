@@ -46,7 +46,6 @@ cc.Class({
         this.desTroyPokers(this._pokerSpriteList);
         if (type == 0||type == 1||type == 4) {
             cards = pokerTypes.secondSortWithCards(cards);
-            debugger
         }
  
         this._pokerSpriteList = [];
