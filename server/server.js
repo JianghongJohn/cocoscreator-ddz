@@ -3,6 +3,9 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+let PokerManager = require('./playerManager');
+let pm = new PokerManager();
+
 let roomControllerMap = {};
 let roomList = []; //所有房间号
 let roomMap = {}; //房间号对应的房间
@@ -65,6 +68,11 @@ function PlayController(room) {
     this.lastPokers;
     //上一手牌的牌型包装器
     this.lastPokerWraper;
+    //上一个出牌的人
+    this.lastPokerPlayer;
+    //不出的次数(到二则判断为全部不出，出牌的时候刷新为0，不出加1)
+    this.playerPassCount = 0;
+
     // 第一手牌
     this.isFirstPoker;
     // 地主牌
@@ -188,12 +196,28 @@ io.on('connection', function (socket) {
         socket.emit('refreshCardsCountBack' + roomNum, [players[0].pokerList.length, players[1].pokerList.length, players[2].pokerList.length])
 
     });
+    //重新发牌
+    socket.on("restarGame", function (roomNum) {
+        var room = roomMap[roomNum];
+        // 通知重新发牌
+        restartSendCards(room);
+    });
     //叫地主
     socket.on("qiangdizhu", function (msg) {
         console.log('onQiangDizhu:' + msg);
         let data = parseJson(msg);
         qiangdizhu(data);
     });
+    //出牌
+    socket.on('buchu' , function (mes) {
+        console.log("不出",mes);
+        chupai(mes,false);
+    });
+    socket.on('chupai' , function (mes) {
+        console.log("出牌",mes);
+        chupai(mes,true);
+    });
+
 });
 
 /**
@@ -365,7 +389,58 @@ function firstPlayerCards(room, pc) {
     pc.isFirstPoker = true;
     broadCast("startPlayerPoker", pc.lastGrabIndex, room);
 }
+/**
+ * 
+ * @param {消息} mes 
+ * @param {是否出牌} isOut 
+ */
+function chupai(mes,isOut){
+    let msgBean = parseJson(mes);
 
+    let playerIndex = msgBean.playerIndex;
+    let roomNum = msgBean.roomNum;
+    let pokers = msgBean.pokers;
+    let cardsType = msgBean.cardsType;
+    let room = roomMap[roomNum];
+    let pc = roomControllerMap[roomNum];
+    let player = room.playerList[playerIndex];
+
+    if (isOut) {
+        //牌型正确性判断
+        if (pc.isFirstPoker == false) {
+            
+            // if (pm.comparaPoker(pc.lastPokerWraper,cardsType) == false) {
+            //     socket = player.socket;
+            //     socket.emit("errorPlay", "您选择的牌不符合规则");
+            //     return;
+            // }
+        }
+        
+        pc.lastPokerPlayer = playerIndex;
+        pc.lastPokerWraper = cardsType;
+        pc.lastPokers = pokers;
+        //重置不出数量
+        pc.passCount = 0;
+        let backMes = {'pokers':pokers,'playerIndex':playerIndex};
+        broadCast('chupai',stringifyJson(backMes),room)
+        //手牌减少
+        var ans = player.pokerList.filter((n) => !pokers.includes(n));
+        player.pokerList = ans;
+        console.log("手牌变化");   
+    }else{
+        pc.passCount ++;
+        broadCast('buchu',playerIndex,room)
+    }
+    //通知出牌
+    // 正常情况下为下一家，若存在都不出的情况则上一收出牌的人继续出
+    pc.isFirstPoker = pc.passCount == 2?true:false;
+
+    let nextIndex = (player.index + 1) % 3;
+    //传递出牌的人，是否为第一手，上一手牌型，用于客户端判断牌型与大小
+    let message = {"nextIndex":nextIndex,"isFirst":pc.isFirstPoker,"lastPokerType":pc.lastPokerWraper};
+    broadCast("playeAction", stringifyJson(message), room);
+
+}
 
 
 

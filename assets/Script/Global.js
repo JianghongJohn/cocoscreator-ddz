@@ -4,7 +4,9 @@ window.Global = {
     roomNum:0,   //房间号
     allPokers:[],  //所有牌
     selectPokers:[],    //选择的牌
-    isPass:false,       //是否点了不出
+    isFirst:true,       //是否为第一手牌
+    lastPokerType:14,
+    lastPokers:[],
     roomIndex: -1,      //当前玩家座位号 (0,1,2);
 };
 //检测变量是否存在

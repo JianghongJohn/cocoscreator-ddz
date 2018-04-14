@@ -2,7 +2,7 @@
 cc._RF.push(module, '81d5fvpJ95HC5u91j0plkhh', 'playing');
 // Script/playing.js
 
-"use strict";
+'use strict';
 
 // Learn cc.Class:
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html
@@ -14,7 +14,7 @@ cc._RF.push(module, '81d5fvpJ95HC5u91j0plkhh', 'playing');
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
 var PokerObj = require("Poker");
-
+var pokerTypes = require('pokerTypes');
 var PlayerType = cc.Enum({
     left: 0,
     right: -1,
@@ -28,8 +28,8 @@ cc.Class({
     properties: {
         poker: cc.Prefab, //扑克
         allPokers: [], //所有牌
-        leftPokers: [], //左边牌
-        rightPokers: [], //右边牌
+        // leftPokers: [], //左边牌
+        // rightPokers: [], //右边牌
         playerPokers: [], //玩家牌
         dipaiPokers: [], //底牌
         leftPokersOut: [], //左边打出牌
@@ -89,14 +89,7 @@ cc.Class({
         // });
         console.log(Global.roomNum);
         //准备开始
-
-        Network.socket.on("readyGame" + Global.roomNum, function (roomIndex) {
-            if (roomIndex == self.leftIndex) {
-                self.leftReady.string = "准备";
-            } else if (roomIndex == self.rightIndex) {
-                self.rightReady.string = "准备";
-            } else {}
-        });
+        this.socketOn();
     },
 
     //加载卡片资源
@@ -124,7 +117,176 @@ cc.Class({
         }
 
         Network.socket.emit('readyGame', Global.roomNum, Global.roomIndex);
+    },
+
+    //洗牌算法
+    shuffleArray: function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            // 在正数的时候相当于Math.floor()向下取整,负数的时候相当于Math.ceil()：
+            var j = Math.random() * (i + 1) | 0;
+            // console.log(j);
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    },
+
+    /**
+     * 重新发牌开始
+     */
+    restartGame: function restartGame() {
+
+        //清空页面的一些东西
+        var playerHandCardsShow = this.playerHandCards.getComponent('ShowPoker');
+        playerHandCardsShow.desTroyPokers(new Array());
+
+        var dipai = this.dipaiShowPoker.getComponent('ShowPoker');
+        dipai.desTroyPokers(new Array());
+
+        var left = this.leftShowPoker.getComponent('ShowPoker');
+        left.desTroyPokers(new Array());
+
+        var right = this.rightShowPoker.getComponent('ShowPoker');
+        right.desTroyPokers(new Array());
+    },
+    testBtn: function testBtn() {
+        Network.socket.emit('restarGame', Global.roomNum, Global.roomIndex);
+    },
+
+    /**
+     * 显示poker
+     * @param {数字Poker} cards 
+     * @param {展示位置} playerType 
+     */
+    startShowPokers: function startShowPokers(cards, playerType) {
+
+        var pokerDatas = [];
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
+            pokerDatas[i] = pokerSprite;
+        }
+        //左边
+        if (playerType == PlayerType.left) {
+            this.leftPokersOut = pokerDatas;
+            pokerTypes.bubbleSortCards(this.leftPokersOut);
+        } else if (playerType == PlayerType.right) {
+            this.rightPokersOut = pokerDatas;
+            pokerTypes.bubbleSortCards(this.rightPokersOut);
+        } else if (playerType == PlayerType.shoupai) {
+            this.playerPokersOut = pokerDatas;
+            pokerTypes.bubbleSortCards(this.playerPokersOut);
+        }
+        this.showCards(playerType);
+    },
+
+    //生成当前玩家
+    startPlayer: function startPlayer(cards) {
+        this.playerPokers = [];
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
+            this.playerPokers[i] = pokerSprite;
+        }
+        pokerTypes.bubbleSortCards(this.playerPokers);
+        this.showCards(PlayerType.player);
+        //刷新数量
+        this.refreshCount();
+    },
+
+    //生成三张底牌
+    startDipai: function startDipai(cards) {
+        this.dipaiPokers = [];
+        var pokers = this.loadAllPoker(cards);
+        for (var i = 0; i < cards.length; i++) {
+            var pokerSprite = pokers[i];
+            this.dipaiPokers[i] = pokerSprite;
+        }
+        this.showCards(PlayerType.dipai);
+        // this.showPokers(this.dipaiPokers, PlayerType.dipai);
+    },
+
+    //调用子类的展示方法
+    showCards: function showCards(type) {
+        if (type == PlayerType.left) {
+            var showPoker = this.leftShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.leftPokersOut, PlayerType.left);
+        } else if (type == PlayerType.right) {
+            var showPoker = this.rightShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.rightPokersOut, PlayerType.right);
+        } else if (type == PlayerType.player) {
+            var showPoker = this.playerHandCards.getComponent('ShowPoker');
+            showPoker.showPokers(this.playerPokers, PlayerType.player);
+        } else if (type == PlayerType.shoupai) {
+            //打出的牌
+            var showPoker = this.playerOutCards.getComponent('ShowPoker');
+            showPoker.showPokers(this.playerPokersOut, PlayerType.shoupai);
+        } else {
+            var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
+            showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
+        }
+    },
+    loadAllPoker: function loadAllPoker(originCards) {
+
+        var pokers = [];
+        for (var i = 0; i < originCards.length; i++) {
+
+            var pokerSprite = cc.instantiate(this.poker);
+            var Poker = pokerSprite.getComponent('Poker');
+            var pokerName = Poker.creatCard(originCards[i])._imageName;
+            // console.log("名称" + pokerName);
+            pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
+
+            pokers.push(pokerSprite);
+        }
+        return pokers;
+    },
+
+
+    //刷新显示数量
+    refreshCount: function refreshCount() {
         var self = this;
+        Network.socket.emit('refreshCardsCount', Global.roomNum);
+    },
+
+    //设置Index
+    setIndex: function setIndex() {
+        if (Global.roomIndex == 0) {
+            this.leftIndex = 2;
+            this.rightIndex = 1;
+        } else if (Global.roomIndex == 1) {
+            this.leftIndex = 0;
+            this.rightIndex = 2;
+        } else {
+            this.leftIndex = 1;
+            this.rightIndex = 0;
+        }
+    },
+
+    //设置提示的显示
+    setTip: function setTip(index) {
+        this.leftTip.active = index == this.leftIndex;
+        this.rightTip.active = index == this.rightIndex;
+        this.playerTip.active = index == Global.roomIndex;
+    },
+
+    /**
+     * socket接收处理
+     */
+    socketOn: function socketOn() {
+        var self = this;
+        Network.socket.on("readyGame" + Global.roomNum, function (roomIndex) {
+            if (roomIndex == self.leftIndex) {
+                self.leftReady.string = "准备";
+            } else if (roomIndex == self.rightIndex) {
+                self.rightReady.string = "准备";
+            } else {}
+        });
+        //错误信息
+        Network.socket.on('errorPlay', function (errorMes) {
+            alert(errorMes);
+        });
         //获取所有Poker
         Network.socket.on('startGame' + Global.roomNum, function (playerIndex) {
             self.restartGame();
@@ -197,7 +359,6 @@ cc.Class({
         });
         //开始出牌
         Network.socket.on('startPlayerPoker', function (playerIndex) {
-
             self.playerDizhuAction.active = false;
             self.leftbuchu.string = "";
             self.rightbuchu.string = "";
@@ -215,176 +376,82 @@ cc.Class({
             } else {
                 self.playerAction.active = true;
                 Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
+                //重置poker
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
             }
         });
-        Network.socket.on('buchu', function (playerIndex) {});
-        Network.socket.on('chupai', function (playerIndex) {});
-    },
+        Network.socket.on('playeAction', function (mes) {
+            var data = Network.parseJson(mes);
 
-    //洗牌算法
-    shuffleArray: function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            // 在正数的时候相当于Math.floor()向下取整,负数的时候相当于Math.ceil()：
-            var j = Math.random() * (i + 1) | 0;
-            // console.log(j);
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    },
+            var playerIndex = data.nextIndex;
+            var isFirst = data.isFirst;
+            Global.isFirst = isFirst;
+            Global.lastPokerType = data.lastPokerType;
 
-    /**
-     * 重新发牌开始
-     */
-    restartGame: function restartGame() {
-        var playerHandCardsShow = this.playerHandCards.getComponent('ShowPoker');
-        playerHandCardsShow.desTroyPokers(new Array());
-
-        var dipai = this.dipaiShowPoker.getComponent('ShowPoker');
-        dipai.desTroyPokers(new Array());
-    },
-
-    //生成当前玩家
-    startPlayer: function startPlayer(cards) {
-        var pokers = this.loadAllPoker(cards);
-        for (var i = 0; i < cards.length; i++) {
-            var pokerSprite = pokers[i];
-            this.playerPokers[i] = pokerSprite;
-        }
-        this.bubbleSortCards(this.playerPokers);
-        this.showCards(PlayerType.player);
-        //刷新数量
-        this.refreshCount();
-    },
-
-    //生成三张底牌
-    startDipai: function startDipai(cards) {
-        var pokers = this.loadAllPoker(cards);
-        for (var i = 0; i < cards.length; i++) {
-            var pokerSprite = pokers[i];
-            this.dipaiPokers[i] = pokerSprite;
-        }
-        this.showCards(PlayerType.dipai);
-        // this.showPokers(this.dipaiPokers, PlayerType.dipai);
-    },
-    showCards: function showCards(type) {
-        if (type == PlayerType.left) {
-            var showPoker = this.leftShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.leftPokers, PlayerType.left);
-        } else if (type == PlayerType.right) {
-            var showPoker = this.rightShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.rightPokers, PlayerType.right);
-        } else if (type == PlayerType.player) {
-            var showPoker = this.playerHandCards.getComponent('ShowPoker');
-            showPoker.showPokers(this.playerPokers, PlayerType.player);
-        } else if (type == PlayerType.shoupai) {
-            var showPoker = this.playerOutCards.getComponent('ShowPoker');
-            showPoker.showPokers(cards, PlayerType.shoupai);
-        } else {
-            var showPoker = this.dipaiShowPoker.getComponent('ShowPoker');
-            showPoker.showPokers(this.dipaiPokers, PlayerType.dipai);
-        }
-    },
-    loadAllPoker: function loadAllPoker(originCards) {
-
-        var pokers = [];
-        for (var i = 0; i < originCards.length; i++) {
-
-            var pokerSprite = cc.instantiate(this.poker);
-            var Poker = pokerSprite.getComponent('Poker');
-            var pokerName = Poker.creatCard(originCards[i])._imageName;
-            // console.log("名称" + pokerName);
-            pokerSprite.getComponent(cc.Sprite).spriteFrame = this.pokerSpriteFrameMap[pokerName];
-
-            pokers.push(pokerSprite);
-        }
-        return pokers;
-    },
-
-    /** 
-     * 对牌进行排序，从小到大，使用冒泡排序，此种方法不是很好 
-     * 
-     * @param cards 
-     *            牌 
-     */
-    bubbleSortCards: function bubbleSortCards(cards) {
-        if (cards == null) {
-            return cards;
-        }
-        var size = cards.length;
-        // 冒泡排序,从左到右，从小到大  
-        for (var i = 0; i < size; i++) {
-            for (var j = 0; j < size - 1 - i; j++) {
-                var pokerSpriteOne = cards[j];
-                var PokerOne = pokerSpriteOne.getComponent('Poker');
-                var pokerSpriteTwo = cards[j + 1];
-                var PokerTwo = pokerSpriteTwo.getComponent('Poker');
-
-                var gradeOne = PokerOne._grade;
-                var gradeTwo = PokerTwo._grade;
-
-                var isExchange = false;
-                if (gradeOne < gradeTwo) {
-                    isExchange = true;
-                } else if (gradeOne == gradeTwo) {
-                    // 2张牌的grade相同  
-                    var type1 = PokerOne._bigType;
-                    var type2 = PokerTwo._bigType;
-
-                    // 从左到右，方块、梅花、红桃、黑桃  
-                    if (type1 == PokerObj.CardBigType.HEI_TAO) {
-                        isExchange = true;
-                    } else if (type1 == PokerObj.CardBigType.HONG_TAO) {
-                        if (type2 == PokerObj.CardBigType.MEI_HUA || type2 == PokerObj.CardBigType.FANG_KUAI) {
-                            isExchange = true;
-                        }
-                    } else if (type1 == PokerObj.CardBigType.MEI_HUA) {
-                        if (type2 == PokerObj.CardBigType.FANG_KUAI) {
-                            isExchange = true;
-                        }
-                    }
-                }
-                if (isExchange) {
-                    cards[j + 1] = pokerSpriteOne;
-                    cards[j] = pokerSpriteTwo;
-                }
+            //当前操作对象
+            self.setTip(playerIndex);
+            if (playerIndex == Global.roomIndex) {
+                self.playerAction.active = true;
+                var blank = new Array();
+                self.startShowPokers(blank, PlayerType.shoupai);
             }
-        }
-        // console.log("我的牌"+ cards);
-        return cards;
-    },
+        });
+        //不出
+        Network.socket.on('buchu', function (playerIndex) {
+            var blank = new Array();
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "不出";
 
-    //刷新显示数量
-    refreshCount: function refreshCount() {
-        var self = this;
-        Network.socket.emit('refreshCardsCount', Global.roomNum);
+                self.startShowPokers(blank, PlayerType.left);
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "不出";
+                self.startShowPokers(blank, PlayerType.right);
+            } else {
+                self.playerAction.active = false;
+                self.playerbuchu.string = "不出";
+                self.startShowPokers(blank, PlayerType.shoupai);
+                //重置poker
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
+            }
+        });
+        //出牌
+        Network.socket.on('chupai', function (mes) {
+            var data = Network.parseJson(mes);
+            var playerIndex = data.playerIndex;
+            var pokers = data.pokers;
+
+            //存储上一手牌
+            var pokerSprites = self.loadAllPoker(pokers);
+            Global.lastPokers = pokerSprites;
+
+            if (playerIndex == self.leftIndex) {
+                self.leftbuchu.string = "";
+                self.refreshCount();
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.left);
+            } else if (playerIndex == self.rightIndex) {
+                self.rightbuchu.string = "";
+                self.refreshCount();
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.right);
+            } else {
+                self.playerAction.active = false;
+                //手牌
+                Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
+                //出的牌
+                self.startShowPokers(pokers, PlayerType.shoupai);
+                //重置poker
+                var showPoker = self.playerHandCards.getComponent('ShowPoker');
+                showPoker.pokerAllDown();
+            }
+        });
         Network.socket.on('refreshCardsCountBack' + Global.roomNum, function (datas) {
             console.log(datas);
             self.leftCount.string = "" + datas[self.leftIndex];
             self.rightCount.string = "" + datas[self.rightIndex];
         });
-    },
-
-    //设置Index
-    setIndex: function setIndex() {
-        if (Global.roomIndex == 0) {
-            this.leftIndex = 2;
-            this.rightIndex = 1;
-        } else if (Global.roomIndex == 1) {
-            this.leftIndex = 0;
-            this.rightIndex = 2;
-        } else {
-            this.leftIndex = 1;
-            this.rightIndex = 0;
-        }
-    },
-
-    //设置提示的显示
-    setTip: function setTip(index) {
-        this.leftTip.active = index == this.leftIndex;
-        this.rightTip.active = index == this.rightIndex;
-        this.playerTip.active = index == Global.roomIndex;
     },
     start: function start() {}
 }

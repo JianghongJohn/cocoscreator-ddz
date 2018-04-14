@@ -1,5 +1,7 @@
 const POSITION_UP = 1;
 const POSITION_DOWN = 2;
+
+var pokerTypes = require('pokerTypes');
 cc.Class({
     extends: cc.Component,
 
@@ -41,6 +43,11 @@ cc.Class({
     },
     /* 展示poker */
     showPokers(cards, type) {
+        this.desTroyPokers(this._pokerSpriteList);
+        if (type == 0||type == 1||type == 4) {
+            cards = pokerTypes.secondSortWithCards(cards);
+        }
+ 
         this._pokerSpriteList = [];
 
         let startx = cards.length / 2; //开始x坐标
