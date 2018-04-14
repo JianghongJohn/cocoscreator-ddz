@@ -3,9 +3,6 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-let PokerManager = require('./playerManager');
-let pm = new PokerManager();
-
 let roomControllerMap = {};
 let roomList = []; //所有房间号
 let roomMap = {}; //房间号对应的房间
@@ -406,16 +403,6 @@ function chupai(mes,isOut){
     let player = room.playerList[playerIndex];
 
     if (isOut) {
-        //牌型正确性判断
-        if (pc.isFirstPoker == false) {
-            
-            // if (pm.comparaPoker(pc.lastPokerWraper,cardsType) == false) {
-            //     socket = player.socket;
-            //     socket.emit("errorPlay", "您选择的牌不符合规则");
-            //     return;
-            // }
-        }
-        
         pc.lastPokerPlayer = playerIndex;
         pc.lastPokerWraper = cardsType;
         pc.lastPokers = pokers;
@@ -433,12 +420,9 @@ function chupai(mes,isOut){
     }
     //通知出牌
     // 正常情况下为下一家，若存在都不出的情况则上一收出牌的人继续出
-    pc.isFirstPoker = pc.passCount == 2?true:false;
-
+    
     let nextIndex = (player.index + 1) % 3;
-    //传递出牌的人，是否为第一手，上一手牌型，用于客户端判断牌型与大小
-    let message = {"nextIndex":nextIndex,"isFirst":pc.isFirstPoker,"lastPokerType":pc.lastPokerWraper};
-    broadCast("playeAction", stringifyJson(message), room);
+    broadCast("playeAction", nextIndex, room);
 
 }
 
