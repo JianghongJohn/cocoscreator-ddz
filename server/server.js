@@ -72,7 +72,8 @@ function PlayController(room) {
     this.lastPokerPlayer;
     //不出的次数(到二则判断为全部不出，出牌的时候刷新为0，不出加1)
     this.playerPassCount = 0;
-
+    //地主的Index
+    this.dizhuIndex = 0;
     // 第一手牌
     this.isFirstPoker;
     // 地主牌
@@ -299,7 +300,14 @@ function qiangdizhu(msg) {
     player.noGrab = !qiangdizhu;
     //增加一次抢地主操作次数
     pc.actionCount++;
-    let mes = { index: playerIndex, qiangdizhuResult: qiangdizhu };
+    
+    let str = "";
+    if(pc.readyDizhu.length == 0){
+        str = qiangdizhu ? "叫地主" : "不叫";
+    }else{
+        str = qiangdizhu ? "抢地主" : "不抢";
+    }
+    let mes = { "index": playerIndex, "qiangdizhuResult": qiangdizhu,"str":str};
     //通知抢还是不抢给其他人显示
     broadCast('qiangdizhuResult', stringifyJson(mes), room)
 
@@ -384,7 +392,7 @@ function firstPlayerCards(room, pc) {
             console.log('抢地主完毕' + player.pokerList);
         }
     }
-
+    pc.dizhuIndex = pc.lastGrabIndex;
     pc.currentPlayingIndex = pc.lastGrabIndex;
     pc.isFirstPoker = true;
     broadCast("startPlayerPoker", pc.lastGrabIndex, room);
@@ -426,7 +434,13 @@ function chupai(mes,isOut){
         //手牌减少
         var ans = player.pokerList.filter((n) => !pokers.includes(n));
         player.pokerList = ans;
-        console.log("手牌变化");   
+        console.log("手牌变化");
+
+        //判断玩家剩余牌的数量
+        if(player.pokerList.length == 0){
+            broadCast('gameOver',playerIndex,room)
+        }
+
     }else{
         pc.passCount ++;
         broadCast('buchu',playerIndex,room)

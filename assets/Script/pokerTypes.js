@@ -125,9 +125,9 @@ function sortByLength(cards) {
             break;
         case 5:
             //三带二、顺子
-            //炸弹、3带1。
-            if (cardsInfo[2].length == 1) {
-                return CardType.c31;
+            //炸弹
+            if (cardsInfo[2].length == 1 && cardsInfo[1].length == 1){
+                return CardType.c32;
             } else if (cardsInfo[3].length == 1) {
                 return CardType.c4;
             } else if (checkIsShunzi(cardsInfo, length)) {

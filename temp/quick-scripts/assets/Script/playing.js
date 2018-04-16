@@ -327,13 +327,14 @@ cc.Class({
             var data = Network.parseJson(msg);
             var playerIndex = data.index;
             var qiangdizhu = data.qiangdizhuResult;
+            var str = data.str;
 
             if (playerIndex == self.leftIndex) {
-                self.leftbuchu.string = qiangdizhu ? "抢地主" : "不抢";
+                self.leftbuchu.string = str;
             } else if (playerIndex == self.rightIndex) {
-                self.rightbuchu.string = qiangdizhu ? "抢地主" : "不抢";
+                self.rightbuchu.string = str;
             } else {
-                self.playerbuchu.string = qiangdizhu ? "抢地主" : "不抢";
+                self.playerbuchu.string = str;
             }
         });
         //目前抢地主用户
@@ -345,6 +346,7 @@ cc.Class({
 
             if (data.nextIndex == Global.roomIndex) {
                 self.playerDizhuAction.active = true;
+                self.playerbuchu.string = "";
             } else {
                 self.playerDizhuAction.active = false;
             }
@@ -359,6 +361,10 @@ cc.Class({
         });
         //开始出牌
         Network.socket.on('startPlayerPoker', function (playerIndex) {
+            console.log("地主为:" + playerIndex);
+            //存储地主人员
+            Global.dizhuIndex = playerIndex;
+
             self.playerDizhuAction.active = false;
             self.leftbuchu.string = "";
             self.rightbuchu.string = "";
@@ -381,6 +387,7 @@ cc.Class({
                 showPoker.pokerAllDown();
             }
         });
+
         Network.socket.on('playeAction', function (mes) {
             var data = Network.parseJson(mes);
 
@@ -389,9 +396,13 @@ cc.Class({
             Global.isFirst = isFirst;
             Global.lastPokerType = data.lastPokerType;
 
+            var actionNode = self.playerAction.getComponent('playerAction');
+            actionNode.setBuchu(isFirst);
+
             //当前操作对象
             self.setTip(playerIndex);
             if (playerIndex == Global.roomIndex) {
+                self.playerbuchu.string = "";
                 self.playerAction.active = true;
                 var blank = new Array();
                 self.startShowPokers(blank, PlayerType.shoupai);
@@ -445,6 +456,25 @@ cc.Class({
                 //重置poker
                 var showPoker = self.playerHandCards.getComponent('ShowPoker');
                 showPoker.pokerAllDown();
+            }
+        });
+        Network.socket.on('gameOver', function (playerIndex) {
+            if (playerIndex == Global.dizhuIndex) {
+                console.log("地主胜利");
+                //我是地主
+                if (Global.dizhuIndex == Global.playerIndex) {
+                    console.log("我赢了");
+                } else {
+                    console.log("我输了");
+                }
+            } else {
+                console.log("农民胜利");
+                //我是地主
+                if (Global.dizhuIndex == Global.playerIndex) {
+                    console.log("我输了");
+                } else {
+                    console.log("我赢了");
+                }
             }
         });
         Network.socket.on('refreshCardsCountBack' + Global.roomNum, function (datas) {

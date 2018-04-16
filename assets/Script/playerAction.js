@@ -15,8 +15,22 @@ cc.Class({
     start () {
 
     },
-
+    /**
+     * 检查是否为第一次出牌，隐藏不出按钮
+     * @param {是否为第一次出牌} isFirst 
+     */
+    setBuchu(isFirst){
+        if(isFirst){
+            this.buchuBtn.active = false;
+        }else{
+            this.buchuBtn.active = true;
+        }
+    },
     buchuAction(){
+        //首次出牌不允许不出
+        if (Global.isFirst) {
+            return;
+        }
         let mes = {playerIndex:Global.roomIndex,roomNum: Global.roomNum};
 
         Network.socket.emit('buchu',  Network.stringifyJson(mes));

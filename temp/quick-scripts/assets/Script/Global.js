@@ -13,6 +13,7 @@ window.Global = {
     isFirst: true, //是否为第一手牌
     lastPokerType: 14,
     lastPokers: [],
+    dizhuIndex: -1, //地主是谁
     roomIndex: -1 //当前玩家座位号 (0,1,2);
 };
 //检测变量是否存在
