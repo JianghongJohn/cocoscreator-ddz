@@ -27,6 +27,7 @@ cc.Class({
 
     properties: {
         poker: cc.Prefab, //扑克
+
         allPokers: [], //所有牌
         // leftPokers: [], //左边牌
         // rightPokers: [], //右边牌
@@ -39,6 +40,8 @@ cc.Class({
             default: {},
             visible: false
         },
+        resultLabel: cc.Label, //结果文字
+
         leftReady: cc.Label, //左边准备
         rightReady: cc.Label, //右边准备
         playerReady: cc.Label, //玩家准备
@@ -63,7 +66,11 @@ cc.Class({
 
         leftTip: cc.Node, //左边手牌了
         rightTip: cc.Node, //右边出牌了
-        playerTip: cc.Node //玩家出牌了
+        playerTip: cc.Node, //玩家出牌了
+        //谁是地主
+        leftIsDizhu: cc.Node,
+        rightIsDizhu: cc.Node,
+        playerIsDizhu: cc.Node
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -73,6 +80,13 @@ cc.Class({
         this.socketAction();
         this.loadRes();
         this.setIndex();
+    },
+
+    /**
+     * 离开房间
+     */
+    leaveRoom: function leaveRoom() {
+        Network.socket.emit('leaveRoom', Global.roomNum, Global.roomIndex);
     },
 
     /**
@@ -140,6 +154,9 @@ cc.Class({
         //清空页面的一些东西
         var playerHandCardsShow = this.playerHandCards.getComponent('ShowPoker');
         playerHandCardsShow.desTroyPokers(new Array());
+
+        var out = this.playerOutCards.getComponent('ShowPoker');
+        out.desTroyPokers(new Array());
 
         var dipai = this.dipaiShowPoker.getComponent('ShowPoker');
         dipai.desTroyPokers(new Array());
@@ -302,6 +319,10 @@ cc.Class({
             self.playerAction.active = false;
 
             self.playerDizhuAction.active = false;
+            //地主标志
+            self.leftIsDizhu.active = false;
+            self.rightIsDizhu.active = false;
+            self.playerIsDizhu.active = false;
 
             if (playerIndex == Global.roomIndex) {
 
@@ -311,14 +332,14 @@ cc.Class({
             self.setTip(playerIndex);
 
             Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
-            Network.socket.on('getCardsBack' + Global.roomNum, function (cards) {
-                console.log(cards);
-                self.startPlayer(cards);
-            });
-            Network.socket.on('getDipaiCardsBack' + Global.roomNum, function (cards) {
-                console.log(cards);
-                self.startDipai(cards);
-            });
+        });
+        Network.socket.on('getCardsBack' + Global.roomNum, function (cards) {
+            console.log(cards);
+            self.startPlayer(cards);
+        });
+        Network.socket.on('getDipaiCardsBack' + Global.roomNum, function (cards) {
+            console.log(cards);
+            self.startDipai(cards);
         });
         //有人抢地主
         Network.socket.on('qiangdizhuResult', function (msg) {
@@ -374,12 +395,16 @@ cc.Class({
             //展示底牌
             Network.socket.emit('getCards', Global.roomNum, 3);
             if (playerIndex == self.leftIndex) {
+                //地主标志
+                self.leftIsDizhu.active = true;
                 self.leftbuchu.string = "出牌";
                 self.refreshCount();
             } else if (playerIndex == self.rightIndex) {
+                self.rightIsDizhu.active = true;
                 self.rightbuchu.string = "出牌";
                 self.refreshCount();
             } else {
+                self.playerIsDizhu.active = true;
                 self.playerAction.active = true;
                 Network.socket.emit('getCards', Global.roomNum, Global.roomIndex);
                 //重置poker
@@ -388,7 +413,7 @@ cc.Class({
             }
         });
 
-        Network.socket.on('playeAction', function (mes) {
+        Network.socket.on('playerAction', function (mes) {
             var data = Network.parseJson(mes);
 
             var playerIndex = data.nextIndex;
@@ -407,6 +432,8 @@ cc.Class({
                 var blank = new Array();
                 self.startShowPokers(blank, PlayerType.shoupai);
             }
+
+            // self.restartGame();
         });
         //不出
         Network.socket.on('buchu', function (playerIndex) {
@@ -462,26 +489,51 @@ cc.Class({
             if (playerIndex == Global.dizhuIndex) {
                 console.log("地主胜利");
                 //我是地主
-                if (Global.dizhuIndex == Global.playerIndex) {
+                if (Global.dizhuIndex == Global.roomIndex) {
                     console.log("我赢了");
+                    self.resultLabel.string = "地主胜利--You Win";
                 } else {
                     console.log("我输了");
+                    self.resultLabel.string = "地主胜利--You Lose";
                 }
             } else {
                 console.log("农民胜利");
                 //我是地主
-                if (Global.dizhuIndex == Global.playerIndex) {
+                if (Global.dizhuIndex == Global.roomIndex) {
                     console.log("我输了");
+                    self.resultLabel.string = "农名胜利--You Lose";
                 } else {
                     console.log("我赢了");
+                    self.resultLabel.string = "农名胜利--You Win";
                 }
             }
+            self.onGameover();
         });
         Network.socket.on('refreshCardsCountBack' + Global.roomNum, function (datas) {
             console.log(datas);
             self.leftCount.string = "" + datas[self.leftIndex];
             self.rightCount.string = "" + datas[self.rightIndex];
         });
+        // Network.socket.on('leaveRoom' , function (playerIndex) {
+        //     if (Global) {
+
+        //     }
+        // });
+    },
+    onGameover: function onGameover() {
+        var self = this;
+        //清空数据
+        Global.allPokers = []; //所有牌
+        Global.selectPokers = []; //选择的牌
+        Global.isFirst = true; //是否为第一手牌
+        Global.lastPokerType = 14;
+        Global.lastPokers = [];
+        Global.dizhuIndex = -1; //地主是谁
+        debugger;
+        self.maskBackground.active = true;
+        self.rightReady.string = "准备";
+        self.leftReady.string = "准备";
+        self.playerReady.string = "请准备";
     },
     start: function start() {}
 }

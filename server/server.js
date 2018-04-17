@@ -40,8 +40,8 @@ function Room(socket, roomNum) {
         this.playerList.push(player);
         playerRoomMap[playerName] = this;
     };
-    this.leave = function (player) {
-        this.playerList.splice(player.index, 1);
+    this.leave = function (playerIndex) {
+        this.playerList.splice(playerIndex, 1);
     };
 
     roomMap[this.roomNum] = this;
@@ -136,6 +136,12 @@ io.on('connection', function (socket) {
         //     socket.broadcast.emit("getRoomDataBack" + roomNumber, roomMap[roomNumber].playerList);
         // }
     });
+    //加入房间号
+    socket.on('leaveRoom', function (roomNumber,playerIndex) {
+        let room = roomMap[roomNumber];
+
+        room.leave(playerIndex);
+    });
     //获取房间信息
 
     socket.on("getRoomData", function (data) {
@@ -168,6 +174,12 @@ io.on('connection', function (socket) {
         }
         //检查准备状态
         if (room.readyCount == 3) {
+            room.resetReadyCount();
+            players = room.playerList;
+            for (const player of players) {
+                //玩家准备状态还原
+                player.isReady = false;
+            }
             restartSendCards(room);
         }
     });
@@ -207,13 +219,13 @@ io.on('connection', function (socket) {
         qiangdizhu(data);
     });
     //出牌
-    socket.on('buchu' , function (mes) {
-        console.log("不出",mes);
-        chupai(mes,false);
+    socket.on('buchu', function (mes) {
+        console.log("不出", mes);
+        chupai(mes, false);
     });
-    socket.on('chupai' , function (mes) {
-        console.log("出牌",mes);
-        chupai(mes,true);
+    socket.on('chupai', function (mes) {
+        console.log("出牌", mes);
+        chupai(mes, true);
     });
 
 });
@@ -297,14 +309,14 @@ function qiangdizhu(msg) {
     player.noGrab = !qiangdizhu;
     //增加一次抢地主操作次数
     pc.actionCount++;
-    
+
     let str = "";
-    if(pc.readyDizhu.length == 0){
+    if (pc.readyDizhu.length == 0) {
         str = qiangdizhu ? "叫地主" : "不叫";
-    }else{
+    } else {
         str = qiangdizhu ? "抢地主" : "不抢";
     }
-    let mes = { "index": playerIndex, "qiangdizhuResult": qiangdizhu,"str":str};
+    let mes = { "index": playerIndex, "qiangdizhuResult": qiangdizhu, "str": str };
     //通知抢还是不抢给其他人显示
     broadCast('qiangdizhuResult', stringifyJson(mes), room)
 
@@ -399,7 +411,7 @@ function firstPlayerCards(room, pc) {
  * @param {消息} mes 
  * @param {是否出牌} isOut 
  */
-function chupai(mes,isOut){
+function chupai(mes, isOut) {
     let msgBean = parseJson(mes);
 
     let playerIndex = msgBean.playerIndex;
@@ -416,27 +428,30 @@ function chupai(mes,isOut){
         pc.lastPokers = pokers;
         //重置不出数量
         pc.passCount = 0;
-        let backMes = {'pokers':pokers,'playerIndex':playerIndex};
-        broadCast('chupai',stringifyJson(backMes),room)
+        let backMes = { 'pokers': pokers, 'playerIndex': playerIndex };
+        broadCast('chupai', stringifyJson(backMes), room)
         //手牌减少
         var ans = player.pokerList.filter((n) => !pokers.includes(n));
         player.pokerList = ans;
         console.log("手牌变化");
 
         //判断玩家剩余牌的数量
-        if(player.pokerList.length == 0){
-            broadCast('gameOver',playerIndex,room)
+        if (player.pokerList.length == 0) {
+            broadCast('gameOver', playerIndex, room)
+            return;
         }
 
-    }else{
-        pc.passCount ++;
-        broadCast('buchu',playerIndex,room)
+    } else {
+        pc.passCount++;
+        broadCast('buchu', playerIndex, room)
     }
-    //通知出牌
-    // 正常情况下为下一家，若存在都不出的情况则上一收出牌的人继续出
-    
     let nextIndex = (player.index + 1) % 3;
-    broadCast("playeAction", nextIndex, room);
+
+    pc.isFirstPoker = pc.passCount == 2?true:false;
+    //传递出牌的人，是否为第一手，上一手牌型，用于客户端判断牌型与大小
+    let message = {"nextIndex":nextIndex,"isFirst":pc.isFirstPoker,"lastPokerType":pc.lastPokerWraper};
+    broadCast("playerAction", stringifyJson(message), room);
+
 
 }
 
