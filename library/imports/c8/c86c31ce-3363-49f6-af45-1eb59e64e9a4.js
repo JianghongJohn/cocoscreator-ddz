@@ -10,7 +10,7 @@ var Network = cc.Class({
         socket: null
     },
     initNetwork: function initNetwork() {
-        var socketIo = io.connect('http://localhost:3000');
+        var socketIo = io.connect('http://123.207.138.166:3000');
         this.socket = socketIo;
     },
 

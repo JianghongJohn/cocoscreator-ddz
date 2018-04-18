@@ -1,4 +1,3 @@
-import { Socket } from "net";
 
 // Learn cc.Class:
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html

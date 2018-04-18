@@ -4,8 +4,6 @@ cc._RF.push(module, '1faec3ANxtGVbPEFSkiTDZJ', 'StartRoom');
 
 'use strict';
 
-var _dgram = require('dgram');
-
 cc.Class({
     extends: cc.Component,
 

@@ -1,57 +1,184 @@
-2018-04-17T08:20:35.862Z - normal: Load ~/.CocosCreator/settings.json
-2018-04-17T08:20:35.867Z - normal: checking language setting...
-2018-04-17T08:20:35.867Z - normal: Language: zh
-2018-04-17T08:20:36.688Z - success: protocol editor-framework registered
-2018-04-17T08:20:36.688Z - success: protocol app registered
-2018-04-17T08:20:36.689Z - success: protocol theme registered
-2018-04-17T08:20:36.689Z - success: protocol packages registered
-2018-04-17T08:20:36.689Z - success: protocol unpack registerred
-2018-04-17T08:20:36.689Z - success: protocol disable-commonjs registerred
-2018-04-17T08:20:36.948Z - normal: connected!
-2018-04-17T08:20:36.950Z - normal: Check project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-17T08:20:36.952Z - normal: Initializing Cocos2d
-2018-04-17T08:20:37.172Z - normal: Initializing Asset Database
-2018-04-17T08:20:37.205Z - success: protocol uuid registerred
-2018-04-17T08:20:37.205Z - success: protocol db registerred
-2018-04-17T08:20:37.205Z - success: protocol thumbnail registerred
-2018-04-17T08:20:37.205Z - normal: Loading editor/builtin packages
-2018-04-17T08:20:37.224Z - success: anysdk loaded
-2018-04-17T08:20:37.336Z - success: assets loaded
-2018-04-17T08:20:37.340Z - success: builder loaded
-2018-04-17T08:20:37.343Z - success: cocos-analytics loaded
-2018-04-17T08:20:37.348Z - success: console loaded
-2018-04-17T08:20:37.352Z - success: hierarchy loaded
-2018-04-17T08:20:37.357Z - success: inspector loaded
-2018-04-17T08:20:37.359Z - success: keystore loaded
-2018-04-17T08:20:37.364Z - success: node-library loaded
-2018-04-17T08:20:37.366Z - success: package-asset loaded
-2018-04-17T08:20:37.368Z - success: preferences loaded
-2018-04-17T08:20:37.372Z - success: project-exporter loaded
-2018-04-17T08:20:37.389Z - success: project-importer loaded
-2018-04-17T08:20:37.393Z - success: project-settings loaded
-2018-04-17T08:20:37.397Z - success: ui-kit loaded
-2018-04-17T08:20:37.402Z - success: ui-grid loaded
-2018-04-17T08:20:37.413Z - success: scene loaded
-2018-04-17T08:20:37.414Z - success: sprite-editor loaded
-2018-04-17T08:20:37.418Z - success: store loaded
-2018-04-17T08:20:37.424Z - success: timeline loaded
-2018-04-17T08:20:37.425Z - normal: Loading builtin packages
-2018-04-17T08:20:37.429Z - success: asset-db-debugger loaded
-2018-04-17T08:20:37.430Z - success: color-picker loaded
-2018-04-17T08:20:37.434Z - success: package-manager loaded
-2018-04-17T08:20:37.439Z - success: sdkbox loaded
-2018-04-17T08:20:37.444Z - success: tester loaded
-2018-04-17T08:20:37.453Z - success: ui-kit-preview-extra loaded
-2018-04-17T08:20:37.456Z - success: ui-kit-preview loaded
-2018-04-17T08:20:37.461Z - success: ui-tree loaded
-2018-04-17T08:20:38.418Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/Jneth-ddz
-2018-04-17T08:20:38.420Z - normal: Loading packages
-2018-04-17T08:20:38.432Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
-2018-04-17T08:20:38.434Z - normal: [LuaCPP Support] version 0.3
-2018-04-17T08:20:38.434Z - success: creator-luacpp-support loaded
-2018-04-17T08:20:38.435Z - normal: Watching packages
-2018-04-17T08:20:38.490Z - normal: Run Application
-2018-04-17T08:20:39.022Z - success: preview server running at http://localhost:7456
-2018-04-17T08:20:44.202Z - normal: 1.8.1
-2018-04-17T10:25:26.579Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:56962
-2018-04-17T10:54:35.774Z - info: shutdown preview server
+2018-04-18T11:51:19.039Z - normal: Load ~/.CocosCreator/settings.json
+2018-04-18T11:51:19.044Z - normal: checking language setting...
+2018-04-18T11:51:19.044Z - normal: Language: zh
+2018-04-18T11:51:19.851Z - success: protocol editor-framework registered
+2018-04-18T11:51:19.851Z - success: protocol app registered
+2018-04-18T11:51:19.851Z - success: protocol theme registered
+2018-04-18T11:51:19.852Z - success: protocol packages registered
+2018-04-18T11:51:19.852Z - success: protocol unpack registerred
+2018-04-18T11:51:19.852Z - success: protocol disable-commonjs registerred
+2018-04-18T11:51:20.091Z - normal: connected!
+2018-04-18T11:51:20.094Z - normal: Check project /Users/hyjt/Desktop/source/cocos/JH_ddz
+2018-04-18T11:51:20.096Z - normal: Initializing Cocos2d
+2018-04-18T11:51:20.329Z - normal: Initializing Asset Database
+2018-04-18T11:51:20.366Z - success: protocol uuid registerred
+2018-04-18T11:51:20.366Z - success: protocol db registerred
+2018-04-18T11:51:20.366Z - success: protocol thumbnail registerred
+2018-04-18T11:51:20.366Z - normal: Loading editor/builtin packages
+2018-04-18T11:51:20.388Z - success: anysdk loaded
+2018-04-18T11:51:20.518Z - success: assets loaded
+2018-04-18T11:51:20.522Z - success: builder loaded
+2018-04-18T11:51:20.525Z - success: cocos-analytics loaded
+2018-04-18T11:51:20.530Z - success: console loaded
+2018-04-18T11:51:20.535Z - success: hierarchy loaded
+2018-04-18T11:51:20.540Z - success: inspector loaded
+2018-04-18T11:51:20.542Z - success: keystore loaded
+2018-04-18T11:51:20.547Z - success: node-library loaded
+2018-04-18T11:51:20.550Z - success: package-asset loaded
+2018-04-18T11:51:20.552Z - success: preferences loaded
+2018-04-18T11:51:20.555Z - success: project-exporter loaded
+2018-04-18T11:51:20.573Z - success: project-importer loaded
+2018-04-18T11:51:20.577Z - success: project-settings loaded
+2018-04-18T11:51:20.581Z - success: ui-kit loaded
+2018-04-18T11:51:20.586Z - success: ui-grid loaded
+2018-04-18T11:51:20.592Z - success: scene loaded
+2018-04-18T11:51:20.594Z - success: sprite-editor loaded
+2018-04-18T11:51:20.599Z - success: store loaded
+2018-04-18T11:51:20.606Z - success: timeline loaded
+2018-04-18T11:51:20.606Z - normal: Loading builtin packages
+2018-04-18T11:51:20.618Z - success: asset-db-debugger loaded
+2018-04-18T11:51:20.619Z - success: color-picker loaded
+2018-04-18T11:51:20.623Z - success: package-manager loaded
+2018-04-18T11:51:20.629Z - success: sdkbox loaded
+2018-04-18T11:51:20.634Z - success: tester loaded
+2018-04-18T11:51:20.643Z - success: ui-kit-preview-extra loaded
+2018-04-18T11:51:20.647Z - success: ui-kit-preview loaded
+2018-04-18T11:51:20.650Z - success: ui-tree loaded
+2018-04-18T11:51:21.683Z - normal: Initializing project /Users/hyjt/Desktop/source/cocos/JH_ddz
+2018-04-18T11:51:21.685Z - normal: Loading packages
+2018-04-18T11:51:21.697Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-04-18T11:51:21.698Z - normal: [LuaCPP Support] version 0.3
+2018-04-18T11:51:21.699Z - success: creator-luacpp-support loaded
+2018-04-18T11:51:21.700Z - normal: Watching packages
+2018-04-18T11:51:21.760Z - normal: Run Application
+2018-04-18T11:51:23.865Z - success: preview server running at http://localhost:7456
+2018-04-18T11:51:30.218Z - normal: 1.8.1
+2018-04-18T11:52:35.060Z - error: { Error: connect ETIMEDOUT 211.151.21.150:443
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+  code: 'ETIMEDOUT',
+  errno: 'ETIMEDOUT',
+  syscall: 'connect',
+  address: '211.151.21.150',
+  port: 443 }
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/share/login/lib/user.js:1:1441
+    at ClientRequest.Https.request.on.e (/Applications/CocosCreator.app/Contents/Resources/app.asar/share/login/lib/network.js:1:873)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1283:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:128:9)
+2018-04-18T11:54:32.646Z - normal: Initializing...
+
+2018-04-18T11:54:32.651Z - normal: idePortFile: /Users/hyjt/Library/Application Support/微信web开发者工具/Default/.ide
+
+2018-04-18T11:54:32.675Z - normal: IDE server has started, listening on http://127.0.0.1:60629
+
+2018-04-18T11:54:32.678Z - normal: initialization finished
+
+2018-04-18T11:54:35.276Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/hyjt/Desktop/source/cocos/JH_ddz/build",
+  "debug": true,
+  "dest": "/Users/hyjt/Desktop/source/cocos/JH_ddz/build/wechatgame",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [],
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": true,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.helloworld",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "renderMode": "0",
+  "scenes": [
+    "2d2f792f-a40c-49bb-a189-ed176a246e49",
+    "55965322-7a1c-44ce-a8a3-ab6a8fdf4a27",
+    "f8bbf744-8ddc-472b-9b5c-f82c1a974e92"
+  ],
+  "sourceMaps": false,
+  "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
+  "template": "link",
+  "title": "hello_world",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "a3cbabf3-faca-47",
+  "zipCompressJs": true,
+  "project": "/Users/hyjt/Desktop/source/cocos/JH_ddz",
+  "projectName": "hello_world",
+  "debugBuildWorker": false
+}
+2018-04-18T11:54:35.280Z - normal: Building /Users/hyjt/Desktop/source/cocos/JH_ddz
+2018-04-18T11:54:35.280Z - normal: Destination /Users/hyjt/Desktop/source/cocos/JH_ddz/build/wechatgame
+2018-04-18T11:54:35.613Z - normal: Delete /Users/hyjt/Desktop/source/cocos/JH_ddz/build/wechatgame/**/*
+2018-04-18T11:54:38.163Z - normal: Compiled project javascript file successfully
+2018-04-18T11:54:38.164Z - normal: Start building assets
+2018-04-18T11:54:38.164Z - normal: Start spawn build-worker
+2018-04-18T11:54:39.077Z - normal: Finish spawn build-worker
+2018-04-18T11:54:39.077Z - normal: Start init build-worker
+2018-04-18T11:54:41.713Z - normal: 1.8.1
+2018-04-18T11:54:41.858Z - normal: Finish init build-worker
+2018-04-18T11:54:41.858Z - normal: Start build-assets in worker
+2018-04-18T11:54:42.850Z - normal: Finish build-assets in worker
+2018-04-18T11:54:42.855Z - normal: Finish building assets
+2018-04-18T11:54:42.917Z - normal: Start building raw assets
+2018-04-18T11:54:42.919Z - normal: Start building plugin scripts
+2018-04-18T11:54:42.946Z - normal: Finish building plugin scripts
+2018-04-18T11:54:42.974Z - normal: Finish building raw assets
+2018-04-18T11:54:42.979Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-04-18T11:54:43.300Z - normal: Built to "/Users/hyjt/Desktop/source/cocos/JH_ddz/build/wechatgame" successfully
+2018-04-18T11:54:48.533Z - normal: Initializing...
+
+2018-04-18T11:54:48.539Z - normal: idePortFile: /Users/hyjt/Library/Application Support/微信web开发者工具/Default/.ide
+
+2018-04-18T11:54:48.563Z - normal: starting ide...
+
+2018-04-18T11:54:52.305Z - normal: IDE server has started, listening on http://127.0.0.1:50638
+
+2018-04-18T11:54:52.316Z - normal: initialization finished
+
+2018-04-18T11:54:57.437Z - normal: Initializing...
+
+2018-04-18T11:54:57.444Z - normal: idePortFile: /Users/hyjt/Library/Application Support/微信web开发者工具/Default/.ide
+
+2018-04-18T11:54:57.471Z - normal: IDE server has started, listening on http://127.0.0.1:50638
+
+2018-04-18T11:54:57.472Z - normal: initialization finished
+
+2018-04-18T11:54:57.982Z - normal: Initializing...
+
+2018-04-18T11:54:57.988Z - normal: idePortFile: /Users/hyjt/Library/Application Support/微信web开发者工具/Default/.ide
+
+2018-04-18T11:54:58.009Z - normal: IDE server has started, listening on http://127.0.0.1:50638
+
+2018-04-18T11:54:58.009Z - normal: initialization finished
+
+2018-04-18T11:56:03.434Z - info: shutdown preview server

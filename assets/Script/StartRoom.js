@@ -1,6 +1,3 @@
-import {
-    Socket
-} from "dgram";
 
 cc.Class({
     extends: cc.Component,

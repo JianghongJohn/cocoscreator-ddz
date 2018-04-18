@@ -40,123 +40,108 @@
     "relativePath": "prefab"
   },
   "29f52784-2fca-467b-92e7-8fd9ef8c57b7": {
-    "asset": 1523262618832,
-    "meta": 1523262618830,
+    "asset": 1524052187934,
+    "meta": 1524052187932,
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1523874957557,
-    "meta": 1523262618832,
+    "asset": 1524052187939,
+    "meta": 1524052187934,
     "relativePath": "Script"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1523262618845,
-    "meta": 1523262618837,
+    "asset": 1524052187952,
+    "meta": 1524052187939,
     "relativePath": "resources"
   },
   "a8027877-d8d6-4645-97a0-52d4a0123dba": {
-    "asset": 1523262618845,
-    "meta": 1523262661370,
+    "asset": 1524052187951,
+    "meta": 1524052282174,
     "relativePath": "resources/singleColor.png"
   },
   "6aa0aa6a-ebee-4155-a088-a687a6aadec4": {
-    "asset": 1523262618838,
-    "meta": 1523262661331,
+    "asset": 1524052187940,
+    "meta": 1524052282131,
     "relativePath": "resources/HelloWorld.png"
   },
   "10e7096c-596c-4ca3-94a0-8935ae6fccf5": {
-    "asset": 1523262618840,
-    "meta": 1523262662665,
+    "asset": 1524052187945,
+    "meta": 1524052283448,
     "relativePath": "resources/poker.plist"
   },
   "f277a60a-6873-41b7-bca3-55f90bf19c99": {
-    "asset": 1523262618839,
-    "meta": 1523262661358,
+    "asset": 1524052187942,
+    "meta": 1524052282159,
     "relativePath": "resources/PokerBack.png"
   },
   "c73f6913-7faa-4b89-babb-68563f61524f": {
-    "asset": 1523262618844,
-    "meta": 1523262661725,
+    "asset": 1524052187951,
+    "meta": 1524052282492,
     "relativePath": "resources/poker.png"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1523961857570,
-    "meta": 1523961857614,
+    "asset": 1524052187934,
+    "meta": 1524052282181,
     "relativePath": "Scene/game.fire"
   },
   "67c948b6-f997-426d-ad1b-b0d73faad3bf": {
-    "asset": 1523262618838,
-    "meta": 1523262661296,
+    "asset": 1524052187941,
+    "meta": 1524052282103,
     "relativePath": "resources/OnePoker.prefab"
   },
   "707eab1f-b119-4a62-b3f2-2fb089ccd3ff": {
-    "asset": 1523262618846,
-    "meta": 1523262662614,
+    "asset": 1524052187953,
+    "meta": 1524052283397,
     "relativePath": "socket.io.js"
   },
   "55965322-7a1c-44ce-a8a3-ab6a8fdf4a27": {
-    "asset": 1523262618831,
-    "meta": 1523262661382,
+    "asset": 1524052187933,
+    "meta": 1524052282186,
     "relativePath": "Scene/StartRoom.fire"
   },
   "f8bbf744-8ddc-472b-9b5c-f82c1a974e92": {
-    "asset": 1523262618831,
-    "meta": 1523262661384,
+    "asset": 1524052187933,
+    "meta": 1524052282188,
     "relativePath": "Scene/WaitingRoom.fire"
   },
-  "1faecdc0-371b-4655-b3c4-1529224c3649": {
-    "asset": 1523262618835,
-    "meta": 1523262662612,
-    "relativePath": "Script/StartRoom.js"
-  },
-  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
-    "asset": 1523262618833,
-    "meta": 1523262661904,
-    "relativePath": "Script/NetWork.js"
-  },
-  "a9a2df54-0b11-47b8-bc88-1bfb92062c10": {
-    "asset": 1523262618835,
-    "meta": 1523262662613,
-    "relativePath": "Script/WaitingRoom.js"
-  },
   "74e2f267-8637-493b-8bc1-1a285159ebb5": {
-    "asset": 1523262618833,
-    "meta": 1523262662421,
+    "asset": 1524052187935,
+    "meta": 1524052283236,
     "relativePath": "Script/Poker.js"
   },
   "7a27f6e5-62a1-4721-9e9b-100acd2b90df": {
-    "asset": 1523262618836,
-    "meta": 1523262662257,
+    "asset": 1524052187937,
+    "meta": 1524052283040,
     "relativePath": "Script/playerDizhuAction.js"
   },
   "58ef9805-4298-44a9-91eb-4ca2171238ed": {
-    "asset": 1523874947626,
-    "meta": 1523875142718,
+    "asset": 1524052187935,
+    "meta": 1524052282576,
     "relativePath": "Script/Global.js"
   },
   "a1bdcd10-345e-4e81-af36-f424ef18de3d": {
-    "asset": 1523951761176,
-    "meta": 1523952531580,
+    "asset": 1524052187937,
+    "meta": 1524052282720,
     "relativePath": "Script/playerAction.js"
   },
   "ca151cd9-a482-40fa-af4b-7892f0df559f": {
-    "asset": 1523952052927,
-    "meta": 1523952531699,
+    "asset": 1524052187939,
+    "meta": 1524052283336,
     "relativePath": "Script/pokerTypes.js"
   },
   "06e3970c-d66c-4361-8542-783518e589cf": {
-    "asset": 1523874927874,
-    "meta": 1523875144197,
+    "asset": 1524052187936,
+    "meta": 1524052283371,
     "relativePath": "Script/ShowPoker.js"
   },
   "3f310902-e312-45d5-9c2f-9e41738c744a": {
-    "asset": 1523960869712,
-    "meta": 1523960878642,
+    "asset": 1524052187943,
+    "meta": 1524052282101,
     "relativePath": "resources/dizhu.png"
   },
   "7c2d7733-000a-4de5-8cbb-6189cbe6b4f6": {
-    "asset": 1523961001639,
-    "meta": 1523961001649,
+    "asset": 1524052187944,
+    "meta": 1524052282082,
     "relativePath": "resources/dizhuPre.prefab"
   },
   "71561142-4c83-4933-afca-cb7a17f67053": {
@@ -345,8 +330,23 @@
     "relativePath": "prefab/webview.prefab"
   },
   "81d5fbe9-27de-470b-9bbd-d63d29964861": {
-    "asset": 1523962446493,
-    "meta": 1523962474107,
+    "asset": 1524052187938,
+    "meta": 1524052283125,
     "relativePath": "Script/playing.js"
+  },
+  "c86c31ce-3363-49f6-af45-1eb59e64e9a4": {
+    "asset": 1524052389050,
+    "meta": 1524052392241,
+    "relativePath": "Script/NetWork.js"
+  },
+  "1faecdc0-371b-4655-b3c4-1529224c3649": {
+    "asset": 1524052330334,
+    "meta": 1524052392291,
+    "relativePath": "Script/StartRoom.js"
+  },
+  "a9a2df54-0b11-47b8-bc88-1bfb92062c10": {
+    "asset": 1524052328824,
+    "meta": 1524052392299,
+    "relativePath": "Script/WaitingRoom.js"
   }
 }
